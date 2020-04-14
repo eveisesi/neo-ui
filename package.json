@@ -1,26 +1,43 @@
 {
-  "name": "neo-ui",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build"
-  },
-  "dependencies": {
-    "core-js": "^3.6.4",
-    "vue": "^2.6.11",
-    "vue-router": "^3.1.5",
-    "vuex": "^3.1.2"
-  },
-  "devDependencies": {
-    "@vue/cli-plugin-babel": "^4.2.0",
-    "@vue/cli-plugin-router": "^4.2.0",
-    "@vue/cli-plugin-vuex": "^4.2.0",
-    "@vue/cli-service": "^4.2.0",
-    "vue-template-compiler": "^2.6.11"
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions"
-  ]
+    "name": "neo-ui",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "serve": "vue-cli-service serve",
+        "build": "vue-cli-service build"
+    },
+    "dependencies": {
+        "apollo-cache-inmemory": "^1.6.5",
+        "apollo-client": "^2.6.8",
+        "apollo-link": "^1.2.13",
+        "apollo-link-http": "^1.5.16",
+        "axios": "^0.19.2",
+        "bootstrap": "^4.4.1",
+        "bootstrap-vue": "^2.6.1",
+        "bootswatch": "^4.4.1",
+        "build-url": "^2.0.0",
+        "core-js": "^3.6.4",
+        "crypto-js": "^4.0.0",
+        "graphql": "^15.0.0",
+        "graphql-tag": "^2.10.3",
+        "js-sha256": "^0.9.0",
+        "jwt-decode": "^2.2.0",
+        "moment": "^2.24.0",
+        "query-string": "^6.11.1",
+        "vue": "^2.6.11",
+        "vue-apollo": "^3.0.3",
+        "vue-router": "^3.1.5",
+        "vuex": "^3.1.2"
+    },
+    "devDependencies": {
+        "@vue/cli-plugin-babel": "^4.2.0",
+        "@vue/cli-plugin-router": "^4.2.0",
+        "@vue/cli-plugin-vuex": "^4.2.0",
+        "@vue/cli-service": "^4.2.0",
+        "vue-template-compiler": "^2.6.11"
+    },
+    "browserslist": [
+        "> 1%",
+        "last 2 versions"
+    ]
 }
