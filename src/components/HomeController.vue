@@ -1,25 +1,34 @@
 <template>
     <div>
-        <HomeView :killmails="killmails" v-if="!$apollo.loading"></HomeView>
-        <Loading v-else></Loading>
+        <Loading v-if="$apollo.loading"></Loading>
+        <Error v-else-if="$apollo.error"></Error>
+        <HomeView :killmails="killmails" :mvk="mvk" v-else></HomeView>
     </div>
 </template>
 
 <script>
 import HomeView from "@/views/HomeView";
 import Loading from "@/views/util/Loading";
-import { RECENT_KILLMAILS } from "@/util/queries";
+import Error from "@/views/util/Error";
+import { RECENT_KILLMAILS, SEVENDAYMVK } from "@/util/queries";
 
 export default {
     name: "HomeController",
     components: {
         HomeView,
-        Loading
+        Loading,
+        Error
     },
     apollo: {
         killmails: {
             query: RECENT_KILLMAILS
+        },
+        mvk: {
+            query: SEVENDAYMVK
         }
+    },
+    created() {
+        console.log(this.$apollo);
     }
 };
 </script>

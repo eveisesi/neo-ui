@@ -11,11 +11,12 @@ import VueApollo from "vue-apollo";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
+import { API_URL } from "./util/const/urls";
 
 // HTTP connection to the API
 const httpLink = createHttpLink({
     // You should use an absolute URL here
-    uri: "http://192.168.1.242:42000/query"
+    uri: `${API_URL}/query`,
 });
 
 // Cache implementation
@@ -24,11 +25,11 @@ const cache = new InMemoryCache();
 // Create the apollo client
 const apolloClient = new ApolloClient({
     link: httpLink,
-    cache
+    cache,
 });
 
 const apolloProvider = new VueApollo({
-    defaultClient: apolloClient
+    defaultClient: apolloClient,
 });
 
 Vue.use(BootstrapVue);
@@ -39,5 +40,5 @@ new Vue({
     router,
     store,
     apolloProvider,
-    render: h => h(App)
+    render: (h) => h(App),
 }).$mount("#app");

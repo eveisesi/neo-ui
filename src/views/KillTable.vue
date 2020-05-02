@@ -2,24 +2,30 @@
     <b-table striped hover :items="killmails" :fields="fields" @row-dblclicked="handleDblClick">
         <template v-slot:cell(datetime)="data">
             <span class="mr-2">
-                {{data.value.split("|")[0]}}
+                {{data.value.date}}
                 <br />
-                {{data.value.split("|")[1]}}
+                {{data.value.time}}
+                <br />
+                {{data.value.value}}
             </span>
         </template>
         <template v-slot:cell(shipData)="data">
             <img
-                :src="imageURL+'types/'+(data.item.victim.ship != null ? data.item.victim.ship.id :1 )+'/render?size=64'"
+                :src="EVEONLINE_IMAGE+'types/'+(data.item.victim.ship != null ? data.item.victim.ship.id :1 )+'/render?size=64'"
                 class="rounded"
             />
         </template>
         <template v-slot:cell(system)="data">
-            {{data.value.name}}
-            <br />Insert Region Name
+            {{data.value.name}} (
+            <span
+                :class="data.value.security >= 0 ? 'text-success' : 'text-danger'"
+            >{{data.value.security.toFixed(2)}}</span>)
+            <br />
+            {{data.value.constellation.region.name}}
         </template>
         <template v-slot:cell(victim)="data">
             <img
-                :src="imageURL+ (data.value.alliance != null ? 'alliances/'+data.value.alliance.id: (data.value.corporation != null ? 'corporations/'+data.value.corporation.id: 1)) + '/logo?size=64'"
+                :src="EVEONLINE_IMAGE+ (data.value.alliance != null ? 'alliances/'+data.value.alliance.id: (data.value.corporation != null ? 'corporations/'+data.value.corporation.id: 1)) + '/logo?size=64'"
                 class="float-left mr-2"
             />
             {{data.value.character != null ? data.value.character.name : '' }}
@@ -28,17 +34,17 @@
         </template>
         <template v-slot:cell(finalBlow)="data">
             <img
-                :src="imageURL+'alliances/'+data.value.alliance.id+'/logo?size=64'"
+                :src="EVEONLINE_IMAGE+'alliances/'+data.value.alliance.id+'/logo?size=64'"
                 v-if="data.value.alliance != null"
                 class="float-left mr-2"
             />
             <img
-                :src="imageURL+'corporations/'+data.value.corporation.id+'/logo?size=64'"
+                :src="EVEONLINE_IMAGE+'corporations/'+data.value.corporation.id+'/logo?size=64'"
                 v-else-if="data.value.corporation != null"
                 class="float-left mr-2"
             />
             <img
-                :src="imageURL+'types/'+data.value.ship.id+'/render?size=64'"
+                :src="EVEONLINE_IMAGE+'types/'+data.value.ship.id+'/render?size=64'"
                 v-else
                 class="float-left mr-2"
             />
@@ -52,13 +58,15 @@
 
 <script>
 import moment from "moment";
+import { EVEONLINE_IMAGE } from "@/util/const/urls";
+import { AbbreviateNumber } from "../util/abbreviate";
 
 export default {
     name: "KillTable",
     props: ["killmails"],
     data() {
         return {
-            imageURL: "https://image.eveonline.com/",
+            EVEONLINE_IMAGE: EVEONLINE_IMAGE,
             fields: [
                 {
                     key: "datetime",
@@ -67,15 +75,20 @@ export default {
                     },
                     formatter: (value, key, item) => {
                         const date = moment(
-                            item.killmail_time,
+                            item.killmailTime,
                             "YYYY-MM-DDTHH:mm:ssZ"
                         ).format("YYYY-MM-DD");
+
                         const time = moment(
-                            item.killmail_time,
+                            item.killmailTime,
                             "YYYY-MM-DDTHH:mm:ssZ"
                         ).format("HH:mm:ss");
 
-                        return date + "|" + time;
+                        return {
+                            date: date,
+                            time: time,
+                            value: AbbreviateNumber(item.totalValue)
+                        };
                     }
                 },
                 {
@@ -100,6 +113,10 @@ export default {
                 name: "Kill",
                 params: { id: item.id, hash: item.hash }
             });
+        },
+        AbbreviateNumber(total) {
+            // return numeral(total).format("0,0.00");
+            return AbbreviateNumber(total);
         }
     }
 };

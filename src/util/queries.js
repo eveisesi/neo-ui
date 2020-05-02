@@ -5,11 +5,20 @@ const RECENT_KILLMAILS = gql`
         killmails: killmailRecent(page: 1) {
             id
             hash
-            killmail_time
+            killmailTime
+            totalValue
             system {
                 id
                 name
                 security
+                constellation {
+                    id
+                    name
+                    region {
+                        id
+                        name
+                    }
+                }
             }
             attackers {
                 character {
@@ -32,9 +41,7 @@ const RECENT_KILLMAILS = gql`
                     id
                     name
                 }
-                damageDone
                 finalBlow
-                securityStatus
             }
             victim {
                 character {
@@ -52,28 +59,6 @@ const RECENT_KILLMAILS = gql`
                 ship {
                     id
                     name
-                }
-                damageTaken
-                position {
-                    x
-                    y
-                    z
-                }
-                items {
-                    id
-                    itemTypeID
-                    type {
-                        id
-                        name
-                    }
-                    items {
-                        id
-                        itemTypeID
-                        type {
-                            id
-                            name
-                        }
-                    }
                 }
             }
         }
@@ -81,17 +66,32 @@ const RECENT_KILLMAILS = gql`
 `;
 
 const KILLMAIL = gql`
+    # Write your query or mutation here
     query($id: Int!, $hash: String!) {
         killmail(id: $id, hash: $hash) {
             id
             hash
-            killmail_time
+            killmailTime
+            destroyedValue
+            droppedValue
+            fittedValue
+            totalValue
             system {
                 id
                 name
                 security
+                constellation {
+                    id
+                    name
+                    region {
+                        id
+                        name
+                    }
+                }
             }
             attackers {
+                id
+                characterID
                 character {
                     id
                     name
@@ -132,6 +132,10 @@ const KILLMAIL = gql`
                 ship {
                     id
                     name
+                    group {
+                        id
+                        name
+                    }
                     attributes {
                         typeID
                         attributeID
@@ -144,10 +148,41 @@ const KILLMAIL = gql`
                     y
                     z
                 }
+                fitted {
+                    id
+                    itemTypeID
+                    flag
+                    quantityDropped
+                    quantityDestroyed
+                    itemValue
+                    totalValue
+                    type {
+                        id
+                        name
+                        groupID
+                        attributes {
+                            typeID
+                            attributeID
+                            value
+                        }
+                        group {
+                            categoryID
+                        }
+                    }
+                    typeflag {
+                        id
+                        name
+                        text
+                    }
+                }
                 items {
                     id
                     itemTypeID
                     flag
+                    quantityDropped
+                    quantityDestroyed
+                    itemValue
+                    totalValue
                     type {
                         id
                         name
@@ -170,6 +205,10 @@ const KILLMAIL = gql`
                         id
                         itemTypeID
                         flag
+                        quantityDropped
+                        quantityDestroyed
+                        itemValue
+                        totalValue
                         type {
                             id
                             name
@@ -194,5 +233,32 @@ const KILLMAIL = gql`
         }
     }
 `;
+const SEVENDAYMVK = gql`
+    query {
+        mvk: killmailTopByAge {
+            id
+            hash
+            totalValue
+            victim {
+                character {
+                    id
+                    name
+                }
+                ship {
+                    id
+                    name
+                    group {
+                        id
+                        name
+                    }
+                }
+                corporation {
+                    id
+                    name
+                }
+            }
+        }
+    }
+`;
 
-export { RECENT_KILLMAILS, KILLMAIL };
+export { RECENT_KILLMAILS, KILLMAIL, SEVENDAYMVK };
