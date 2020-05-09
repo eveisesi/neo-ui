@@ -33,11 +33,17 @@
             </b-tr>
             <b-tr>
                 <b-td class="text-center">
-                    <span v-if="finalBlow.character">{{finalBlow.character.name}}</span>
+                    <router-link
+                        v-if="finalBlow.character"
+                        :to="{name:'characters', params: {characterID: finalBlow.character.id}}"
+                    >{{finalBlow.character.name}}</router-link>
                     <span v-else>{{finalBlow.ship.name}}</span>
                 </b-td>
                 <b-td class="text-center">
-                    <span v-if="mostDamage.character">{{mostDamage.character.name}}</span>
+                    <router-link
+                        v-if="mostDamage.character"
+                        :to="{name:'characters', params: {characterID: mostDamage.character.id}}"
+                    >{{finalBlow.character.name}}</router-link>
                     <span v-else>{{mostDamage.ship.name}}</span>
                 </b-td>
             </b-tr>
@@ -52,7 +58,14 @@
             <b-tr v-for="attacker in killmail.attackers" :key="attacker.id">
                 <b-td style="width: 66px" class="p-0">
                     <img
-                        :src="getAttackerCharacterPortraitURL(attacker)"
+                        :src="EVEONLINE_IMAGE+'characters/'+attacker.character.id+'/portrait?size=64'"
+                        v-if="attacker.character"
+                        class="float-left"
+                        style="height:64px; width:64px"
+                    />
+                    <img
+                        :src="EVEONLINE_IMAGE+'types/'+attacker.ship.id+'/icon?size=64'"
+                        v-else
                         class="float-left"
                         style="height:64px; width:64px"
                     />
@@ -71,18 +84,30 @@
                     />
                 </b-td>
                 <b-td>
-                    <span v-if="attacker.character">{{attacker.character.name}}</span>
-                    <span v-else-if="attacker.corporation">{{attacker.corporation.name}}</span>
+                    <router-link
+                        v-if="attacker.character"
+                        :to="{name:'characters', params: {characterID: attacker.character.id}}"
+                    >{{attacker.character.name}}</router-link>
+                    <router-link
+                        v-else-if="attacker.corporation"
+                        :to="{name:'corporations', params: {corporationID: attacker.corporation.id}}"
+                    >{{attacker.corporation.name}}</router-link>
                     <span v-else>{{attacker.ship.name}}</span>
 
-                    <span v-if="attacker.corporation">
+                    <router-link
+                        v-if="attacker.corporation"
+                        :to="{name:'corporations', params: {corporationID: attacker.corporation.id}}"
+                    >
                         <br />
                         {{attacker.corporation.name}}
-                    </span>
-                    <span v-if="attacker.alliance">
+                    </router-link>
+                    <router-link
+                        v-if="attacker.alliance"
+                        :to="{name:'alliances', params: {allianceID: attacker.alliance.id}}"
+                    >
                         <br />
                         {{attacker.alliance.name}}
-                    </span>
+                    </router-link>
                 </b-td>
                 <b-td>
                     <span
@@ -126,6 +151,8 @@ export default {
         this.finalBlow = this.killmail.attackers.find(
             attacker => attacker.finalBlow
         );
+
+        console.log(this.killmail.attackers[0]);
     }
 };
 </script>

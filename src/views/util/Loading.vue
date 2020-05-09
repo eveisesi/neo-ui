@@ -4,7 +4,7 @@
             <b-col lg="12">
                 <div class="mt-5 text-center">
                     <b-spinner variant="dark"></b-spinner>
-                    <h4 class="mt-3">Loading...</h4>
+                    <h4 class="mt-3">Hold Tight....Loading that page</h4>
                 </div>
             </b-col>
         </b-row>

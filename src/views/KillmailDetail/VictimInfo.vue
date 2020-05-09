@@ -19,11 +19,19 @@
                     />
                 </b-td>
                 <b-td>
-                    {{killmail.victim.character.name}}
+                    <router-link
+                        v-if="killmail.victim.character"
+                        :to="{name:'characters', params:{characterID: killmail.victim.character.id}}"
+                    >{{killmail.victim.character.name}}</router-link>
                     <br />
-                    {{killmail.victim.corporation.name}}
+                    <router-link
+                        :to="{name:'corporations', params:{corporationID: killmail.victim.corporation.id}}"
+                    >{{killmail.victim.corporation.name}}</router-link>
                     <br />
-                    <span v-if="killmail.victim.alliance != null">{{killmail.victim.alliance.name}}</span>
+                    <router-link
+                        v-if="killmail.victim.alliance != null"
+                        :to="{name:'alliances', params:{allianceID: killmail.victim.alliance.id}}"
+                    >{{killmail.victim.alliance.name}}</router-link>
                 </b-td>
             </b-tr>
             <b-tr>

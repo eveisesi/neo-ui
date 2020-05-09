@@ -1,26 +1,27 @@
 <template>
     <Loading v-if="$apollo.loading"></Loading>
     <Error v-else-if="error" :error="error"></Error>
-    <CharacterOverview :killmails="killmails" :information="information" :mvk="mvk" v-else />
+    <CorporationOverview :killmails="killmails" :information="information" :mvk="mvk" v-else />
 </template>
 
+
 <script>
-import { CHARACTEROVERVIEW } from "@/util/queries";
+import { CORPORATIONOVERVIEW } from "@/util/queries";
 import Loading from "@/views/util/Loading";
 import Error from "@/views/util/Error";
 
-import CharacterOverview from "@/views/CharacterOverview/CharacterOverview";
+import CorporationOverview from "@/views/CorporationOverview/CorporationOverview";
 
 export default {
-    name: "CharacterController",
+    name: "CorporationController",
     components: {
-        CharacterOverview,
+        CorporationOverview,
         Loading,
         Error
     },
     data() {
         return {
-            characterID: this.$route.params.characterID,
+            corporationID: this.$route.params.corporationID,
             killmails: [],
             information: {},
             mvk: [],
@@ -29,11 +30,11 @@ export default {
     },
     apollo: {
         killmails: {
-            query: CHARACTEROVERVIEW,
+            query: CORPORATIONOVERVIEW,
             variables() {
                 return {
-                    type: "character",
-                    id: this.characterID,
+                    type: "corporation",
+                    id: this.corporationID,
                     age: 7,
                     limit: 7,
                     page: 1

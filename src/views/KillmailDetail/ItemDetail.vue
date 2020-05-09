@@ -1,6 +1,24 @@
 <template>
     <b-table-simple hover responsive table-variant="active">
         <b-tbody>
+            <b-tr>
+                <b-td colspan="4" class="text-center">
+                    <strong>Ship</strong>
+                </b-td>
+            </b-tr>
+            <b-tr>
+                <b-td>
+                    <img :src="EVEONLINE_IMAGE+'types/'+victim.ship.id+'/icon?size=32'" />
+                </b-td>
+                <b-td>{{victim.ship.name}}</b-td>
+                <b-td>
+                    <span class="text-danger">1</span>
+                </b-td>
+
+                <b-td>
+                    <span class="float-right">{{humanize(victim.shipValue)}} ISK</span>
+                </b-td>
+            </b-tr>
             <b-tr v-if="sections.high.items.length">
                 <b-td colspan="4" class="text-center">
                     <strong>High Slots</strong>
@@ -107,7 +125,7 @@
                     <span class="float-right">{{humanize(item.totalValue)}} ISK</span>
                 </b-td>
             </b-tr>
-            <b-tr>
+            <b-tr v-if="sections.rigs.items.length">
                 <b-td colspan="3"></b-td>
                 <b-td>
                     <span class="float-right">{{humanize(sections.rigs.total)}} ISK</span>
@@ -163,7 +181,7 @@
                     <span class="float-right">{{humanize(item.totalValue)}} ISK</span>
                 </b-td>
             </b-tr>
-            <b-tr>
+            <b-tr v-if="sections.cargo.items.length">
                 <b-td colspan="3"></b-td>
                 <b-td>
                     <span class="float-right">{{humanize(sections.cargo.total)}} ISK</span>
@@ -187,7 +205,7 @@ import {
 
 export default {
     name: "ItemDetail",
-    props: ["items"],
+    props: ["victim"],
     data() {
         return {
             EVEONLINE_IMAGE: EVEONLINE_IMAGE,
@@ -230,7 +248,7 @@ export default {
                     items: []
                 }
             };
-            this.items.forEach(item => {
+            this.victim.items.forEach(item => {
                 if (SHIP_HIGH_SLOT_FLAG_IDS.includes(item.flag)) {
                     sections.high.items.push(item);
                 } else if (SHIP_MED_SLOT_FLAG_IDS.includes(item.flag)) {

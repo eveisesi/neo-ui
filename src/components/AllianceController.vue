@@ -1,26 +1,27 @@
 <template>
     <Loading v-if="$apollo.loading"></Loading>
     <Error v-else-if="error" :error="error"></Error>
-    <CharacterOverview :killmails="killmails" :information="information" :mvk="mvk" v-else />
+    <AllianceOverview :killmails="killmails" :information="information" :mvk="mvk" v-else />
 </template>
 
+
 <script>
-import { CHARACTEROVERVIEW } from "@/util/queries";
+import { ALLIANCEOVERVIEW } from "@/util/queries";
 import Loading from "@/views/util/Loading";
 import Error from "@/views/util/Error";
 
-import CharacterOverview from "@/views/CharacterOverview/CharacterOverview";
+import AllianceOverview from "@/views/AllianceOverview/AllianceOverview";
 
 export default {
-    name: "CharacterController",
+    name: "AllianceController",
     components: {
-        CharacterOverview,
+        AllianceOverview,
         Loading,
         Error
     },
     data() {
         return {
-            characterID: this.$route.params.characterID,
+            allianceID: this.$route.params.allianceID,
             killmails: [],
             information: {},
             mvk: [],
@@ -29,11 +30,11 @@ export default {
     },
     apollo: {
         killmails: {
-            query: CHARACTEROVERVIEW,
+            query: ALLIANCEOVERVIEW,
             variables() {
                 return {
-                    type: "character",
-                    id: this.characterID,
+                    type: "alliance",
+                    id: this.allianceID,
                     age: 7,
                     limit: 7,
                     page: 1

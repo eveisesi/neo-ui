@@ -1,6 +1,12 @@
 <template>
     <b-container>
         <b-row>
+            <b-col lg="12">
+                <h2>Killmail {{killmail.id}} Overview</h2>
+                <hr style="background-color: white" />
+            </b-col>
+        </b-row>
+        <b-row>
             <b-col md="8" class="p-0">
                 <b-table-simple>
                     <b-tbody>
@@ -14,10 +20,10 @@
                         </b-tr>
                     </b-tbody>
                 </b-table-simple>
-                <hr />
-                <ItemDetail :items="killmail.victim.items" />
+                <h3>Item(s) Dropped/Destroyed</h3>
+                <hr style="background-color:white;" />
+                <ItemDetail :victim="killmail.victim" />
             </b-col>
-
             <b-col md="4" class="p-1 mt-1">
                 <Attackers :killmail="killmail" />
             </b-col>
