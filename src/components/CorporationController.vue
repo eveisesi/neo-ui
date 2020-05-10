@@ -4,7 +4,6 @@
     <CorporationOverview :killmails="killmails" :information="information" :mvk="mvk" v-else />
 </template>
 
-
 <script>
 import { CORPORATIONOVERVIEW } from "@/util/queries";
 import Loading from "@/views/util/Loading";
