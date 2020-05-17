@@ -17,7 +17,7 @@
                             <b-td>Alliance</b-td>
                             <b-td>
                                 <router-link
-                                    :to="{name:'alliances', params:{characterID: information.id}}"
+                                    :to="{name:'alliances', params:{id: information.id}}"
                                 >{{information.name}}</router-link>
                             </b-td>
                         </tr>

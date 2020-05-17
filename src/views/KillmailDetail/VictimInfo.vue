@@ -21,16 +21,16 @@
                 <b-td>
                     <router-link
                         v-if="killmail.victim.character"
-                        :to="{name:'characters', params:{characterID: killmail.victim.character.id}}"
+                        :to="{name:'characters', params:{id: killmail.victim.character.id}}"
                     >{{killmail.victim.character.name}}</router-link>
                     <br />
                     <router-link
-                        :to="{name:'corporations', params:{corporationID: killmail.victim.corporation.id}}"
+                        :to="{name:'corporations', params:{id: killmail.victim.corporation.id}}"
                     >{{killmail.victim.corporation.name}}</router-link>
                     <br />
                     <router-link
                         v-if="killmail.victim.alliance != null"
-                        :to="{name:'alliances', params:{allianceID: killmail.victim.alliance.id}}"
+                        :to="{name:'alliances', params:{id: killmail.victim.alliance.id}}"
                     >{{killmail.victim.alliance.name}}</router-link>
                 </b-td>
             </b-tr>

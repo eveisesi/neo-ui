@@ -21,11 +21,11 @@
                 <br />
                 <router-link
                     v-if="killmail.victim.character"
-                    :to="{name:'characters', params: {characterID:killmail.victim.character.id}}"
+                    :to="{name:'characters', params:{id:killmail.victim.character.id}}"
                 >{{killmail.victim.character.name}}</router-link>
                 <router-link
                     v-else
-                    :to="{name:'corporations', params: {corporationID:killmail.victim.corporation.id}}"
+                    :to="{name:'corporations', params:{id:killmail.victim.corporation.id}}"
                 >{{killmail.victim.corporation.name}}</router-link>
             </b-card-text>
         </b-card>

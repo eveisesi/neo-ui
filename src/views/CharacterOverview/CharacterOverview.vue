@@ -17,7 +17,7 @@
                             <b-td>Character</b-td>
                             <b-td>
                                 <router-link
-                                    :to="{name:'characters', params:{characterID: information.id}}"
+                                    :to="{name:'characters', params:{id: information.id}}"
                                 >{{information.name}}</router-link>
                             </b-td>
                         </tr>
@@ -25,7 +25,7 @@
                             <b-td>Corporation:</b-td>
                             <b-td>
                                 <router-link
-                                    :to="{name:'corporations', params: {corporationID: information.corporation.id}}"
+                                    :to="{name:'corporations', params:{id: information.corporation.id}}"
                                 >{{information.corporation.name}}</router-link>
                             </b-td>
                         </tr>
@@ -33,7 +33,7 @@
                             <td>Alliance</td>
                             <td>
                                 <router-link
-                                    :to="{name:'alliances', params: {allianceID: information.corporation.alliance.id}}"
+                                    :to="{name:'alliances', params:{id: information.corporation.alliance.id}}"
                                 >{{information.corporation.alliance.name}}</router-link>
                             </td>
                         </tr>

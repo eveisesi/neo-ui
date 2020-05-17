@@ -35,14 +35,14 @@
                 <b-td class="text-center">
                     <router-link
                         v-if="finalBlow.character"
-                        :to="{name:'characters', params: {characterID: finalBlow.character.id}}"
+                        :to="{name:'characters', params:{id: finalBlow.character.id}}"
                     >{{finalBlow.character.name}}</router-link>
                     <span v-else>{{finalBlow.ship.name}}</span>
                 </b-td>
                 <b-td class="text-center">
                     <router-link
                         v-if="mostDamage.character"
-                        :to="{name:'characters', params: {characterID: mostDamage.character.id}}"
+                        :to="{name:'characters', params:{id: mostDamage.character.id}}"
                     >{{finalBlow.character.name}}</router-link>
                     <span v-else>{{mostDamage.ship.name}}</span>
                 </b-td>
@@ -86,24 +86,24 @@
                 <b-td>
                     <router-link
                         v-if="attacker.character"
-                        :to="{name:'characters', params: {characterID: attacker.character.id}}"
+                        :to="{name:'characters', params:{id: attacker.character.id}}"
                     >{{attacker.character.name}}</router-link>
                     <router-link
                         v-else-if="attacker.corporation"
-                        :to="{name:'corporations', params: {corporationID: attacker.corporation.id}}"
+                        :to="{name:'corporations', params:{id: attacker.corporation.id}}"
                     >{{attacker.corporation.name}}</router-link>
                     <span v-else>{{attacker.ship.name}}</span>
 
                     <router-link
                         v-if="attacker.corporation"
-                        :to="{name:'corporations', params: {corporationID: attacker.corporation.id}}"
+                        :to="{name:'corporations', params:{id: attacker.corporation.id}}"
                     >
                         <br />
                         {{attacker.corporation.name}}
                     </router-link>
                     <router-link
                         v-if="attacker.alliance"
-                        :to="{name:'alliances', params: {allianceID: attacker.alliance.id}}"
+                        :to="{name:'alliances', params:{id: attacker.alliance.id}}"
                     >
                         <br />
                         {{attacker.alliance.name}}
@@ -151,8 +151,6 @@ export default {
         this.finalBlow = this.killmail.attackers.find(
             attacker => attacker.finalBlow
         );
-
-        console.log(this.killmail.attackers[0]);
     }
 };
 </script>

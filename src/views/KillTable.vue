@@ -44,16 +44,16 @@
             />
             <router-link
                 v-if="data.value.character"
-                :to="{name:'characters', params:{characterID: data.value.character.id}}"
+                :to="{name:'characters', params:{id: data.value.character.id}}"
             >{{data.value.character != null ? data.value.character.name : '' }}</router-link>
             <br />
             <router-link
                 v-if="data.value.alliance != null"
-                :to="{name:'alliances', params:{allianceID: data.value.alliance.id}}"
+                :to="{name:'alliances', params:{id: data.value.alliance.id}}"
             >{{data.value.alliance.name}}</router-link>
             <router-link
                 v-else
-                :to="{name:'corporations', params:{corporationID: data.value.corporation.id}}"
+                :to="{name:'corporations', params:{id: data.value.corporation.id}}"
             >{{data.value.corporation.name}}</router-link>
         </template>
         <!-- Kilmail Final Blow Information  -->
@@ -74,7 +74,7 @@
                 class="float-left mr-2"
             />
             <router-link
-                :to="{name: 'characters', params: {characterID: data.value.character.id}}"
+                :to="{name: 'characters', params:{id: data.value.character.id}}"
                 v-if="data.value.character"
             >
                 {{data.value.character.name}}
@@ -82,11 +82,11 @@
             </router-link>
             <router-link
                 v-if="data.value.alliance"
-                :to="{name:'alliances', params:{allianceID: data.value.alliance.id}}"
+                :to="{name:'alliances', params:{id: data.value.alliance.id}}"
             >{{data.value.alliance.name}}</router-link>
             <router-link
                 v-else-if="data.value.corporations"
-                :to="{name:'corporations', params:{allianceID: data.value.corporation.id}}"
+                :to="{name:'corporations', params:{id: data.value.corporation.id}}"
             >{{data.value.corporation.name}}</router-link>
             <div v-else-if="data.value.ship != null">{{data.value.ship.name}}</div>
         </template>

@@ -21,7 +21,7 @@ export default {
     },
     data() {
         return {
-            allianceID: this.$route.params.allianceID,
+            allianceID: this.$route.params.id,
             killmails: [],
             information: {},
             mvk: [],

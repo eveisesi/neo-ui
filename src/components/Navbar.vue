@@ -3,6 +3,7 @@
         <b-container>
             <b-navbar-brand href="/">New Eden Obituary</b-navbar-brand>
             <b-navbar-nav class="ml-auto">
+                <Search />
                 <b-nav-dropdown right>
                     <template v-slot:button-content>
                         <img :src="imageUrl" />
@@ -23,9 +24,13 @@
 <script>
 import { mapGetters, mapState, mapActions } from "vuex";
 import jwt_decode from "jwt-decode";
+import Search from "./Search";
 
 export default {
     name: "Navbar",
+    components: {
+        Search
+    },
     computed: {
         imageUrl() {
             return `https://images.evetech.net/Character/${this.getCharacterIDFromUser}_32.jpg`;
@@ -46,11 +51,6 @@ export default {
         ...mapGetters(["getToken", "getUser"]),
         ...mapActions(["logout"]),
         ...mapState(["user"])
-    },
-    watch: {
-        characterID(newV, oldV) {
-            console.log("newV", newV, "oldV", oldV);
-        }
     }
 };
 </script>

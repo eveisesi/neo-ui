@@ -20,7 +20,7 @@ export default {
     },
     data() {
         return {
-            characterID: this.$route.params.characterID,
+            characterID: this.$route.params.id,
             killmails: [],
             information: {},
             mvk: [],

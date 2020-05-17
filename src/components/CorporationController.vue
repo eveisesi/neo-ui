@@ -20,7 +20,7 @@ export default {
     },
     data() {
         return {
-            corporationID: this.$route.params.corporationID,
+            corporationID: this.$route.params.id,
             killmails: [],
             information: {},
             mvk: [],

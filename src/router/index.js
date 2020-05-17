@@ -29,17 +29,17 @@ const routes = [
         component: () => import("@/components/KillmailController.vue"),
     },
     {
-        path: "/characters/:characterID",
+        path: "/characters/:id",
         name: "characters",
         component: () => import("@/components/CharacterController.vue"),
     },
     {
-        path: "/corporations/:corporationID",
+        path: "/corporations/:id",
         name: "corporations",
         component: () => import("@/components/CorporationController.vue"),
     },
     {
-        path: "/alliances/:allianceID",
+        path: "/alliances/:id",
         name: "alliances",
         component: () => import("@/components/AllianceController.vue"),
     },

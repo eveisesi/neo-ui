@@ -17,7 +17,7 @@
                             <b-td>Corporation</b-td>
                             <b-td>
                                 <router-link
-                                    :to="{name:'corporations', params:{corporationID: information.id}}"
+                                    :to="{name:'corporations', params:{id: information.id}}"
                                 >{{information.name}}</router-link>
                             </b-td>
                         </tr>
@@ -26,7 +26,7 @@
 
                             <td>
                                 <router-link
-                                    :to="{name:'alliances', params: {allianceID: information.alliance.id}}"
+                                    :to="{name:'alliances', params:{id: information.alliance.id}}"
                                 >{{information.alliance.name}}</router-link>
                             </td>
                         </tr>

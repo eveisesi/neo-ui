@@ -573,3 +573,14 @@ export const MostValuableKills = gql`
         }
     }
 `;
+
+export const SEARCHABLEENTITIES = gql`
+    query($term: String!) {
+        search(term: $term) {
+            id
+            name
+            type
+            image
+        }
+    }
+`;
