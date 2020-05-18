@@ -1,7 +1,13 @@
 <template>
     <Loading v-if="$apollo.loading"></Loading>
     <Error v-else-if="error" :error="error"></Error>
-    <CorporationOverview :killmails="killmails" :information="information" :mvk="mvk" v-else />
+    <CorporationOverview
+        :killmails="killmails"
+        :information="information"
+        :mvk="mvk"
+        :page="page"
+        v-else
+    />
 </template>
 
 <script>
@@ -9,7 +15,7 @@ import { CORPORATIONOVERVIEW } from "@/util/queries";
 import Loading from "@/views/util/Loading";
 import Error from "@/views/util/Error";
 
-import CorporationOverview from "@/views/CorporationOverview/CorporationOverview";
+import CorporationOverview from "@/views/CorporationOverview";
 
 export default {
     name: "CorporationController",
@@ -18,9 +24,9 @@ export default {
         Loading,
         Error
     },
+    props: ["id", "page"],
     data() {
         return {
-            corporationID: this.$route.params.id,
             killmails: [],
             information: {},
             mvk: [],
@@ -33,10 +39,10 @@ export default {
             variables() {
                 return {
                     type: "corporation",
-                    id: this.corporationID,
+                    id: this.id,
                     age: 7,
                     limit: 7,
-                    page: 1
+                    page: this.page
                 };
             },
             result(result, key) {

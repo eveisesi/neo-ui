@@ -1,7 +1,13 @@
 <template>
     <Loading v-if="$apollo.loading"></Loading>
     <Error v-else-if="error" :error="error"></Error>
-    <AllianceOverview :killmails="killmails" :information="information" :mvk="mvk" v-else />
+    <AllianceOverview
+        :killmails="killmails"
+        :information="information"
+        :mvk="mvk"
+        :page="page"
+        v-else
+    />
 </template>
 
 
@@ -10,7 +16,7 @@ import { ALLIANCEOVERVIEW } from "@/util/queries";
 import Loading from "@/views/util/Loading";
 import Error from "@/views/util/Error";
 
-import AllianceOverview from "@/views/AllianceOverview/AllianceOverview";
+import AllianceOverview from "@/views/AllianceOverview";
 
 export default {
     name: "AllianceController",
@@ -19,9 +25,9 @@ export default {
         Loading,
         Error
     },
+    props: ["id", "page"],
     data() {
         return {
-            allianceID: this.$route.params.id,
             killmails: [],
             information: {},
             mvk: [],
@@ -34,10 +40,10 @@ export default {
             variables() {
                 return {
                     type: "alliance",
-                    id: this.allianceID,
+                    id: this.id,
                     age: 7,
                     limit: 7,
-                    page: 1
+                    page: this.page
                 };
             },
             result(result, key) {

@@ -32,16 +32,34 @@ const routes = [
         path: "/characters/:id",
         name: "characters",
         component: () => import("@/components/CharacterController.vue"),
+        props: (router) => {
+            return {
+                id: router.params.id,
+                page: router.query.page ? router.query.page : 1,
+            };
+        },
     },
     {
         path: "/corporations/:id",
         name: "corporations",
         component: () => import("@/components/CorporationController.vue"),
+        props: (router) => {
+            return {
+                id: router.params.id,
+                page: router.query.page ? router.query.page : 1,
+            };
+        },
     },
     {
         path: "/alliances/:id",
         name: "alliances",
         component: () => import("@/components/AllianceController.vue"),
+        props: (router) => {
+            return {
+                id: router.params.id,
+                page: router.query.page ? router.query.page : 1,
+            };
+        },
     },
 ];
 

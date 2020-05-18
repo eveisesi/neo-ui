@@ -5,7 +5,6 @@
                 <h4 class="text-center">Most Valuable Kills - Last 7 Days</h4>
                 <hr style="background-color: white" />
                 <KillmailHighlight :mvk="mvk" />
-                <hr style="background-color: white" />
             </b-col>
         </b-row>
 
