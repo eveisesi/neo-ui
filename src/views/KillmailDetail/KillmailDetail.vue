@@ -8,18 +8,14 @@
         </b-row>
         <b-row>
             <b-col md="8" class="p-0">
-                <b-table-simple>
-                    <b-tbody>
-                        <b-tr>
-                            <b-td class="p-0" style="vertical-align:top;">
-                                <FittingWheel :victim="killmail.victim" class="mt-2" />
-                            </b-td>
-                            <b-td class="p-0">
-                                <VictimInfo :killmail="killmail" class="mt-2" />
-                            </b-td>
-                        </b-tr>
-                    </b-tbody>
-                </b-table-simple>
+                <b-row>
+                    <b-col lg="6" class="p-0">
+                        <FittingWheel :victim="killmail.victim" />
+                    </b-col>
+                    <b-col lg="6">
+                        <VictimInfo :killmail="killmail" class="mt-2" />
+                    </b-col>
+                </b-row>
                 <h3>Item(s) Dropped/Destroyed</h3>
                 <hr style="background-color:white;" />
                 <ItemDetail :victim="killmail.victim" />

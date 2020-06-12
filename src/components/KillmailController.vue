@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import { KILLMAIL } from "@/util/queries";
+import { KILLMAIL } from "../util/queries/index";
 import Loading from "@/views/util/Loading";
 import Error from "@/views/util/Error";
 

@@ -38,7 +38,7 @@
             <b-col md="12">
                 <h4 class="text-center">Most Valuable Kills - Last 7 Days</h4>
                 <hr style="background-color: white" />
-                <KillmailHighlight :mvk="mvk" />
+                <KillmailHighlight :mv="mv" />
             </b-col>
         </b-row>
         <b-row></b-row>
@@ -77,7 +77,7 @@ import KillmailHighlight from "./KillmailHighlight";
 
 export default {
     name: "CorporationOverview",
-    props: ["killmails", "information", "mvk"],
+    props: ["killmails", "information", "mv"],
     data() {
         return {
             EVEONLINE_IMAGE: EVEONLINE_IMAGE,

@@ -4,7 +4,7 @@
     <CharacterOverview
         :killmails="killmails"
         :information="information"
-        :mvk="mvk"
+        :mv="mv"
         :page="page"
         v-else
     />
@@ -16,6 +16,11 @@ import Loading from "@/views/util/Loading";
 import Error from "@/views/util/Error";
 
 import CharacterOverview from "@/views/CharacterOverview";
+import {
+    KILLMAILS,
+    CHARACTER_INFORMATION,
+    MOST_VALUABLE
+} from "../util/queries";
 
 export default {
     name: "CharacterController",
@@ -29,28 +34,56 @@ export default {
         return {
             killmails: [],
             information: {},
-            mvk: [],
+            mv: [],
             error: ""
         };
     },
     apollo: {
         killmails: {
-            query: CHARACTEROVERVIEW,
+            query: KILLMAILS,
             variables() {
                 return {
-                    type: "character",
+                    entity: "character",
                     id: this.id,
-                    age: 7,
-                    limit: 7,
                     page: this.page
                 };
             },
             result(result, key) {
                 this.killmails = result.data.killmails;
-                this.information = result.data.information;
-                this.mvk = result.data.mvk;
             },
             error(error) {
+                this.error = JSON.stringify(error.message);
+            }
+        },
+        information: {
+            query: CHARACTER_INFORMATION,
+            variables() {
+                return {
+                    id: this.id
+                };
+            },
+            result(result, key) {
+                this.information = result.data.information;
+            },
+            error(result, key) {
+                this.error = JSON.stringify(error.message);
+            }
+        },
+        mv: {
+            query: MOST_VALUABLE,
+            variables() {
+                return {
+                    category: "kill",
+                    entity: "character",
+                    id: this.id,
+                    age: 7,
+                    limit: 6
+                };
+            },
+            result(result, key) {
+                this.mv = result.data.mv;
+            },
+            error(result, key) {
                 this.error = JSON.stringify(error.message);
             }
         }

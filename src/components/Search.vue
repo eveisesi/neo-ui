@@ -27,7 +27,7 @@
 
 <script>
 import VueBootstrapTypeahead from "vue-bootstrap-typeahead";
-import { SEARCHABLEENTITIES } from "../util/queries";
+import { SEARCHABLE_ENTITIES } from "../util/queries";
 import { EVEONLINE_IMAGE } from "../util/const/urls";
 
 export default {
@@ -45,7 +45,7 @@ export default {
     },
     apollo: {
         search: {
-            query: SEARCHABLEENTITIES,
+            query: SEARCHABLE_ENTITIES,
             variables() {
                 return {
                     term: this.term

@@ -1,124 +1,2102 @@
 <template>
-    <div style="position: relative; height:398px; width:398px; z-index: 3">
-        <div :style="styles.panel.mask">
-            <img src="./img/tyrannis.png" />
-        </div>
-        <div :style="styles.panel.mask">
-            <img
-                v-if="shipHighSlotCount() != undefined"
-                :src="getSlotImgURL(shipHighSlotCount().value, 'h')"
-                style="border:0px"
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        viewBox="0 0 335 335"
+        y="0px"
+        x="0px"
+        class="img-fluid"
+    >
+        <!--<style> .loSlotRack > .module { display: none; } </style>-->
+        <image
+            id="ship"
+            :href="EVEONLINE_IMAGE+'types/'+victim.ship.id+'/render?size=256'"
+            preserveAspectRatio="none"
+            height="205"
+            width="205"
+            x="68.746025"
+            y="68.413689"
+        />
+        <g transform="translate(-102.17693,-72.665946)">
+            <!--Inner Gray Border-->
+            <path
+                fill="#a5a5a5"
+                d="m 362.917,191.729 4.112,-7.122 h -8.224 -8.182 C 332.858,159.167 303.382,142.51 270,142.51 c -33.383,0 -62.858,16.657 -80.623,42.097 h -8.13 -8.224 l 4.112,7.122 4.031,6.982 c -6.057,12.76 -9.456,27.026 -9.456,42.09 0,15.393 3.562,29.944 9.871,42.911 h 5.285 5.858 l -2.929,5.074 -2.743,4.75 c 16.119,25.284 43.487,42.701 75.056,45.212 l 3.78,6.547 4.112,7.122 4.112,-7.122 3.78,-6.547 c 31.619,-2.515 59.027,-19.982 75.136,-45.332 l -2.673,-4.63 -2.929,-5.074 h 5.858 5.135 c 6.309,-12.967 9.871,-27.518 9.871,-42.911 0,-15.044 -3.391,-29.292 -9.433,-42.039 z m 1.857,49.073 c 0,13.741 -2.886,26.983 -8.581,39.396 h -14.856 l 7.565,13.109 c -16.037,24.021 -42.532,39.648 -71.29,41.936 l -1.843,0.147 -5.771,9.996 -5.768,-9.996 -1.843,-0.147 c -28.699,-2.282 -55.162,-17.865 -71.21,-41.822 l 7.634,-13.223 h -15.004 c -5.695,-12.413 -8.581,-25.655 -8.581,-39.396 0,-14.185 3.067,-27.839 9.117,-40.581 l 0.79,-1.669 -6.02,-10.429 h 12.097 l 1.048,-1.504 c 17.751,-25.417 46.812,-40.593 77.741,-40.593 30.929,0 59.992,15.176 77.743,40.593 l 1.048,1.504 h 12.148 l -6.047,10.479 0.79,1.666 c 6.033,12.734 9.093,26.372 9.093,40.534 z"
             />
-        </div>
-        <div :style="styles.panel.mask">
-            <img
-                v-if="shipMedSlotCount() != undefined"
-                :src="getSlotImgURL(shipMedSlotCount().value, 'm')"
-                style="border:0px"
+            <!--Outer Gray Border-->
+            <path
+                fill="#a5a5a5"
+                d="m 414.267,162.301 -1,-1.833 h -8.89 l 4.347,-7.533 -1.181,-1.808 C 377.051,104.452 325.634,76.586 270,76.586 c -55.268,0 -106.497,27.575 -137.044,73.765 l -1.199,1.813 4.793,8.304 h -9.815 l -1,1.833 c -13.049,23.931 -19.948,51.076 -19.948,78.501 0,87.661 68.53,159.702 156.015,164.008 l 2.145,0.105 6.054,-10.488 6.057,10.488 2.143,-0.105 c 87.487,-4.306 156.017,-76.347 156.017,-164.008 -0.003,-27.425 -6.902,-54.57 -19.951,-78.501 z m -136.24,238.997 -3.915,-6.781 -4.112,-7.122 -4.112,7.122 -3.915,6.781 C 176.951,397.115 109.3,326.861 109.3,240.801 c 0,-27.825 7.077,-53.996 19.522,-76.818 h 5.594 8.224 l -4.112,-7.122 -2.639,-4.571 C 164.646,108.802 213.961,80.101 270,80.101 c 56.362,0 105.913,29.039 134.599,72.947 l -2.201,3.813 -4.112,7.122 h 8.224 4.669 c 12.445,22.823 19.522,48.993 19.522,76.818 -0.001,86.06 -67.652,156.314 -152.674,160.497 z"
             />
-        </div>
-        <div :style="styles.panel.mask">
-            <img
-                v-if="shipLowSlotCount() != undefined"
-                :src="getSlotImgURL(shipLowSlotCount().value, 'l')"
-                style="border:0px"
+            <!--Dark Blue Background-->
+            <path
+                fill="#0d1517"
+                d="m 411.178,163.982 h -4.669 -8.224 l 4.112,-7.122 2.201,-3.813 C 375.913,109.139 326.362,80.101 270,80.101 c -56.039,0 -105.354,28.702 -134.112,72.188 l 2.639,4.571 4.112,7.122 h -8.224 -5.594 c -12.444,22.823 -19.521,48.993 -19.521,76.819 0,86.06 67.651,156.314 152.673,160.497 l 3.915,-6.781 4.112,-7.122 4.112,7.122 3.915,6.781 C 363.05,397.115 430.7,326.861 430.7,240.801 c 0,-27.826 -7.077,-53.996 -19.522,-76.819 z m -52.759,119.73 h -5.135 -5.858 l 2.929,5.074 2.673,4.63 c -16.109,25.351 -43.516,42.817 -75.136,45.332 l -3.78,6.547 -4.112,7.122 -4.112,-7.122 -3.78,-6.547 c -31.569,-2.511 -58.937,-19.927 -75.056,-45.212 l 2.743,-4.75 2.929,-5.074 h -5.858 -5.285 c -6.309,-12.967 -9.871,-27.518 -9.871,-42.911 0,-15.064 3.399,-29.33 9.456,-42.09 l -4.031,-6.982 -4.112,-7.122 h 8.224 8.13 c 17.765,-25.44 47.241,-42.097 80.623,-42.097 33.383,0 62.858,16.657 80.623,42.097 h 8.182 8.224 l -4.112,7.122 -4.06,7.032 c 6.042,12.747 9.433,26.995 9.433,42.039 0,15.394 -3.562,29.945 -9.871,42.912 z"
             />
-        </div>
-        <div :style="styles.panel.mask">
-            <img
-                v-if="shipRigSlotCount() != undefined"
-                :src="getSlotImgURL(shipRigSlotCount().value, 'r')"
-                style="border:0px"
-            />
-        </div>
-        <div :style="styles.panel.mask">
-            <img
-                v-if="shipSubsystemSlotCount() != undefined"
-                :src="getSlotImgURL(shipSubsystemSlotCount().value, 's')"
-                style="border:0px"
-            />
-        </div>
-        <div v-for="slot in SHIP_HIGH_SLOT_FLAG_IDS" :key="slot">
-            <div
-                :style="styles.panel['high' + slot]"
-                v-if="getModule(shipHighPowerModules(), slot) != undefined"
-            >
-                <img
-                    :src="EVEONLINE_IMAGE+'types/'+getModule(shipHighPowerModules(), slot).itemTypeID+'/icon?size=32'"
-                />
-            </div>
-            <div
-                :style="styles.panel['high'+slot+'c']"
-                v-if="getModuleAmmo(shipHighPowerModules(), slot) != undefined"
-            >
-                <img
-                    :src="EVEONLINE_IMAGE+'types/'+getModuleAmmo(shipHighPowerModules(), slot).itemTypeID+'/icon?size=32'"
-                />
-            </div>
-        </div>
-        <div v-for="slot in SHIP_MED_SLOT_FLAG_IDS" :key="slot">
-            <div
-                :style="styles.panel['med' + slot]"
-                v-if="getModule(shipMedPowerModules(), slot) != undefined"
-            >
-                <img
-                    :src="EVEONLINE_IMAGE+'types/'+getModule(shipMedPowerModules(), slot).itemTypeID+'/icon?size=32'"
-                />
-            </div>
-            <div
-                :style="styles.panel['med'+slot+'c']"
-                v-if="getModuleAmmo(shipMedPowerModules(), slot) != undefined"
-            >
-                <img
-                    :src="EVEONLINE_IMAGE+'types/'+getModuleAmmo(shipMedPowerModules(), slot).itemTypeID+'/icon?size=32'"
-                />
-            </div>
-        </div>
-        <div v-for="slot in SHIP_LOW_SLOT_FLAG_IDS" :key="slot">
-            <div
-                :style="styles.panel['low' + slot]"
-                v-if="getModule(shipLowPowerModules(), slot) != undefined"
-            >
-                <img
-                    :src="EVEONLINE_IMAGE+'types/'+getModule(shipLowPowerModules(), slot).itemTypeID+'/icon?size=32'"
-                />
-            </div>
-            <div
-                :style="styles.panel['low'+slot+'c']"
-                v-if="getModuleAmmo(shipLowPowerModules(), slot) != undefined"
-            >
-                <img
-                    :src="EVEONLINE_IMAGE+'types/'+getModuleAmmo(shipLowPowerModules(), slot).itemTypeID+'/icon?size=32'"
-                />
-            </div>
-        </div>
-        <div v-for="slot in SHIP_RIG_SLOT_FLAG_IDS" :key="slot">
-            <div
-                :style="styles.panel['rig' + slot]"
-                v-if="getModule(shipRigModules(), slot) != undefined"
-            >
-                <img
-                    :src="EVEONLINE_IMAGE+'types/'+getModule(shipRigModules(), slot).itemTypeID+'/icon?size=32'"
-                />
-            </div>
-        </div>
-        <div v-for="slot in SHIP_SUB_SYSTEM_SLOT_FLAG_IDS" :key="slot">
-            <div
-                :style="styles.panel['sub' + slot]"
-                v-if="getModule(shipSubsystemModules(), slot) != undefined"
-            >
-                <img
-                    :src="EVEONLINE_IMAGE+'types/'+getModule(shipSubsystemModules(), slot).itemTypeID+'/icon?size=32'"
-                />
-            </div>
-        </div>
-        <div
-            id="bigship"
-            style="position:absolute; left:72px; top:71px; width:256px; height:256px; z-index:-2;"
+        </g>
+        <!--Can't figure out what this is-->
+        <!--<g style="fill:none;stroke:none;stroke-width:3.10652;stroke-miterlimit:4;stroke-dasharray:none" transform="matrix(0.2199247,-0.23387898,0.24303078,0.21271863,-8.8260105,105.18325)"> <g style="fill:none;stroke:none;stroke-width:3.10652;stroke-miterlimit:4;stroke-dasharray:none"> <path style="fill:none;stroke:none;stroke-width:3.10652;stroke-miterlimit:4;stroke-dasharray:none" d="m 190,140 q 45,-5 80,0 l -5,70 q -30,-3 -70,0 z" stroke-width="11.7566" stroke="red" fill="transparent"/> </g> </g>-->
+        <g
+            id="loSlot0"
+            class="loSlotRack flag11"
+            v-if="getModule(shipLowPowerModules(), 11) != undefined"
         >
-            <img :src="EVEONLINE_IMAGE+'types/'+victim.ship.id+'/render?size=256'" />
-        </div>
-    </div>
+            <g class="module">
+                <g
+                    style="stroke-width:2.35801"
+                    transform="matrix(0.14258043,0.39950833,-0.39931708,0.14251218,348.61671,76.862939)"
+                >
+                    <g
+                        transform="translate(-168.81042,-36.38373)"
+                        style="fill:none;stroke-width:2.358"
+                    >
+                        <g style="fill:none;stroke-width:2.358">
+                            <path
+                                fill="transparent"
+                                stroke="#808080"
+                                stroke-width="11.7566"
+                                d="m 190,140 q 45,-5 80,0 l -5,70 q -30,-3 -70,0 z"
+                                style="fill:none;stroke-width:2.358"
+                            />
+                        </g>
+                    </g>
+                    <rect
+                        style="fill:#999;stroke:none;stroke-width:2.358"
+                        width="20"
+                        height="5"
+                        x="125.19523"
+                        y="-64.67881"
+                        ry="0"
+                        transform="matrix(0.00221434,0.99999755,-0.99999467,0.00326547,0,0)"
+                        rx="0"
+                    />
+                </g>
+                <image
+                    y="106.02922"
+                    x="287.04449"
+                    width="32"
+                    height="32"
+                    preserveAspectRatio="none"
+                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipLowPowerModules(), 11).itemTypeID + '/icon?size=32'"
+                />
+            </g>
+            <g class="ammo" v-if="getModuleAmmo(shipLowPowerModules(), 11) != undefined">
+                <image
+                    y="120.00013"
+                    x="262.04364"
+                    width="26"
+                    height="26"
+                    preserveAspectRatio="none"
+                    :href="EVEONLINE_IMAGE+'types/' + getModuleAmmo(shipLowPowerModules(), 11).itemTypeID + '/icon?size=32'"
+                    style="stroke-width:1.23077"
+                />
+            </g>
+        </g>
+        <g
+            id="loSlot1"
+            class="loSlotRack flag12"
+            v-if="getModule(shipLowPowerModules(), 12) != undefined"
+        >
+            <g class="module">
+                <g
+                    style="stroke-width:2.35801"
+                    transform="matrix(0.04179714,0.42212449,-0.42192242,0.04177714,365.61897,123.23093)"
+                >
+                    <g
+                        transform="translate(-168.81042,-36.38373)"
+                        style="fill:none;stroke-width:2.358"
+                    >
+                        <g style="fill:none;stroke-width:2.358">
+                            <path
+                                fill="transparent"
+                                stroke="#808080"
+                                stroke-width="11.7566"
+                                d="m 190,140 q 45,-5 80,0 l -5,70 q -30,-3 -70,0 z"
+                                style="fill:none;stroke-width:2.358"
+                            />
+                        </g>
+                    </g>
+                    <rect
+                        style="fill:#999;stroke:none;stroke-width:2.358"
+                        width="20"
+                        height="5"
+                        x="125.19523"
+                        y="-64.67881"
+                        ry="0"
+                        transform="matrix(0.00221434,0.99999755,-0.99999467,0.00326547,0,0)"
+                        rx="0"
+                    />
+                </g>
+                <image
+                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipLowPowerModules(), 12).itemTypeID + '/icon?size=32'"
+                    preserveAspectRatio="none"
+                    height="32"
+                    width="32"
+                    x="294.13037"
+                    y="138.27432"
+                />
+            </g>
+            <g class="ammo" v-if="getModuleAmmo(shipLowPowerModules(), 12) != undefined">
+                <image
+                    style="stroke-width:1.23077"
+                    :href="EVEONLINE_IMAGE+'types/' + getModuleAmmo(shipLowPowerModules(), 12).itemTypeID + '/icon?size=32'"
+                    preserveAspectRatio="none"
+                    height="26"
+                    width="26"
+                    x="266.96521"
+                    y="147.08856"
+                />
+            </g>
+        </g>
+        <g
+            id="loSlot2"
+            class="loSlotRack flag13"
+            v-if="getModule(shipLowPowerModules(), 13) != undefined"
+        >
+            <g class="module">
+                <g
+                    transform="matrix(-0.06474019,0.41921928,-0.41901859,-0.0647092,370.7897,172.85827)"
+                    style="stroke-width:2.35801"
+                >
+                    <g
+                        style="fill:none;stroke-width:2.358"
+                        transform="translate(-168.81042,-36.38373)"
+                    >
+                        <g style="fill:none;stroke-width:2.358">
+                            <path
+                                style="fill:none;stroke-width:2.358"
+                                d="m 190,140 q 45,-5 80,0 l -5,70 q -30,-3 -70,0 z"
+                                stroke-width="11.7566"
+                                stroke="#808080"
+                                fill="transparent"
+                            />
+                        </g>
+                    </g>
+                    <rect
+                        rx="0"
+                        transform="matrix(0.00221434,0.99999755,-0.99999467,0.00326547,0,0)"
+                        ry="0"
+                        y="-64.67881"
+                        x="125.19523"
+                        height="5"
+                        width="20"
+                        style="fill:#999;stroke:none;stroke-width:2.358"
+                    />
+                </g>
+                <image
+                    y="174.7477"
+                    x="293.02155"
+                    width="32"
+                    height="32"
+                    preserveAspectRatio="none"
+                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipLowPowerModules(), 13).itemTypeID + '/icon?size=32'"
+                />
+            </g>
+            <g class="ammo" v-if="getModuleAmmo(shipLowPowerModules(), 13) != undefined">
+                <image
+                    y="173.91942"
+                    x="266.71594"
+                    width="26"
+                    height="26"
+                    preserveAspectRatio="none"
+                    :href="EVEONLINE_IMAGE+'types/' + getModuleAmmo(shipLowPowerModules(), 13).itemTypeID + '/icon?size=32'"
+                    style="stroke-width:1.23077"
+                />
+            </g>
+        </g>
+        <g
+            id="loSlot3"
+            class="loSlotRack flag14"
+            v-if="getModule(shipLowPowerModules(), 14) != undefined"
+        >
+            <g class="module">
+                <g
+                    style="stroke-width:2.35801"
+                    transform="matrix(-0.16193726,0.39206174,-0.39187406,-0.16185974,363.64334,221.23713)"
+                >
+                    <g
+                        transform="translate(-168.81042,-36.38373)"
+                        style="fill:none;stroke-width:2.358"
+                    >
+                        <g style="fill:none;stroke-width:2.358">
+                            <path
+                                fill="transparent"
+                                stroke="#808080"
+                                stroke-width="11.7566"
+                                d="m 190,140 q 45,-5 80,0 l -5,70 q -30,-3 -70,0 z"
+                                style="fill:none;stroke-width:2.358"
+                            />
+                        </g>
+                    </g>
+                    <rect
+                        style="fill:#999;stroke:none;stroke-width:2.358"
+                        width="20"
+                        height="5"
+                        x="125.19523"
+                        y="-64.67881"
+                        ry="0"
+                        transform="matrix(0.00221434,0.99999755,-0.99999467,0.00326547,0,0)"
+                        rx="0"
+                    />
+                </g>
+                <image
+                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipLowPowerModules(), 14).itemTypeID + '/icon?size=32'"
+                    preserveAspectRatio="none"
+                    height="32"
+                    width="32"
+                    x="284.35342"
+                    y="207.41641"
+                />
+            </g>
+            <g class="ammo" v-if="getModuleAmmo(shipLowPowerModules(), 14) != undefined">
+                <image
+                    style="stroke-width:1.23077"
+                    :href="EVEONLINE_IMAGE+'types/' + getModuleAmmo(shipLowPowerModules(), 14).itemTypeID + '/icon?size=32'"
+                    preserveAspectRatio="none"
+                    height="26"
+                    width="26"
+                    x="259.91809"
+                    y="199.67514"
+                />
+            </g>
+        </g>
+        <g
+            id="loSlot4"
+            class="loSlotRack flag15"
+            v-if="getModule(shipLowPowerModules(), 15) != undefined"
+        >
+            <g class="module">
+                <g
+                    transform="matrix(-0.24772843,0.34433519,-0.34417035,-0.24760982,345.60938,266.07584)"
+                    style="stroke-width:2.35801"
+                >
+                    <g
+                        style="fill:none;stroke-width:2.358"
+                        transform="translate(-168.81042,-36.38373)"
+                    >
+                        <g style="fill:none;stroke-width:2.358">
+                            <path
+                                style="fill:none;stroke-width:2.358"
+                                d="m 190,140 q 45,-5 80,0 l -5,70 q -30,-3 -70,0 z"
+                                stroke-width="11.7566"
+                                stroke="#808080"
+                                fill="transparent"
+                            />
+                        </g>
+                    </g>
+                    <rect
+                        rx="0"
+                        transform="matrix(0.00221434,0.99999755,-0.99999467,0.00326547,0,0)"
+                        ry="0"
+                        y="-64.67881"
+                        x="125.19523"
+                        height="5"
+                        width="20"
+                        style="fill:#999;stroke:none;stroke-width:2.358"
+                    />
+                </g>
+                <image
+                    y="237.32713"
+                    x="267.90253"
+                    width="32"
+                    height="32"
+                    preserveAspectRatio="none"
+                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipLowPowerModules(), 15).itemTypeID + '/icon?size=32'"
+                />
+            </g>
+            <g class="ammo" v-if="getModuleAmmo(shipLowPowerModules(), 15) != undefined">
+                <image
+                    y="223.6868"
+                    x="246.54135"
+                    width="26"
+                    height="26"
+                    preserveAspectRatio="none"
+                    :href="EVEONLINE_IMAGE+'types/' + getModuleAmmo(shipLowPowerModules(), 15).itemTypeID + '/icon?size=32'"
+                    style="stroke-width:1.23077"
+                />
+            </g>
+        </g>
+        <g
+            id="loSlot5"
+            class="loSlotRack flag16"
+            v-if="getModule(shipLowPowerModules(), 16) != undefined"
+        >
+            <g class="module">
+                <g
+                    style="stroke-width:2.35801"
+                    transform="matrix(-0.32895617,0.26781325,-0.26768505,-0.3287987,315.92267,307.57535)"
+                >
+                    <g
+                        transform="translate(-168.81042,-36.38373)"
+                        style="fill:none;stroke-width:2.358"
+                    >
+                        <g style="fill:none;stroke-width:2.358">
+                            <path
+                                fill="transparent"
+                                stroke="#808080"
+                                stroke-width="11.7566"
+                                d="m 190,140 q 45,-5 80,0 l -5,70 q -30,-3 -70,0 z"
+                                style="fill:none;stroke-width:2.358"
+                            />
+                        </g>
+                    </g>
+                    <rect
+                        style="fill:#999;stroke:none;stroke-width:2.358"
+                        width="20"
+                        height="5"
+                        x="125.19523"
+                        y="-64.67881"
+                        ry="0"
+                        transform="matrix(0.00221434,0.99999755,-0.99999467,0.00326547,0,0)"
+                        rx="0"
+                    />
+                </g>
+                <image
+                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipLowPowerModules(), 16).itemTypeID + '/icon?size=32'"
+                    preserveAspectRatio="none"
+                    height="32"
+                    width="32"
+                    x="244.14014"
+                    y="262.91742"
+                />
+            </g>
+            <g class="ammo" v-if="getModuleAmmo(shipLowPowerModules(), 16) != undefined">
+                <image
+                    style="stroke-width:1.23077"
+                    :href="EVEONLINE_IMAGE+'types/' + getModuleAmmo(shipLowPowerModules(), 16).itemTypeID + '/icon?size=32'"
+                    preserveAspectRatio="none"
+                    height="26"
+                    width="26"
+                    x="227.68098"
+                    y="244.20886"
+                />
+            </g>
+        </g>
+        <g
+            id="loSlot6"
+            class="loSlotRack flag17"
+            v-if="getModule(shipLowPowerModules(), 17) != undefined"
+        >
+            <g class="module">
+                <g
+                    transform="matrix(-0.38345937,0.18136982,-0.181283,-0.3832758,277.74096,339.00884)"
+                    style="stroke-width:2.35801"
+                >
+                    <g
+                        style="fill:none;stroke-width:2.358"
+                        transform="translate(-168.81042,-36.38373)"
+                    >
+                        <g style="fill:none;stroke-width:2.358">
+                            <path
+                                style="fill:none;stroke-width:2.358"
+                                d="m 190,140 q 45,-5 80,0 l -5,70 q -30,-3 -70,0 z"
+                                stroke-width="11.7566"
+                                stroke="#808080"
+                                fill="transparent"
+                            />
+                        </g>
+                    </g>
+                    <rect
+                        rx="0"
+                        transform="matrix(0.00221434,0.99999755,-0.99999467,0.00326547,0,0)"
+                        ry="0"
+                        y="-64.67881"
+                        x="125.19523"
+                        height="5"
+                        width="20"
+                        style="fill:#999;stroke:none;stroke-width:2.358"
+                    />
+                </g>
+                <image
+                    y="282.19324"
+                    x="212.65079"
+                    width="32"
+                    height="32"
+                    preserveAspectRatio="none"
+                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipLowPowerModules(), 17).itemTypeID + '/icon?size=32'"
+                />
+            </g>
+            <g class="ammo" v-if="getModuleAmmo(shipLowPowerModules(), 17) != undefined">
+                <image
+                    y="259.33038"
+                    x="204.00168"
+                    width="26"
+                    height="26"
+                    preserveAspectRatio="none"
+                    :href="EVEONLINE_IMAGE+'types/' + getModuleAmmo(shipLowPowerModules(), 17).itemTypeID + '/icon?size=32'"
+                    style="stroke-width:1.23077"
+                />
+            </g>
+        </g>
+        <g
+            id="loSlot7"
+            class="loSlotRack flag18"
+            v-if="getModuleAmmo(shipLowPowerModules(), 18) != undefined"
+        >
+            <g class="module">
+                <g
+                    style="stroke-width:2.35801"
+                    transform="matrix(-0.4151436,0.08713142,-0.0870897,-0.41494487,233.75049,360.17364)"
+                >
+                    <g
+                        transform="translate(-168.81042,-36.38373)"
+                        style="fill:none;stroke-width:2.358"
+                    >
+                        <g style="fill:none;stroke-width:2.358">
+                            <path
+                                fill="transparent"
+                                stroke="#808080"
+                                stroke-width="11.7566"
+                                d="m 190,140 q 45,-5 80,0 l -5,70 q -30,-3 -70,0 z"
+                                style="fill:none;stroke-width:2.358"
+                            />
+                        </g>
+                    </g>
+                    <rect
+                        style="fill:#999;stroke:none;stroke-width:2.358"
+                        width="20"
+                        height="5"
+                        x="125.19523"
+                        y="-64.67881"
+                        ry="0"
+                        transform="matrix(0.00221434,0.99999755,-0.99999467,0.00326547,0,0)"
+                        rx="0"
+                    />
+                </g>
+                <image
+                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipLowPowerModules(), 28).itemTypeID + '/icon?size=32'"
+                    preserveAspectRatio="none"
+                    height="32"
+                    width="32"
+                    x="180.4137"
+                    y="292.66199"
+                />
+            </g>
+            <g class="ammo" v-if="getModuleAmmo(shipLowPowerModules(), 11) != undefined">
+                <image
+                    style="stroke-width:1.23077"
+                    :href="EVEONLINE_IMAGE+'types/' + getModuleAmmo(shipLowPowerModules(), 18).itemTypeID + '/icon?size=32'"
+                    preserveAspectRatio="none"
+                    height="26"
+                    width="26"
+                    x="177.8298"
+                    y="268.30359"
+                />
+            </g>
+        </g>
+        <g
+            id="medSlot0"
+            class="medSlotRack flag19"
+            v-if="getModule(shipMedPowerModules(), 19) != undefined"
+        >
+            <g class="module">
+                <g
+                    transform="matrix(-0.41374485,-0.09354839,0.0935036,-0.41354676,151.35576,370.47781)"
+                    style="stroke-width:2.35801"
+                >
+                    <g
+                        transform="translate(-168.81042,-36.38373)"
+                        style="fill:none;stroke-width:2.358"
+                    >
+                        <g style="fill:none;stroke-width:2.358">
+                            <path
+                                fill="transparent"
+                                stroke="#808080"
+                                stroke-width="11.7566"
+                                d="m 190,140 q 45,-5 80,0 l -5,70 q -30,-3 -70,0 z"
+                                style="fill:none;stroke-width:2.358"
+                            />
+                        </g>
+                    </g>
+                    <rect
+                        style="fill:#999;stroke:none;stroke-width:2.358"
+                        width="19.990425"
+                        height="5.0023947"
+                        x="-58.949261"
+                        y="-140.019"
+                        ry="0"
+                        transform="matrix(-0.99996343,-0.00855174,0.00749557,-0.99997191,0,0)"
+                        rx="0"
+                    />
+                    <rect
+                        rx="0"
+                        transform="matrix(-0.99996343,-0.00855175,0.00749556,-0.99997191,0,0)"
+                        ry="0"
+                        y="-139.82927"
+                        x="-87.768166"
+                        height="5.0023947"
+                        width="19.990425"
+                        style="fill:#999;stroke:none;stroke-width:2.358"
+                    />
+                </g>
+                <image
+                    y="292.082"
+                    x="122.69744"
+                    width="32"
+                    height="32"
+                    preserveAspectRatio="none"
+                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipMedPowerModules(), 19).itemTypeID + '/icon?size=32'"
+                />
+            </g>
+            <g class="ammo" v-if="getModuleAmmo(shipMedPowerModules(), 19) != undefined">
+                <image
+                    y="265.4787"
+                    x="131.30202"
+                    width="26"
+                    height="26"
+                    preserveAspectRatio="none"
+                    :href="EVEONLINE_IMAGE+'types/' + getModuleAmmo(shipMedPowerModules(), 19).itemTypeID + '/icon?size=32'"
+                    style="stroke-width:1.23077"
+                />
+            </g>
+        </g>
+        <g
+            id="medSlot1"
+            class="medSlotRack flag20"
+            v-if="getModule(shipMedPowerModules(), 20) != undefined"
+        >
+            <g class="module">
+                <g
+                    style="stroke-width:2.35801"
+                    transform="matrix(-0.37936127,-0.18979232,0.18970145,-0.37917965,103.51735,360.03867)"
+                >
+                    <g
+                        style="fill:none;stroke-width:2.358"
+                        transform="translate(-168.81042,-36.38373)"
+                    >
+                        <g style="fill:none;stroke-width:2.358">
+                            <path
+                                style="fill:none;stroke-width:2.358"
+                                d="m 190,140 q 45,-5 80,0 l -5,70 q -30,-3 -70,0 z"
+                                stroke-width="11.7566"
+                                stroke="#808080"
+                                fill="transparent"
+                            />
+                        </g>
+                    </g>
+                    <rect
+                        rx="0"
+                        transform="matrix(-0.99996343,-0.00855174,0.00749557,-0.99997191,0,0)"
+                        ry="0"
+                        y="-140.019"
+                        x="-58.949261"
+                        height="5.0023947"
+                        width="19.990425"
+                        style="fill:#999;stroke:none;stroke-width:2.358"
+                    />
+                    <rect
+                        style="fill:#999;stroke:none;stroke-width:2.358"
+                        width="19.990425"
+                        height="5.0023947"
+                        x="-87.768166"
+                        y="-139.82927"
+                        ry="0"
+                        transform="matrix(-0.99996343,-0.00855175,0.00749556,-0.99997191,0,0)"
+                        rx="0"
+                    />
+                </g>
+                <image
+                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipMedPowerModules(), 20).itemTypeID + '/icon?size=32'"
+                    preserveAspectRatio="none"
+                    height="32"
+                    width="32"
+                    x="90.720671"
+                    y="279.86844"
+                />
+            </g>
+            <g class="ammo" v-if="getModuleAmmo(shipMedPowerModules(), 20) != undefined">
+                <image
+                    style="stroke-width:1.23077"
+                    :href="EVEONLINE_IMAGE+'types/' + getModuleAmmo(shipMedPowerModules(), 20).itemTypeID + '/icon?size=32'"
+                    preserveAspectRatio="none"
+                    height="26"
+                    width="26"
+                    x="105.29631"
+                    y="256.00699"
+                />
+            </g>
+        </g>
+        <g
+            id="medSlot2"
+            class="medSlotRack flag21"
+            v-if="getModule(shipMedPowerModules(), 21) != undefined"
+        >
+            <g class="module">
+                <g
+                    transform="matrix(-0.32516759,-0.2724007,0.27227028,-0.32501192,60.223006,338.77389)"
+                    style="stroke-width:2.35801"
+                >
+                    <g
+                        transform="translate(-168.81042,-36.38373)"
+                        style="fill:none;stroke-width:2.358"
+                    >
+                        <g style="fill:none;stroke-width:2.358">
+                            <path
+                                fill="transparent"
+                                stroke="#808080"
+                                stroke-width="11.7566"
+                                d="m 190,140 q 45,-5 80,0 l -5,70 q -30,-3 -70,0 z"
+                                style="fill:none;stroke-width:2.358"
+                            />
+                        </g>
+                    </g>
+                    <rect
+                        style="fill:#999;stroke:none;stroke-width:2.358"
+                        width="19.990425"
+                        height="5.0023947"
+                        x="-58.949261"
+                        y="-140.019"
+                        ry="0"
+                        transform="matrix(-0.99996343,-0.00855174,0.00749557,-0.99997191,0,0)"
+                        rx="0"
+                    />
+                    <rect
+                        rx="0"
+                        transform="matrix(-0.99996343,-0.00855175,0.00749556,-0.99997191,0,0)"
+                        ry="0"
+                        y="-139.82927"
+                        x="-87.768166"
+                        height="5.0023947"
+                        width="19.990425"
+                        style="fill:#999;stroke:none;stroke-width:2.358"
+                    />
+                </g>
+                <image
+                    y="261.50656"
+                    x="61.629723"
+                    width="32"
+                    height="32"
+                    preserveAspectRatio="none"
+                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipMedPowerModules(), 21).itemTypeID + '/icon?size=32'"
+                />
+            </g>
+            <g class="ammo" v-if="getModuleAmmo(shipMedPowerModules(), 21) != undefined">
+                <image
+                    y="241.1347"
+                    x="83.44487"
+                    width="26"
+                    height="26"
+                    preserveAspectRatio="none"
+                    :href="EVEONLINE_IMAGE+'types/' + getModuleAmmo(shipMedPowerModules(), 21).itemTypeID + '/icon?size=32'"
+                    style="stroke-width:1.23077"
+                />
+            </g>
+        </g>
+        <g
+            id="medSlot3"
+            class="medSlotRack flag22"
+            v-if="getModule(shipMedPowerModules(), 22) != undefined"
+        >
+            <g class="module">
+                <g
+                    style="stroke-width:2.35801"
+                    transform="matrix(-0.24906505,-0.34336964,0.34320523,-0.24894582,22.093477,307.18154)"
+                >
+                    <g
+                        style="fill:none;stroke-width:2.358"
+                        transform="translate(-168.81042,-36.38373)"
+                    >
+                        <g style="fill:none;stroke-width:2.358">
+                            <path
+                                style="fill:none;stroke-width:2.358"
+                                d="m 190,140 q 45,-5 80,0 l -5,70 q -30,-3 -70,0 z"
+                                stroke-width="11.7566"
+                                stroke="#808080"
+                                fill="transparent"
+                            />
+                        </g>
+                    </g>
+                    <rect
+                        rx="0"
+                        transform="matrix(-0.99996343,-0.00855174,0.00749557,-0.99997191,0,0)"
+                        ry="0"
+                        y="-140.019"
+                        x="-58.949261"
+                        height="5.0023947"
+                        width="19.990425"
+                        style="fill:#999;stroke:none;stroke-width:2.358"
+                    />
+                    <rect
+                        style="fill:#999;stroke:none;stroke-width:2.358"
+                        width="19.990425"
+                        height="5.0023947"
+                        x="-87.768166"
+                        y="-139.82927"
+                        ry="0"
+                        transform="matrix(-0.99996343,-0.00855175,0.00749556,-0.99997191,0,0)"
+                        rx="0"
+                    />
+                </g>
+                <image
+                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipMedPowerModules(), 22).itemTypeID + '/icon?size=32'"
+                    preserveAspectRatio="none"
+                    height="32"
+                    width="32"
+                    x="37.950405"
+                    y="236.41481"
+                />
+            </g>
+            <g class="ammo" v-if="getModuleAmmo(shipMedPowerModules(), 22) != undefined">
+                <image
+                    style="stroke-width:1.23077"
+                    :href="EVEONLINE_IMAGE+'types/' + getModuleAmmo(shipMedPowerModules(), 22).itemTypeID + '/icon?size=32'"
+                    preserveAspectRatio="none"
+                    height="26"
+                    width="26"
+                    x="64.750671"
+                    y="222.02509"
+                />
+            </g>
+        </g>
+        <g
+            id="medSlot4"
+            class="medSlotRack flag23"
+            v-if="getModule(shipMedPowerModules(), 23) != undefined"
+        >
+            <g class="module">
+                <g
+                    transform="matrix(-0.16091131,-0.39248395,0.39229604,-0.16083429,-6.9252347,267.97902)"
+                    style="stroke-width:2.35801"
+                >
+                    <g
+                        transform="translate(-168.81042,-36.38373)"
+                        style="fill:none;stroke-width:2.358"
+                    >
+                        <g style="fill:none;stroke-width:2.358">
+                            <path
+                                fill="transparent"
+                                stroke="#808080"
+                                stroke-width="11.7566"
+                                d="m 190,140 q 45,-5 80,0 l -5,70 q -30,-3 -70,0 z"
+                                style="fill:none;stroke-width:2.358"
+                            />
+                        </g>
+                    </g>
+                    <rect
+                        style="fill:#999;stroke:none;stroke-width:2.358"
+                        width="19.990425"
+                        height="5.0023947"
+                        x="-58.949261"
+                        y="-140.019"
+                        ry="0"
+                        transform="matrix(-0.99996343,-0.00855174,0.00749557,-0.99997191,0,0)"
+                        rx="0"
+                    />
+                    <rect
+                        rx="0"
+                        transform="matrix(-0.99996343,-0.00855175,0.00749556,-0.99997191,0,0)"
+                        ry="0"
+                        y="-139.82927"
+                        x="-87.768166"
+                        height="5.0023947"
+                        width="19.990425"
+                        style="fill:#999;stroke:none;stroke-width:2.358"
+                    />
+                </g>
+                <image
+                    y="206.25484"
+                    x="21.41643"
+                    width="32"
+                    height="32"
+                    preserveAspectRatio="none"
+                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipMedPowerModules(), 23).itemTypeID + '/icon?size=32'"
+                />
+            </g>
+            <g class="ammo" v-if="getModuleAmmo(shipMedPowerModules(), 23) != undefined">
+                <image
+                    y="198.26268"
+                    x="51.623192"
+                    width="26"
+                    height="26"
+                    preserveAspectRatio="none"
+                    :href="EVEONLINE_IMAGE+'types/' + getModuleAmmo(shipMedPowerModules(), 23).itemTypeID + '/icon?size=32'"
+                    style="stroke-width:1.23077"
+                />
+            </g>
+        </g>
+        <g
+            id="medSlot5"
+            class="medSlotRack flag24"
+            v-if="getModule(shipMedPowerModules(), 24) != undefined"
+        >
+            <g class="module">
+                <g
+                    style="stroke-width:2.35801"
+                    transform="matrix(-0.06580633,-0.41905325,0.41885262,-0.06577483,-25.718222,223.46262)"
+                >
+                    <g
+                        style="fill:none;stroke-width:2.358"
+                        transform="translate(-168.81042,-36.38373)"
+                    >
+                        <g style="fill:none;stroke-width:2.358">
+                            <path
+                                style="fill:none;stroke-width:2.358"
+                                d="m 190,140 q 45,-5 80,0 l -5,70 q -30,-3 -70,0 z"
+                                stroke-width="11.7566"
+                                stroke="#808080"
+                                fill="transparent"
+                            />
+                        </g>
+                    </g>
+                    <rect
+                        rx="0"
+                        transform="matrix(-0.99996343,-0.00855174,0.00749557,-0.99997191,0,0)"
+                        ry="0"
+                        y="-140.019"
+                        x="-58.949261"
+                        height="5.0023947"
+                        width="19.990425"
+                        style="fill:#999;stroke:none;stroke-width:2.358"
+                    />
+                    <rect
+                        style="fill:#999;stroke:none;stroke-width:2.358"
+                        width="19.990425"
+                        height="5.0023947"
+                        x="-87.768166"
+                        y="-139.82927"
+                        ry="0"
+                        transform="matrix(-0.99996343,-0.00855175,0.00749556,-0.99997191,0,0)"
+                        rx="0"
+                    />
+                </g>
+                <image
+                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipMedPowerModules(), 24).itemTypeID + '/icon?size=32'"
+                    preserveAspectRatio="none"
+                    height="32"
+                    width="32"
+                    x="12.277043"
+                    y="173.18687"
+                />
+            </g>
+            <g class="ammo" v-if="getModuleAmmo(shipMedPowerModules(), 24) != undefined">
+                <image
+                    style="stroke-width:1.23077"
+                    :href="EVEONLINE_IMAGE+'types/' + getModuleAmmo(shipMedPowerModules(), 24).itemTypeID + '/icon?size=32'"
+                    preserveAspectRatio="none"
+                    height="26"
+                    width="26"
+                    x="43.480831"
+                    y="172.00774"
+                />
+            </g>
+        </g>
+        <g
+            id="medSlot6"
+            class="medSlotRack flag25"
+            v-if="getModule(shipMedPowerModules(), 25) != undefined"
+        >
+            <g class="module">
+                <g
+                    transform="matrix(0.03472347,-0.42276516,0.42256275,0.03470684,-33.66387,175.45462)"
+                    style="stroke-width:2.35801"
+                >
+                    <g
+                        transform="translate(-168.81042,-36.38373)"
+                        style="fill:none;stroke-width:2.358"
+                    >
+                        <g style="fill:none;stroke-width:2.358">
+                            <path
+                                fill="transparent"
+                                stroke="#808080"
+                                stroke-width="11.7566"
+                                d="m 190,140 q 45,-5 80,0 l -5,70 q -30,-3 -70,0 z"
+                                style="fill:none;stroke-width:2.358"
+                            />
+                        </g>
+                    </g>
+                    <rect
+                        style="fill:#999;stroke:none;stroke-width:2.358"
+                        width="19.990425"
+                        height="5.0023947"
+                        x="-58.949261"
+                        y="-140.019"
+                        ry="0"
+                        transform="matrix(-0.99996343,-0.00855174,0.00749557,-0.99997191,0,0)"
+                        rx="0"
+                    />
+                    <rect
+                        rx="0"
+                        transform="matrix(-0.99996343,-0.00855175,0.00749556,-0.99997191,0,0)"
+                        ry="0"
+                        y="-139.82927"
+                        x="-87.768166"
+                        height="5.0023947"
+                        width="19.990425"
+                        style="fill:#999;stroke:none;stroke-width:2.358"
+                    />
+                </g>
+                <image
+                    y="138.3587"
+                    x="10.949366"
+                    width="32"
+                    height="32"
+                    preserveAspectRatio="none"
+                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipMedPowerModules(), 25).itemTypeID + '/icon?size=32'"
+                />
+            </g>
+            <g class="ammo" v-if="getModuleAmmo(shipMedPowerModules(), 25) != undefined">
+                <image
+                    y="144.85721"
+                    x="42.035431"
+                    width="26"
+                    height="26"
+                    preserveAspectRatio="none"
+                    :href="EVEONLINE_IMAGE+'types/' + getModuleAmmo(shipMedPowerModules(), 25).itemTypeID + '/icon?size=32'"
+                    style="stroke-width:1.23077"
+                />
+            </g>
+        </g>
+        <g
+            id="medSlot7"
+            class="medSlotRack flag26"
+            v-if="getModule(shipMedPowerModules(), 26) != undefined"
+        >
+            <g class="module">
+                <g
+                    style="stroke-width:2.35801"
+                    transform="matrix(0.13506195,-0.40211239,0.40191986,0.13499728,-29.944782,126.4623)"
+                >
+                    <g
+                        style="fill:none;stroke-width:2.358"
+                        transform="translate(-168.81042,-36.38373)"
+                    >
+                        <g style="fill:none;stroke-width:2.358">
+                            <path
+                                style="fill:none;stroke-width:2.358"
+                                d="m 190,140 q 45,-5 80,0 l -5,70 q -30,-3 -70,0 z"
+                                stroke-width="11.7566"
+                                stroke="#808080"
+                                fill="transparent"
+                            />
+                        </g>
+                    </g>
+                    <rect
+                        rx="0"
+                        transform="matrix(-0.99996343,-0.00855174,0.00749557,-0.99997191,0,0)"
+                        ry="0"
+                        y="-140.019"
+                        x="-58.949261"
+                        height="5.0023947"
+                        width="19.990425"
+                        style="fill:#999;stroke:none;stroke-width:2.358"
+                    />
+                    <rect
+                        style="fill:#999;stroke:none;stroke-width:2.358"
+                        width="19.990425"
+                        height="5.0023947"
+                        x="-87.768166"
+                        y="-139.82927"
+                        ry="0"
+                        transform="matrix(-0.99996343,-0.00855175,0.00749556,-0.99997191,0,0)"
+                        rx="0"
+                    />
+                </g>
+                <image
+                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipMedPowerModules(), 26).itemTypeID + '/icon?size=32'"
+                    preserveAspectRatio="none"
+                    height="32"
+                    width="32"
+                    x="17.345249"
+                    y="104.54626"
+                />
+            </g>
+            <g class="ammo" v-if="getModuleAmmo(shipMedPowerModules(), 26) != undefined">
+                <image
+                    style="stroke-width:1.23077"
+                    :href="EVEONLINE_IMAGE+'types/' + getModuleAmmo(shipMedPowerModules(), 26).itemTypeID + '/icon?size=32'"
+                    preserveAspectRatio="none"
+                    height="26"
+                    width="26"
+                    x="47.053497"
+                    y="118.16845"
+                />
+            </g>
+        </g>
+        <g
+            id="hiSlot0"
+            class="hiSlotRack flag27"
+            v-if="getModule(shipHighPowerModules(), 27) != undefined"
+        >
+            <g class="module">
+                <g
+                    transform="matrix(0.27368205,-0.29554387,0.30613311,0.26521702,-25.97128,86.047464)"
+                    style="stroke-width:2.47643"
+                >
+                    <g transform="translate(120.23686,-139.05355)" style="stroke-width:2.47643">
+                        <g
+                            transform="translate(-175.94714,100.15297)"
+                            style="fill:none;stroke-width:2.47642"
+                        >
+                            <g style="fill:none;stroke-width:2.47642">
+                                <g>
+                                    <path
+                                        style="fill:none;stroke-width:2.47642"
+                                        d="m 190,140 q 45,-5 80,0 l -5,70 q -30,-3 -70,0 z"
+                                        stroke-width="11.7566"
+                                        stroke="#808080"
+                                        fill="transparent"
+                                    />
+                                </g>
+                            </g>
+                        </g>
+                        <rect
+                            style="fill:#999;stroke:none;stroke-width:2.47642"
+                            width="19.992865"
+                            height="5.0017872"
+                            x="98.584892"
+                            y="264.60129"
+                            ry="0"
+                            transform="matrix(-0.8631108,0.50501461,0.50374905,0.86385004,0,0)"
+                            rx="0"
+                        />
+                        <rect
+                            rx="0"
+                            transform="matrix(0.86745383,0.49751769,0.49806845,-0.86713771,0,0)"
+                            ry="0"
+                            y="-216.61035"
+                            x="190.78946"
+                            height="5.0018005"
+                            width="19.992792"
+                            style="fill:#999;stroke:none;stroke-width:2.47642"
+                        />
+                        <rect
+                            rx="0"
+                            transform="matrix(0.00461025,0.99998937,0.99999364,-0.00356563,0,0)"
+                            ry="0"
+                            y="50.329563"
+                            x="253.68503"
+                            height="5"
+                            width="19.999998"
+                            style="fill:#999;stroke:none;stroke-width:2.47642"
+                        />
+                    </g>
+                </g>
+                <image
+                    y="54.528896"
+                    x="47.422134"
+                    width="32"
+                    height="32"
+                    preserveAspectRatio="none"
+                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipHighPowerModules(), 27).itemTypeID + '/icon?size=32'"
+                />
+            </g>
+            <g class="ammo" v-if="getModuleAmmo(shipHighPowerModules(), 27) != undefined">
+                <image
+                    y="74.382492"
+                    x="71.231323"
+                    width="26"
+                    height="26"
+                    preserveAspectRatio="none"
+                    :href="EVEONLINE_IMAGE+'types/' + getModuleAmmo(shipHighPowerModules(), 27).itemTypeID + '/icon?size=32'"
+                    style="stroke-width:1.23077"
+                />
+            </g>
+        </g>
+        <g
+            id="hiSlot1"
+            class="hiSlotRack flag28"
+            v-if="getModule(shipHighPowerModules(), 28) != undefined"
+        >
+            <g class="module">
+                <g
+                    style="stroke-width:2.47643"
+                    transform="matrix(0.33795549,-0.22496462,0.23333036,0.32717273,-2.0449835,44.021946)"
+                >
+                    <g transform="translate(120.23686,-139.05355)" style="stroke-width:2.47643">
+                        <g
+                            style="fill:none;stroke-width:2.47642"
+                            transform="translate(-175.94714,100.15297)"
+                        >
+                            <g style="fill:none;stroke-width:2.47642">
+                                <path
+                                    style="fill:none;stroke-width:2.47642"
+                                    d="m 190,140 q 45,-5 80,0 l -5,70 q -30,-3 -70,0 z"
+                                    stroke-width="11.7566"
+                                    stroke="#808080"
+                                    fill="transparent"
+                                />
+                            </g>
+                        </g>
+                        <rect
+                            rx="0"
+                            transform="matrix(-0.8631108,0.50501461,0.50374905,0.86385004,0,0)"
+                            ry="0"
+                            y="264.60129"
+                            x="98.584892"
+                            height="5.0017872"
+                            width="19.992865"
+                            style="fill:#999;stroke:none;stroke-width:2.47642"
+                        />
+                        <rect
+                            style="fill:#999;stroke:none;stroke-width:2.47642"
+                            width="19.992792"
+                            height="5.0018005"
+                            x="190.78946"
+                            y="-216.61035"
+                            ry="0"
+                            transform="matrix(0.86745383,0.49751769,0.49806845,-0.86713771,0,0)"
+                            rx="0"
+                        />
+                        <rect
+                            style="fill:#999;stroke:none;stroke-width:2.47642"
+                            width="19.999998"
+                            height="5"
+                            x="253.68503"
+                            y="50.329563"
+                            ry="0"
+                            transform="matrix(0.00461025,0.99998937,0.99999364,-0.00356563,0,0)"
+                            rx="0"
+                        />
+                    </g>
+                </g>
+                <image
+                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipHighPowerModules(), 28).itemTypeID + '/icon?size=32'"
+                    preserveAspectRatio="none"
+                    height="32"
+                    width="32"
+                    x="72.929329"
+                    y="33.425224"
+                />
+            </g>
+            <g class="ammo" v-if="getModuleAmmo(shipHighPowerModules(), 28) != undefined">
+                <image
+                    y="58.679363"
+                    x="91.919563"
+                    width="26"
+                    height="26"
+                    preserveAspectRatio="none"
+                    :href="EVEONLINE_IMAGE+'types/' + getModuleAmmo(shipHighPowerModules(), 28).itemTypeID + '/icon?size=32'"
+                    style="stroke-width:1.23077"
+                />
+            </g>
+        </g>
+        <g
+            id="hiSlot2"
+            class="hiSlotRack flag29"
+            v-if="getModule(shipHighPowerModules(), 29) != undefined"
+        >
+            <g class="module">
+                <g
+                    style="stroke-width:2.47643"
+                    transform="matrix(0.38466394,-0.13839191,0.14395464,0.37211376,31.700792,7.9382574)"
+                >
+                    <g transform="translate(120.23686,-139.05355)" style="stroke-width:2.47643">
+                        <g
+                            style="fill:none;stroke-width:2.47642"
+                            transform="translate(-175.94714,100.15297)"
+                        >
+                            <g style="fill:none;stroke-width:2.47642">
+                                <path
+                                    style="fill:none;stroke-width:2.47642"
+                                    d="m 190,140 q 45,-5 80,0 l -5,70 q -30,-3 -70,0 z"
+                                    stroke-width="11.7566"
+                                    stroke="#808080"
+                                    fill="transparent"
+                                />
+                            </g>
+                        </g>
+                        <rect
+                            rx="0"
+                            transform="matrix(-0.8631108,0.50501461,0.50374905,0.86385004,0,0)"
+                            ry="0"
+                            y="264.60129"
+                            x="98.584892"
+                            height="5.0017872"
+                            width="19.992865"
+                            style="fill:#999;stroke:none;stroke-width:2.47642"
+                        />
+                        <rect
+                            style="fill:#999;stroke:none;stroke-width:2.47642"
+                            width="19.992792"
+                            height="5.0018005"
+                            x="190.78946"
+                            y="-216.61035"
+                            ry="0"
+                            transform="matrix(0.86745383,0.49751769,0.49806845,-0.86713771,0,0)"
+                            rx="0"
+                        />
+                        <rect
+                            style="fill:#999;stroke:none;stroke-width:2.47642"
+                            width="19.999998"
+                            height="5"
+                            x="253.68503"
+                            y="50.329563"
+                            ry="0"
+                            transform="matrix(0.00461025,0.99998937,0.99999364,-0.00356563,0,0)"
+                            rx="0"
+                        />
+                    </g>
+                </g>
+                <image
+                    y="18.220612"
+                    x="102.59079"
+                    width="32"
+                    height="32"
+                    preserveAspectRatio="none"
+                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipHighPowerModules(), 29).itemTypeID + '/icon?size=32'"
+                />
+            </g>
+            <g class="ammo" v-if="getModuleAmmo(shipHighPowerModules(), 29) != undefined">
+                <image
+                    y="46.881248"
+                    x="115.43271"
+                    width="26"
+                    height="26"
+                    preserveAspectRatio="none"
+                    :href="EVEONLINE_IMAGE+'types/' + getModuleAmmo(shipHighPowerModules(), 29).itemTypeID + '/icon?size=32'"
+                    style="stroke-width:1.23077"
+                />
+            </g>
+        </g>
+        <g
+            id="hiSlot3"
+            class="hiSlotRack flag30"
+            v-if="getModule(shipHighPowerModules(), 30) != undefined"
+        >
+            <g class="module">
+                <g
+                    style="stroke-width:2.47643"
+                    transform="matrix(0.40784159,-0.04618957,0.04870443,0.39429836,73.216432,-18.80523)"
+                >
+                    <g transform="translate(120.23686,-139.05355)" style="stroke-width:2.47643">
+                        <g
+                            style="fill:none;stroke-width:2.47642"
+                            transform="translate(-175.94714,100.15297)"
+                        >
+                            <g style="fill:none;stroke-width:2.47642">
+                                <path
+                                    style="fill:none;stroke-width:2.47642"
+                                    d="m 190,140 q 45,-5 80,0 l -5,70 q -30,-3 -70,0 z"
+                                    stroke-width="11.7566"
+                                    stroke="#808080"
+                                    fill="transparent"
+                                />
+                            </g>
+                        </g>
+                        <rect
+                            rx="0"
+                            transform="matrix(-0.8631108,0.50501461,0.50374905,0.86385004,0,0)"
+                            ry="0"
+                            y="264.60129"
+                            x="98.584892"
+                            height="5.0017872"
+                            width="19.992865"
+                            style="fill:#999;stroke:none;stroke-width:2.47642"
+                        />
+                        <rect
+                            style="fill:#999;stroke:none;stroke-width:2.47642"
+                            width="19.992792"
+                            height="5.0018005"
+                            x="190.78946"
+                            y="-216.61035"
+                            ry="0"
+                            transform="matrix(0.86745383,0.49751769,0.49806845,-0.86713771,0,0)"
+                            rx="0"
+                        />
+                        <rect
+                            style="fill:#999;stroke:none;stroke-width:2.47642"
+                            width="19.999998"
+                            height="5"
+                            x="253.68503"
+                            y="50.329563"
+                            ry="0"
+                            transform="matrix(0.00461025,0.99998937,0.99999364,-0.00356563,0,0)"
+                            rx="0"
+                        />
+                    </g>
+                </g>
+                <image
+                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipHighPowerModules(), 30).itemTypeID + '/icon?size=32'"
+                    preserveAspectRatio="none"
+                    height="32"
+                    width="32"
+                    x="135.57565"
+                    y="10.327506"
+                />
+            </g>
+            <g class="ammo" v-if="getModuleAmmo(shipHighPowerModules(), 30) != undefined">
+                <image
+                    style="stroke-width:1.23077"
+                    :href="EVEONLINE_IMAGE+'types/' + getModuleAmmo(shipHighPowerModules(), 30).itemTypeID + '/icon?size=32'"
+                    preserveAspectRatio="none"
+                    height="26"
+                    width="26"
+                    x="142.35806"
+                    y="40.317509"
+                />
+            </g>
+        </g>
+        <g
+            id="hiSlot4"
+            class="hiSlotRack flag31"
+            v-if="getModule(shipHighPowerModules(), 31) != undefined"
+        >
+            <g class="module">
+                <g
+                    transform="matrix(0.40790747,0.04751213,-0.04815004,0.39414133,119.74278,-35.057187)"
+                    style="stroke-width:2.47643"
+                >
+                    <g transform="translate(120.23686,-139.05355)" style="stroke-width:2.47643">
+                        <g
+                            transform="translate(-175.94714,100.15297)"
+                            style="fill:none;stroke-width:2.47642"
+                        >
+                            <g style="fill:none;stroke-width:2.47642">
+                                <path
+                                    fill="transparent"
+                                    stroke="#808080"
+                                    stroke-width="11.7566"
+                                    d="m 190,140 q 45,-5 80,0 l -5,70 q -30,-3 -70,0 z"
+                                    style="fill:none;stroke-width:2.47642"
+                                />
+                            </g>
+                        </g>
+                        <rect
+                            style="fill:#999;stroke:none;stroke-width:2.47642"
+                            width="19.992865"
+                            height="5.0017872"
+                            x="98.584892"
+                            y="264.60129"
+                            ry="0"
+                            transform="matrix(-0.8631108,0.50501461,0.50374905,0.86385004,0,0)"
+                            rx="0"
+                        />
+                        <rect
+                            rx="0"
+                            transform="matrix(0.86745383,0.49751769,0.49806845,-0.86713771,0,0)"
+                            ry="0"
+                            y="-216.61035"
+                            x="190.78946"
+                            height="5.0018005"
+                            width="19.992792"
+                            style="fill:#999;stroke:none;stroke-width:2.47642"
+                        />
+                        <rect
+                            rx="0"
+                            transform="matrix(0.00461025,0.99998937,0.99999364,-0.00356563,0,0)"
+                            ry="0"
+                            y="50.329563"
+                            x="253.68503"
+                            height="5"
+                            width="19.999998"
+                            style="fill:#999;stroke:none;stroke-width:2.47642"
+                        />
+                    </g>
+                </g>
+                <image
+                    y="11.407616"
+                    x="168.57268"
+                    width="32"
+                    height="32"
+                    preserveAspectRatio="none"
+                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipHighPowerModules(), 31).itemTypeID + '/icon?size=32'"
+                />
+            </g>
+            <g class="ammo" v-if="getModuleAmmo(shipHighPowerModules(), 31) != undefined">
+                <image
+                    y="40.317509"
+                    x="168.35806"
+                    width="26"
+                    height="26"
+                    preserveAspectRatio="none"
+                    :href="EVEONLINE_IMAGE+'types/' + getModuleAmmo(shipHighPowerModules(), 31).itemTypeID + '/icon?size=32'"
+                    style="stroke-width:1.23077"
+                />
+            </g>
+        </g>
+        <g
+            id="hiSlot5"
+            class="hiSlotRack flag32"
+            v-if="getModule(shipHighPowerModules(), 32) != undefined"
+        >
+            <g class="module">
+                <g
+                    style="stroke-width:2.47643"
+                    transform="matrix(0.38508903,0.13904324,-0.14281475,0.37187109,169.25916,-40.411316)"
+                >
+                    <g transform="translate(120.23686,-139.05355)" style="stroke-width:2.47643">
+                        <g
+                            style="fill:none;stroke-width:2.47642"
+                            transform="translate(-175.94714,100.15297)"
+                        >
+                            <g style="fill:none;stroke-width:2.47642">
+                                <path
+                                    style="fill:none;stroke-width:2.47642"
+                                    d="m 190,140 q 45,-5 80,0 l -5,70 q -30,-3 -70,0 z"
+                                    stroke-width="11.7566"
+                                    stroke="#808080"
+                                    fill="transparent"
+                                />
+                            </g>
+                        </g>
+                        <rect
+                            rx="0"
+                            transform="matrix(-0.8631108,0.50501461,0.50374905,0.86385004,0,0)"
+                            ry="0"
+                            y="264.60129"
+                            x="98.584892"
+                            height="5.0017872"
+                            width="19.992865"
+                            style="fill:#999;stroke:none;stroke-width:2.47642"
+                        />
+                        <rect
+                            style="fill:#999;stroke:none;stroke-width:2.47642"
+                            width="19.992792"
+                            height="5.0018005"
+                            x="190.78946"
+                            y="-216.61035"
+                            ry="0"
+                            transform="matrix(0.86745383,0.49751769,0.49806845,-0.86713771,0,0)"
+                            rx="0"
+                        />
+                        <rect
+                            style="fill:#999;stroke:none;stroke-width:2.47642"
+                            width="19.999998"
+                            height="5"
+                            x="253.68503"
+                            y="50.329563"
+                            ry="0"
+                            transform="matrix(0.00461025,0.99998937,0.99999364,-0.00356563,0,0)"
+                            rx="0"
+                        />
+                    </g>
+                </g>
+                <image
+                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipHighPowerModules(), 32).itemTypeID + '/icon?size=32'"
+                    preserveAspectRatio="none"
+                    height="32"
+                    width="32"
+                    x="201.30829"
+                    y="19.633062"
+                />
+            </g>
+            <g class="ammo" v-if="getModuleAmmo(shipHighPowerModules(), 32) != undefined">
+                <image
+                    style="stroke-width:1.23077"
+                    :href="EVEONLINE_IMAGE+'types/' + getModuleAmmo(shipHighPowerModules(), 32).itemTypeID + '/icon?size=32'"
+                    preserveAspectRatio="none"
+                    height="26"
+                    width="26"
+                    x="194.94536"
+                    y="46.216564"
+                />
+            </g>
+        </g>
+        <g
+            id="hiSlot6"
+            class="hiSlotRack flag33"
+            v-if="getModule(shipHighPowerModules(), 33) != undefined"
+        >
+            <g class="module">
+                <g
+                    transform="matrix(0.33880176,0.22531754,-0.23210107,0.32693001,219.30823,-34.264042)"
+                    style="stroke-width:2.47643"
+                >
+                    <g transform="translate(120.23686,-139.05355)" style="stroke-width:2.47643">
+                        <g
+                            transform="translate(-175.94714,100.15297)"
+                            style="fill:none;stroke-width:2.47642"
+                        >
+                            <g style="fill:none;stroke-width:2.47642">
+                                <path
+                                    fill="transparent"
+                                    stroke="#808080"
+                                    stroke-width="11.7566"
+                                    d="m 190,140 q 45,-5 80,0 l -5,70 q -30,-3 -70,0 z"
+                                    style="fill:none;stroke-width:2.47642"
+                                />
+                            </g>
+                        </g>
+                        <rect
+                            style="fill:#999;stroke:none;stroke-width:2.47642"
+                            width="19.992865"
+                            height="5.0017872"
+                            x="98.584892"
+                            y="264.60129"
+                            ry="0"
+                            transform="matrix(-0.8631108,0.50501461,0.50374905,0.86385004,0,0)"
+                            rx="0"
+                        />
+                        <rect
+                            rx="0"
+                            transform="matrix(0.86745383,0.49751769,0.49806845,-0.86713771,0,0)"
+                            ry="0"
+                            y="-216.61035"
+                            x="190.78946"
+                            height="5.0018005"
+                            width="19.992792"
+                            style="fill:#999;stroke:none;stroke-width:2.47642"
+                        />
+                        <rect
+                            rx="0"
+                            transform="matrix(0.00461025,0.99998937,0.99999364,-0.00356563,0,0)"
+                            ry="0"
+                            y="50.329563"
+                            x="253.68503"
+                            height="5"
+                            width="19.999998"
+                            style="fill:#999;stroke:none;stroke-width:2.47642"
+                        />
+                    </g>
+                </g>
+                <image
+                    y="34.671505"
+                    x="231.46826"
+                    width="32"
+                    height="32"
+                    preserveAspectRatio="none"
+                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipHighPowerModules(), 33).itemTypeID + '/icon?size=32'"
+                />
+            </g>
+            <g class="ammo" v-if="getModuleAmmo(shipHighPowerModules(), 33) != undefined">
+                <image
+                    y="59.177876"
+                    x="219.28934"
+                    width="26"
+                    height="26"
+                    preserveAspectRatio="none"
+                    :href="EVEONLINE_IMAGE+'types/' + getModuleAmmo(shipHighPowerModules(), 33).itemTypeID + '/icon?size=32'"
+                    style="stroke-width:1.23077"
+                />
+            </g>
+        </g>
+        <g
+            id="hiSlot7"
+            class="hiSlotRack flag34"
+            v-if="getModule(shipHighPowerModules(), 34) != undefined"
+        >
+            <g class="module">
+                <g
+                    style="stroke-width:2.47643"
+                    transform="matrix(0.27555844,0.29516413,-0.30444684,0.26563918,265.4145,-16.743357)"
+                >
+                    <g transform="translate(120.23686,-139.05355)" style="stroke-width:2.47643">
+                        <g
+                            style="fill:none;stroke-width:2.47642"
+                            transform="translate(-175.94714,100.15297)"
+                        >
+                            <g style="fill:none;stroke-width:2.47642">
+                                <path
+                                    style="fill:none;stroke-width:2.47642"
+                                    d="m 190,140 q 45,-5 80,0 l -5,70 q -30,-3 -70,0 z"
+                                    stroke-width="11.7566"
+                                    stroke="#808080"
+                                    fill="transparent"
+                                />
+                            </g>
+                        </g>
+                        <rect
+                            rx="0"
+                            transform="matrix(-0.8631108,0.50501461,0.50374905,0.86385004,0,0)"
+                            ry="0"
+                            y="264.60129"
+                            x="98.584892"
+                            height="5.0017872"
+                            width="19.992865"
+                            style="fill:#999;stroke:none;stroke-width:2.47642"
+                        />
+                        <rect
+                            style="fill:#999;stroke:none;stroke-width:2.47642"
+                            width="19.992792"
+                            height="5.0018005"
+                            x="190.78946"
+                            y="-216.61035"
+                            ry="0"
+                            transform="matrix(0.86745383,0.49751769,0.49806845,-0.86713771,0,0)"
+                            rx="0"
+                        />
+                        <rect
+                            style="fill:#999;stroke:none;stroke-width:2.47642"
+                            width="19.999998"
+                            height="5"
+                            x="253.68503"
+                            y="50.329563"
+                            ry="0"
+                            transform="matrix(0.00461025,0.99998937,0.99999364,-0.00356563,0,0)"
+                            rx="0"
+                        />
+                    </g>
+                </g>
+                <image
+                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipHighPowerModules(), 34).itemTypeID + '/icon?size=32'"
+                    preserveAspectRatio="none"
+                    height="32"
+                    width="32"
+                    x="256.14459"
+                    y="55.941345"
+                />
+            </g>
+            <g class="ammo" v-if="getModuleAmmo(shipHighPowerModules(), 34) != undefined">
+                <image
+                    style="stroke-width:1.23077"
+                    :href="EVEONLINE_IMAGE+'types/' + getModuleAmmo(shipHighPowerModules(), 34).itemTypeID + '/icon?size=32'"
+                    preserveAspectRatio="none"
+                    height="26"
+                    width="26"
+                    x="238.64822"
+                    y="76.376534"
+                />
+            </g>
+        </g>
+        <g
+            id="subSystem0"
+            class="subSystemRack flag125"
+            v-if="getModule(shipSubsystemModules(), 125) != undefined"
+        >
+            <g class="module">
+                <g
+                    transform="matrix(0.72854279,-0.5851356,0.59685915,0.71637958,-88.834203,-12.852654)"
+                    style="stroke-width:1.0714"
+                >
+                    <g
+                        style="fill:none;stroke-width:2.52636"
+                        transform="matrix(0.42172657,-0.04563774,0.04561589,0.42152468,-26.914177,177.35408)"
+                    >
+                        <g style="fill:none;stroke-width:2.52636">
+                            <path
+                                style="fill:none;stroke-width:2.52636"
+                                d="m 190,140 q 45,-8 80,0 l -8,70 q -30,-6 -62,0 z"
+                                stroke-width="11.7566"
+                                stroke="#808080"
+                                fill="transparent"
+                            />
+                        </g>
+                    </g>
+                    <g
+                        transform="matrix(3.7583823,-0.39923851,0.39923851,3.7583823,-83.106323,-59.105887)"
+                        style="stroke-width:1.0714"
+                    >
+                        <path
+                            style="fill:none;stroke:gray;stroke-width:.283474px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+                            d="m 32.948827,80.789059 1.200573,-0.906183 1.187782,0.919349"
+                        />
+                        <path
+                            d="m 35.893687,81.22157 1.190086,0.91276 -0.447155,1.422759"
+                            style="fill:none;stroke:gray;stroke-width:.283474px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+                        />
+                        <path
+                            style="fill:none;stroke:gray;stroke-width:.283474px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+                            d="m 36.395968,84.330368 -0.441516,1.426233 -1.493883,-0.0064"
+                        />
+                        <path
+                            d="m 31.886377,84.330368 0.441516,1.426233 1.493883,-0.0064"
+                            style="fill:none;stroke:gray;stroke-width:.283474px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+                        />
+                        <path
+                            style="fill:none;stroke:gray;stroke-width:.283474px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+                            d="m 32.403272,81.213225 -1.195053,0.906247 0.43938,1.42518"
+                        />
+                    </g>
+                </g>
+                <image
+                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipSubsystemModules(), 125).itemTypeID + '/icon?size=32'"
+                    preserveAspectRatio="none"
+                    height="32"
+                    width="32"
+                    x="95.540672"
+                    y="97.567093"
+                />
+            </g>
+        </g>
+        <g
+            id="subSystem1"
+            class="subSystemRack flag126"
+            v-if="getModule(shipSubsystemModules(), 126) != undefined"
+        >
+            <g class="module">
+                <g
+                    transform="matrix(0.89138421,-0.30000099,0.30404067,0.87498097,-6.0371743,-90.789053)"
+                    style="stroke-width:1.0714"
+                >
+                    <g
+                        transform="matrix(0.42172657,-0.04563774,0.04561589,0.42152468,-26.914177,177.35408)"
+                        style="fill:none;stroke-width:2.52636"
+                    >
+                        <g style="fill:none;stroke-width:2.52636">
+                            <path
+                                fill="transparent"
+                                stroke="#808080"
+                                stroke-width="11.7566"
+                                d="m 190,140 q 45,-8 80,0 l -8,70 q -30,-6 -62,0 z"
+                                style="fill:none;stroke-width:2.52636"
+                            />
+                        </g>
+                    </g>
+                    <g
+                        transform="matrix(3.7583823,-0.39923851,0.39923851,3.7583823,-83.106323,-59.105887)"
+                        style="stroke-width:1.0714"
+                    >
+                        <path
+                            d="m 32.948827,80.789059 1.200573,-0.906183 1.187782,0.919349"
+                            style="fill:none;stroke:gray;stroke-width:.283474px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+                        />
+                        <path
+                            style="fill:none;stroke:gray;stroke-width:.283474px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+                            d="m 35.893687,81.22157 1.190086,0.91276 -0.447155,1.422759"
+                        />
+                        <path
+                            d="m 36.395968,84.330368 -0.441516,1.426233 -1.493883,-0.0064"
+                            style="fill:none;stroke:gray;stroke-width:.283474px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+                        />
+                        <path
+                            style="fill:none;stroke:gray;stroke-width:.283474px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+                            d="m 31.886377,84.330368 0.441516,1.426233 1.493883,-0.0064"
+                        />
+                        <path
+                            d="m 32.403272,81.213225 -1.195053,0.906247 0.43938,1.42518"
+                            style="fill:none;stroke:gray;stroke-width:.283474px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+                        />
+                    </g>
+                </g>
+                <image
+                    y="80.036095"
+                    x="120.38319"
+                    width="32"
+                    height="32"
+                    preserveAspectRatio="none"
+                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipSubsystemModules(), 126).itemTypeID + '/icon?size=32'"
+                />
+            </g>
+        </g>
+        <g
+            id="subSystem2"
+            class="subSystemRack flag127"
+            v-if="getModule(shipSubsystemModules(), 127) != undefined"
+        >
+            <g class="module">
+                <g
+                    transform="matrix(0.93596109,0.10192219,-0.1049217,0.91933616,119.9484,-139.83025)"
+                    style="stroke-width:1.0714"
+                >
+                    <g
+                        style="fill:none;stroke-width:2.52636"
+                        transform="matrix(0.42172657,-0.04563774,0.04561589,0.42152468,-26.914177,177.35408)"
+                    >
+                        <g style="fill:none;stroke-width:2.52636">
+                            <path
+                                style="fill:none;stroke-width:2.52636"
+                                d="m 190,140 q 45,-8 80,0 l -8,70 q -30,-6 -62,0 z"
+                                stroke-width="11.7566"
+                                stroke="#808080"
+                                fill="transparent"
+                            />
+                        </g>
+                    </g>
+                    <g
+                        transform="matrix(3.7583823,-0.39923851,0.39923851,3.7583823,-83.106323,-59.105887)"
+                        style="stroke-width:1.0714"
+                    >
+                        <path
+                            style="fill:none;stroke:gray;stroke-width:.283474px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+                            d="m 32.948827,80.789059 1.200573,-0.906183 1.187782,0.919349"
+                        />
+                        <path
+                            d="m 35.893687,81.22157 1.190086,0.91276 -0.447155,1.422759"
+                            style="fill:none;stroke:gray;stroke-width:.283474px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+                        />
+                        <path
+                            style="fill:none;stroke:gray;stroke-width:.283474px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+                            d="m 36.395968,84.330368 -0.441516,1.426233 -1.493883,-0.0064"
+                        />
+                        <path
+                            d="m 31.886377,84.330368 0.441516,1.426233 1.493883,-0.0064"
+                            style="fill:none;stroke:gray;stroke-width:.283474px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+                        />
+                        <path
+                            style="fill:none;stroke:gray;stroke-width:.283474px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+                            d="m 32.403272,81.213225 -1.195053,0.906247 0.43938,1.42518"
+                        />
+                    </g>
+                </g>
+                <image
+                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipSubsystemModules(), 127).itemTypeID + '/icon?size=32'"
+                    preserveAspectRatio="none"
+                    height="32"
+                    width="32"
+                    x="152.20485"
+                    y="73.140007"
+                />
+            </g>
+        </g>
+        <g
+            id="subSystem3"
+            class="subSystemRack flag128"
+            v-if="getModule(shipSubsystemModules(), 128) != undefined"
+        >
+            <g class="module">
+                <g
+                    transform="matrix(0.80650137,0.47642496,-0.48637648,0.79285027,252.79485,-132.16716)"
+                    style="stroke-width:1.0714"
+                >
+                    <g
+                        transform="matrix(0.42172657,-0.04563774,0.04561589,0.42152468,-26.914177,177.35408)"
+                        style="fill:none;stroke-width:2.52636"
+                    >
+                        <g style="fill:none;stroke-width:2.52636">
+                            <path
+                                fill="transparent"
+                                stroke="#808080"
+                                stroke-width="11.7566"
+                                d="m 190,140 q 45,-8 80,0 l -8,70 q -30,-6 -62,0 z"
+                                style="fill:none;stroke-width:2.52636"
+                            />
+                        </g>
+                    </g>
+                    <g
+                        transform="matrix(3.7583823,-0.39923851,0.39923851,3.7583823,-83.106323,-59.105887)"
+                        style="stroke-width:1.0714"
+                    >
+                        <path
+                            d="m 32.948827,80.789059 1.200573,-0.906183 1.187782,0.919349"
+                            style="fill:none;stroke:gray;stroke-width:.283474px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+                        />
+                        <path
+                            style="fill:none;stroke:gray;stroke-width:.283474px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+                            d="m 35.893687,81.22157 1.190086,0.91276 -0.447155,1.422759"
+                        />
+                        <path
+                            d="m 36.395968,84.330368 -0.441516,1.426233 -1.493883,-0.0064"
+                            style="fill:none;stroke:gray;stroke-width:.283474px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+                        />
+                        <path
+                            style="fill:none;stroke:gray;stroke-width:.283474px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+                            d="m 31.886377,84.330368 0.441516,1.426233 1.493883,-0.0064"
+                        />
+                        <path
+                            d="m 32.403272,81.213225 -1.195053,0.906247 0.43938,1.42518"
+                            style="fill:none;stroke:gray;stroke-width:.283474px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+                        />
+                    </g>
+                </g>
+                <image
+                    y="79.371407"
+                    x="183.94345"
+                    width="32"
+                    height="32"
+                    preserveAspectRatio="none"
+                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipSubsystemModules(), 128).itemTypeID + '/icon?size=32'"
+                />
+            </g>
+        </g>
+        <g
+            id="subSystem4"
+            class="subSystemRack flag129"
+            v-if="getModule(shipSubsystemModules(), 129) != undefined"
+        >
+            <g class="module">
+                <g
+                    transform="matrix(0.56946285,0.73409452,-0.74979463,0.56322656,359.82564,-79.637392)"
+                    style="stroke-width:1.0714"
+                >
+                    <g
+                        style="fill:none;stroke-width:2.52636"
+                        transform="matrix(0.42172657,-0.04563774,0.04561589,0.42152468,-26.914177,177.35408)"
+                    >
+                        <g style="fill:none;stroke-width:2.52636">
+                            <path
+                                style="fill:none;stroke-width:2.52636"
+                                d="m 190,140 q 45,-8 80,0 l -8,70 q -30,-6 -62,0 z"
+                                stroke-width="11.7566"
+                                stroke="#808080"
+                                fill="transparent"
+                            />
+                        </g>
+                    </g>
+                    <g
+                        transform="matrix(3.7583823,-0.39923851,0.39923851,3.7583823,-83.106323,-59.105887)"
+                        style="stroke-width:1.0714"
+                    >
+                        <path
+                            style="fill:none;stroke:gray;stroke-width:.283474px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+                            d="m 32.948827,80.789059 1.200573,-0.906183 1.187782,0.919349"
+                        />
+                        <path
+                            d="m 35.893687,81.22157 1.190086,0.91276 -0.447155,1.422759"
+                            style="fill:none;stroke:gray;stroke-width:.283474px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+                        />
+                        <path
+                            style="fill:none;stroke:gray;stroke-width:.283474px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+                            d="m 36.395968,84.330368 -0.441516,1.426233 -1.493883,-0.0064"
+                        />
+                        <path
+                            d="m 31.886377,84.330368 0.441516,1.426233 1.493883,-0.0064"
+                            style="fill:none;stroke:gray;stroke-width:.283474px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+                        />
+                        <path
+                            style="fill:none;stroke:gray;stroke-width:.283474px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+                            d="m 32.403272,81.213225 -1.195053,0.906247 0.43938,1.42518"
+                        />
+                    </g>
+                </g>
+                <image
+                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipSubsystemModules(), 129).itemTypeID + '/icon?size=32'"
+                    preserveAspectRatio="none"
+                    height="32"
+                    width="32"
+                    x="208.61978"
+                    y="97.234741"
+                />
+            </g>
+        </g>
+        <g
+            id="rigSlot0"
+            class="rigRack flag92"
+            v-if="getModule(shipRigModules(), 92) != undefined"
+        >
+            <g class="module">
+                <g transform="rotate(16.38068,502.61462,-219.72224)">
+                    <g
+                        transform="matrix(-0.4194982,-0.06290762,0.0628775,-0.41929737,362.6291,404.02815)"
+                        style="fill:none;stroke-width:2.358"
+                    >
+                        <g style="fill:none;stroke-width:2.358">
+                            <path
+                                fill="transparent"
+                                stroke="#808080"
+                                stroke-width="11.7566"
+                                d="m 190,140 q 45,-8 80,0 l -8,70 q -30,-6 -62,0 z"
+                                style="fill:none;stroke-width:2.358"
+                            />
+                        </g>
+                    </g>
+                    <g
+                        transform="matrix(-3.7366245,-0.56786112,0.56786112,-3.7366245,765.37226,795.47516)"
+                    >
+                        <path
+                            d="m 149.78651,106.30006 c 6.7e-4,1.50276 -0.67513,2.22138 -2.22128,2.22113"
+                            style="fill:none;stroke:gray;stroke-width:.265;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                        />
+                        <path
+                            style="fill:none;stroke:gray;stroke-width:.264999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                            d="m 143.8975,106.30006 c -6.7e-4,1.50276 0.67513,2.22138 2.22128,2.22113"
+                        />
+                        <path
+                            style="fill:none;stroke:gray;stroke-width:.264999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                            d="m 149.78651,105.15363 c 6.7e-4,-1.50276 -0.67513,-2.22138 -2.22128,-2.22113"
+                        />
+                        <path
+                            d="m 143.8975,105.15363 c -6.7e-4,-1.50276 0.67513,-2.22138 2.22128,-2.22113"
+                            style="fill:none;stroke:gray;stroke-width:.264999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                        />
+                    </g>
+                </g>
+                <image
+                    y="215.79749"
+                    x="118.72147"
+                    width="32"
+                    height="32"
+                    preserveAspectRatio="none"
+                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipRigModules(), 92).itemTypeID + '/icon?size=32'"
+                />
+            </g>
+        </g>
+        <g
+            id="rigSlot1"
+            class="rigRack flag93"
+            v-if="getModule(shipRigModules(), 93) != undefined"
+        >
+            <g class="module">
+                <g transform="rotate(-8.5414574,-302.11386,1008.9749)">
+                    <g
+                        style="fill:none;stroke-width:2.358"
+                        transform="matrix(-0.4194982,-0.06290762,0.0628775,-0.41929737,362.6291,404.02815)"
+                    >
+                        <g style="fill:none;stroke-width:2.358">
+                            <path
+                                style="fill:none;stroke-width:2.358"
+                                d="m 190,140 q 45,-8 80,0 l -8,70 q -30,-6 -62,0 z"
+                                stroke-width="11.7566"
+                                stroke="#808080"
+                                fill="transparent"
+                            />
+                        </g>
+                    </g>
+                    <g
+                        transform="matrix(-3.7366245,-0.56786112,0.56786112,-3.7366245,765.37226,795.47516)"
+                    >
+                        <path
+                            style="fill:none;stroke:gray;stroke-width:.265;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                            d="m 149.78651,106.30006 c 6.7e-4,1.50276 -0.67513,2.22138 -2.22128,2.22113"
+                        />
+                        <path
+                            d="m 143.8975,106.30006 c -6.7e-4,1.50276 0.67513,2.22138 2.22128,2.22113"
+                            style="fill:none;stroke:gray;stroke-width:.264999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                        />
+                        <path
+                            d="m 149.78651,105.15363 c 6.7e-4,-1.50276 -0.67513,-2.22138 -2.22128,-2.22113"
+                            style="fill:none;stroke:gray;stroke-width:.264999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                        />
+                        <path
+                            style="fill:none;stroke:gray;stroke-width:.264999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                            d="m 143.8975,105.15363 c -6.7e-4,-1.50276 0.67513,-2.22138 2.22128,-2.22113"
+                        />
+                    </g>
+                </g>
+                <image
+                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipRigModules(), 93).itemTypeID + '/icon?size=32'"
+                    preserveAspectRatio="none"
+                    height="32"
+                    width="32"
+                    x="151.45709"
+                    y="222.77667"
+                />
+            </g>
+        </g>
+        <g
+            id="rigSlot2"
+            class="rigRack flag94"
+            v-if="getModule(shipRigModules(), 94) != undefined"
+        >
+            <g class="module">
+                <image
+                    y="216.21292"
+                    x="184.52505"
+                    width="32"
+                    height="32"
+                    preserveAspectRatio="none"
+                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipRigModules(), 94).itemTypeID + '/icon?size=32'"
+                />
+                <g
+                    transform="matrix(-0.95940913,0.28201796,0.28201796,0.95940913,376.41163,-150.66506)"
+                >
+                    <g
+                        style="fill:none;stroke-width:2.358"
+                        transform="matrix(-0.4194982,-0.06290762,0.0628775,-0.41929737,362.6291,404.02815)"
+                    >
+                        <g style="fill:none;stroke-width:2.358">
+                            <path
+                                style="fill:none;stroke-width:2.358"
+                                d="m 190,140 q 45,-8 80,0 l -8,70 q -30,-6 -62,0 z"
+                                stroke-width="11.7566"
+                                stroke="#808080"
+                                fill="transparent"
+                            />
+                        </g>
+                    </g>
+                    <g
+                        transform="matrix(-3.7366245,-0.56786112,0.56786112,-3.7366245,765.37226,795.47516)"
+                    >
+                        <path
+                            style="fill:none;stroke:gray;stroke-width:.265;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                            d="m 149.78651,106.30006 c 6.7e-4,1.50276 -0.67513,2.22138 -2.22128,2.22113"
+                        />
+                        <path
+                            d="m 143.8975,106.30006 c -6.7e-4,1.50276 0.67513,2.22138 2.22128,2.22113"
+                            style="fill:none;stroke:gray;stroke-width:.264999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                        />
+                        <path
+                            d="m 149.78651,105.15363 c 6.7e-4,-1.50276 -0.67513,-2.22138 -2.22128,-2.22113"
+                            style="fill:none;stroke:gray;stroke-width:.264999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                        />
+                        <path
+                            style="fill:none;stroke:gray;stroke-width:.264999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                            d="m 143.8975,105.15363 c -6.7e-4,-1.50276 0.67513,-2.22138 2.22128,-2.22113"
+                        />
+                    </g>
+                </g>
+            </g>
+        </g>
+    </svg>
 </template>
 
 <script>
@@ -145,127 +2123,7 @@ export default {
             SHIP_LOW_SLOT_FLAG_IDS: SHIP_LOW_SLOT_FLAG_IDS,
             SHIP_RIG_SLOT_FLAG_IDS: SHIP_RIG_SLOT_FLAG_IDS,
             SHIP_SUB_SYSTEM_SLOT_FLAG_IDS: SHIP_SUB_SYSTEM_SLOT_FLAG_IDS,
-            EVEONLINE_IMAGE: EVEONLINE_IMAGE,
-            styles: {
-                panel: {
-                    mask:
-                        "position:absolute; left: 0px; top: 0 px; width:398px; height:398px; z-index:-1;",
-                    panel:
-                        "position:absolute; left: 0px; top: 0 px; width:398px; height:398px",
-                    high27:
-                        "position:absolute; left:73px; top:60px; width:32px; height:32px;",
-                    high28:
-                        "position:absolute; left:102px; top:42px; width:32px; height:32px;",
-                    high29:
-                        "position:absolute; left:134px; top:27px; width:32px; height:32px;",
-                    high30:
-                        "position:absolute; left:169px; top:21px; width:32px; height:32px;",
-                    high31:
-                        "position:absolute; left:203px; top:22px; width:32px; height:32px;",
-                    high32:
-                        "position:absolute; left:238px; top:30px; width:32px; height:32px;",
-                    high33:
-                        "position:absolute; left:270px; top:45px; width:32px; height:32px;",
-                    high34:
-                        "position:absolute; left:295px; top:64px; width:32px; height:32px;",
-                    high27c:
-                        "position:absolute; left:94px; top:88px; width:24px; height:24px;",
-                    high28c:
-                        "position:absolute; left:119px; top:70px; width:24px; height:24px;",
-                    high29c:
-                        "position:absolute; left:146px; top:58px; width:24px; height:24px;",
-                    high30c:
-                        "position:absolute; left:175px; top:52px; width:24px; height:24px;",
-                    high31c:
-                        "position:absolute; left:204px; top:52px; width:24px; height:24px;",
-                    high32c:
-                        "position:absolute; left:232px; top:60px; width:24px; height:24px;",
-                    high33c:
-                        "position:absolute; left:258px; top:72px; width:24px; height:24px;",
-                    high34c:
-                        "position:absolute; left:280px; top:91px; width:24px; height:24px;",
-                    med19:
-                        "position:absolute; left:26px; top:140px; width:32px; height:32px;",
-                    med20:
-                        "position:absolute; left:24px; top:176px; width:32px; height:32px;",
-                    med21:
-                        "position:absolute; left:23px; top:212px; width:32px; height:32px;",
-                    med22:
-                        "position:absolute; left:30px; top:245px; width:32px; height:32px;",
-                    med23:
-                        "position:absolute; left:46px; top:278px; width:32px; height:32px;",
-                    med24:
-                        "position:absolute; left:69px; top:304px; width:32px; height:32px;",
-                    med25:
-                        "position:absolute; left:100px; top:328px; width:32px; height:32px;",
-                    med26:
-                        "position:absolute; left:133px; top:342px; width:32px; height:32px;",
-                    med19c:
-                        "position:absolute; left:59px; top:154px; width:24px; height:24px;",
-                    med20c:
-                        "position:absolute; left:54px; top:182px; width:24px; height:24px;",
-                    med21c:
-                        "position:absolute; left:56px; top:210px; width:24px; height:24px;",
-                    med22c:
-                        "position:absolute; left:62px; top:238px; width:24px; height:24px;",
-                    med23c:
-                        "position:absolute; left:76px; top:265px; width:24px; height:24px;",
-                    med24c:
-                        "position:absolute; left:94px; top:288px; width:24px; height:24px;",
-                    med25c:
-                        "position:absolute; left:118px; top:305px; width:24px; height:24px;",
-                    med26c:
-                        "position:absolute; left:146px; top:318px; width:24px; height:24px;",
-                    low11:
-                        "position:absolute; left:344px; top:143px; width:32px; height:32px;",
-                    low12:
-                        "position:absolute; left:350px; top:178px; width:32px; height:32px;",
-                    low13:
-                        "position:absolute; left:349px; top:213px; width:32px; height:32px;",
-                    low14:
-                        "position:absolute; left:340px; top:246px; width:32px; height:32px;",
-                    low15:
-                        "position:absolute; left:323px; top:277px; width:32px; height:32px;",
-                    low16:
-                        "position:absolute; left:300px; top:304px; width:32px; height:32px;",
-                    low17:
-                        "position:absolute; left:268px; top:324px; width:32px; height:32px;",
-                    low18:
-                        "position:absolute; left:234px; top:338px; width:32px; height:32px;",
-                    low11c:
-                        "position:absolute; left:315px; top:150px; width:24px; height:24px;",
-                    low12c:
-                        "position:absolute; left:319px; top:179px; width:24px; height:24px;",
-                    low13c:
-                        "position:absolute; left:318px; top:206px; width:24px; height:24px;",
-                    low14c:
-                        "position:absolute; left:310px; top:234px; width:24px; height:24px;",
-                    low15c:
-                        "position:absolute; left:297px; top:261px; width:24px; height:24px;",
-                    low16c:
-                        "position:absolute; left:275px; top:283px; width:24px; height:24px;",
-                    low17c:
-                        "position:absolute; left:251px; top:300px; width:24px; height:24px;",
-                    low18c:
-                        "position:absolute; left:225px; top:310px; width:24px; height:24px;",
-                    rig92:
-                        "position:absolute; left:148px; top:259px; width:32px; height:32px;",
-                    rig93:
-                        "position:absolute; left:185px; top:267px; width:32px; height:32px;",
-                    rig94:
-                        "position:absolute; left:221px; top:259px; width:32px; height:32px;",
-                    sub125:
-                        "position:absolute; left:117px; top:131px; width:32px; height:32px;",
-                    sub126:
-                        "position:absolute; left:147px; top:108px; width:32px; height:32px;",
-                    sub127:
-                        "position:absolute; left:184px; top:98px; width:32px; height:32px;",
-                    sub128:
-                        "position:absolute; left:221px; top:107px; width:32px; height:32px;",
-                    sub129:
-                        "position:absolute; left:250px; top:131px; width:32px; height:32px;"
-                }
-            }
+            EVEONLINE_IMAGE: EVEONLINE_IMAGE
         };
     },
     methods: {
