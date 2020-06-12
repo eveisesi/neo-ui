@@ -74,7 +74,7 @@ export default {
             variables() {
                 return {
                     category: "kill",
-                    entity: "character",
+                    type: "character",
                     id: this.id,
                     age: 7,
                     limit: 6
