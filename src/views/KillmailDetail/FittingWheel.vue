@@ -2127,10 +2127,6 @@ export default {
         };
     },
     methods: {
-        getSlotImgURL(id, slot) {
-            return require(`./img/${id}${slot}.png`);
-        },
-
         getModule(modules, flagID) {
             return modules.find(
                 item => item.flag == flagID && item.type.group.categoryID != 8
