@@ -34,8 +34,8 @@ export default {
                     hash: this.hash
                 };
             },
-            error(error) {
-                this.error = JSON.stringify(error.message);
+            result(result, key) {
+                this.error = JSON.stringify(result.message);
             }
         }
     }

@@ -51,8 +51,8 @@ export default {
             result(result, key) {
                 this.killmails = result.data.killmails;
             },
-            error(error) {
-                this.error = JSON.stringify(error.message);
+            result(result, key) {
+                this.error = JSON.stringify(result.message);
             }
         },
         information: {
@@ -66,7 +66,7 @@ export default {
                 this.information = result.data.information;
             },
             error(result, key) {
-                this.error = JSON.stringify(error.message);
+                this.error = JSON.stringify(result.message);
             }
         },
         mv: {
@@ -84,7 +84,7 @@ export default {
                 this.mv = result.data.mv;
             },
             error(result, key) {
-                this.error = JSON.stringify(error.message);
+                this.error = JSON.stringify(result.message);
             }
         }
     }
