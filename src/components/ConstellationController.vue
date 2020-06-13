@@ -1,35 +1,34 @@
 <template>
-    <Loading v-if="$apollo.loading"></Loading>
-    <Error
-        v-else-if="error"
-        :error="error"
-    ></Error>
-    <b-container v-else>
+    <!-- <Loading v-if="$apollo.loading"></Loading>
+    <Error v-else-if="error" :error="error"></Error>-->
+    <b-container>
         <b-row>
             <b-col md="6">
-                <b-table-simple>
+                <ComponentLoading v-if="$apollo.queries.information.loading" />
+                <Error v-else-if="$apollo.queries.information.error" />
+                <b-table-simple v-else>
                     <b-tbody>
-                        <b-tr>
-                            <b-td
+                        <tr>
+                            <td
                                 rowspan="4"
                                 width="130"
                             >
-                                <!-- Replace this with a list of images of ships that are in this group -->
                                 <b-img
-                                    :src="EVEONLINE_IMAGE+'characters/1/portrait?size=64'"
+                                    :src="EVEONLINE_IMAGE+'types/9/render?size=128'"
                                     rounded
                                     fluid
                                     height="128"
                                     width="128"
                                 />
-                            </b-td>
-                            <b-td>Group</b-td>
+                            </td>
+                            <b-td>Constellation</b-td>
                             <b-td>{{information.name}}</b-td>
-                        </b-tr>
-                        <b-tr>
-                            <b-td v-if="information.group">
-                                Hello
-                                <!-- <router-link :to="{name:'alliances', params:{id: information.id}}"></router-link> -->
+                        </tr>
+
+                        <b-tr v-if="information.region">
+                            <b-td>Region</b-td>
+                            <b-td>
+                                <router-link :to="{name:'region', params:{id: information.region.id}}">{{information.region.name}}</router-link>
                             </b-td>
                         </b-tr>
                     </b-tbody>
@@ -40,36 +39,45 @@
             <b-col md="12">
                 <h4 class="text-center">Most Valuable Kills - Last 7 Days</h4>
                 <hr style="background-color: white" />
-                <KillmailHighlight :mv="mv" />
+                <ComponentLoading v-if="$apollo.queries.mv.loading" />
+                <Error v-else-if="$apollo.queries.mv.error" />
+                <KillmailHighlight
+                    :mv="mv"
+                    v-else
+                />
             </b-col>
         </b-row>
-        <b-row></b-row>
         <b-row>
             <b-col sm="12">
-                <div class="float-right mt-2">
+                <ComponentLoading v-if="$apollo.queries.mv.loading" />
+                <Error v-else-if="$apollo.queries.mv.error" />
+                <div v-else>
+                    <div class="float-right mt-2">
+                        <b-pagination
+                            v-model="compPage"
+                            total-rows="500"
+                            per-page="50"
+                            @change="handlePagination"
+                            hide-ellipsis
+                        ></b-pagination>
+                    </div>
+                    <h3>Recent Activity</h3>
+                    <hr style="background-color: white" />
+
+                    <KillTable
+                        :killmails="killmails"
+                        scope="character"
+                        :target="information.id"
+                    />
                     <b-pagination
                         v-model="compPage"
                         total-rows="500"
                         per-page="50"
                         @change="handlePagination"
                         hide-ellipsis
+                        align="center"
                     ></b-pagination>
                 </div>
-                <h3>Recent Activity</h3>
-                <hr style="background-color: white" />
-                <KillTable
-                    :killmails="killmails"
-                    scope="character"
-                    :target="information.id"
-                />
-                <b-pagination
-                    v-model="compPage"
-                    total-rows="500"
-                    per-page="50"
-                    @change="handlePagination"
-                    hide-ellipsis
-                    align="center"
-                ></b-pagination>
             </b-col>
         </b-row>
     </b-container>
@@ -77,19 +85,23 @@
 
 
 <script>
+import {
+    KILLMAILS,
+    CONSTELLATION_INFORMATION,
+    MOST_VALUABLE
+} from "@/util/queries";
+import ComponentLoading from "@/views/util/ComponentLoading";
+import Error from "@/views/util/Error";
+import { EVEONLINE_IMAGE } from "../util/const/urls";
 import numeral from "numeral";
 
-import { KILLMAILS, GROUP_INFORMATION, MOST_VALUABLE } from "@/util/queries";
-import { EVEONLINE_IMAGE } from "../util/const/urls";
-import Loading from "@/views/util/Loading";
-import Error from "@/views/util/Error";
 import KillTable from "@/views/KillTable";
 import KillmailHighlight from "@/views/KillmailHighlight";
 
 export default {
-    name: "ShipGroupController",
+    name: "ConstellationController",
     components: {
-        Loading,
+        ComponentLoading,
         Error,
         KillTable,
         KillmailHighlight
@@ -104,6 +116,18 @@ export default {
             error: ""
         };
     },
+    methods: {
+        handlePagination(page) {
+            this.$router.push({
+                name: "constellations",
+                params: { id: this.information.id },
+                query: { page: page }
+            });
+        },
+        humanize(total) {
+            return numeral(total).format("0,0");
+        }
+    },
     computed: {
         compPage: {
             get: function() {
@@ -117,22 +141,12 @@ export default {
             }
         }
     },
-    methods: {
-        handlePagination(page) {
-            this.$router.push({
-                name: "ship",
-                params: { id: this.information.id },
-                query: { page: page }
-            });
-        }
-    },
     apollo: {
         killmails: {
             query: KILLMAILS,
             variables() {
                 return {
-                    EVEONLINE_IMAGE: EVEONLINE_IMAGE,
-                    entity: "shipGroup",
+                    entity: "constellation",
                     id: this.id,
                     page: this.page
                 };
@@ -145,7 +159,7 @@ export default {
             }
         },
         information: {
-            query: GROUP_INFORMATION,
+            query: CONSTELLATION_INFORMATION,
             variables() {
                 return {
                     id: this.id
@@ -163,7 +177,7 @@ export default {
             variables() {
                 return {
                     category: "kill",
-                    type: "shipGroup",
+                    type: "constellation",
                     id: this.id,
                     age: 7,
                     limit: 6

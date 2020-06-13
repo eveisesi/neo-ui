@@ -27,6 +27,12 @@ const routes = [
         path: "/kill/:id/:hash",
         name: "kill",
         component: () => import("@/components/KillmailController.vue"),
+        props: (router) => {
+            return {
+                id: router.params.id,
+                hash: router.params.hash,
+            };
+        },
     },
     {
         path: "/characters/:id",
@@ -73,9 +79,42 @@ const routes = [
         },
     },
     {
-        path: "/group/:id",
-        name: "shipGroup",
+        path: "/shipGroups/:id",
+        name: "shipGroups",
         component: () => import("@/components/ShipGroupController.vue"),
+        props: (router) => {
+            return {
+                id: router.params.id,
+                page: router.query.page ? router.query.page : 1,
+            };
+        },
+    },
+    {
+        path: "/systems/:id",
+        name: "solarSystems",
+        component: () => import("@/components/SystemController.vue"),
+        props: (router) => {
+            return {
+                id: router.params.id,
+                page: router.query.page ? router.query.page : 1,
+            };
+        },
+    },
+    {
+        path: "/constellations/:id",
+        name: "constellations",
+        component: () => import("@/components/ConstellationController.vue"),
+        props: (router) => {
+            return {
+                id: router.params.id,
+                page: router.query.page ? router.query.page : 1,
+            };
+        },
+    },
+    {
+        path: "/regions/:id",
+        name: "regions",
+        component: () => import("@/components/RegionController.vue"),
         props: (router) => {
             return {
                 id: router.params.id,

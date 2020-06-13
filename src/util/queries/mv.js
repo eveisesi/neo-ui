@@ -4,7 +4,7 @@ const MOST_VALUABLE = gql`
     query(
         $category: Category = all
         $type: Entity = all
-        $id: Int!
+        $id: Int
         $age: Int = 7
         $limit: Int = 6
     ) {

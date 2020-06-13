@@ -37,6 +37,7 @@ const KILLMAIL = gql`
                 corporation {
                     id
                     name
+                    ticker
                 }
                 ship {
                     id

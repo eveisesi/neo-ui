@@ -33,17 +33,27 @@
             </b-tr>
             <b-tr>
                 <b-td class="text-center">
-                    <router-link
-                        v-if="finalBlow.character"
-                        :to="{name:'characters', params:{id: finalBlow.character.id}}"
-                    >{{finalBlow.character.name}}</router-link>
+                    <div v-if="finalBlow.character">
+                        <router-link :to="{name:'characters', params: {id: finalBlow.character.id}}">
+                            {{finalBlow.character.name}}
+                        </router-link>
+                        <span v-if="finalBlow.corporation">[<router-link :to="{name:'corporations', params:{id: finalBlow.corporation.id}}">{{finalBlow.corporation.ticker}}</router-link>]</span>
+
+                    </div>
                     <span v-else>{{finalBlow.ship.name}}</span>
                 </b-td>
                 <b-td class="text-center">
-                    <router-link
-                        v-if="mostDamage.character"
-                        :to="{name:'characters', params:{id: mostDamage.character.id}}"
-                    >{{finalBlow.character.name}}</router-link>
+                    <div v-if="mostDamage.character">
+                        <router-link
+                            v-if="mostDamage.character"
+                            :to="{name:'characters',
+                            params:{id:
+                            mostDamage.character.id}}"
+                        >
+                            {{finalBlow.character.name}}
+                        </router-link>
+                        <span v-if="mostDamage.corporation">[<router-link :to="{name:'corporations', params:{id: mostDamage.corporation.id}}">{{mostDamage.corporation.ticker}}</router-link>]</span>
+                    </div>
                     <span v-else>{{mostDamage.ship.name}}</span>
                 </b-td>
             </b-tr>
@@ -55,8 +65,14 @@
                     <span class="float-right">Damage</span>
                 </b-td>
             </b-tr>
-            <b-tr v-for="attacker in killmail.attackers" :key="attacker.id">
-                <b-td style="width: 66px" class="p-0">
+            <b-tr
+                v-for="attacker in killmail.attackers"
+                :key="attacker.id"
+            >
+                <b-td
+                    style="width: 66px"
+                    class="p-0"
+                >
                     <img
                         :src="EVEONLINE_IMAGE+'characters/'+attacker.character.id+'/portrait?size=64'"
                         v-if="attacker.character"
@@ -70,7 +86,10 @@
                         style="height:64px; width:64px"
                     />
                 </b-td>
-                <b-td style="width: 34px" class="p-0">
+                <b-td
+                    style="width: 34px"
+                    class="p-0"
+                >
                     <img
                         :src="EVEONLINE_IMAGE+'types/'+attacker.ship.id+'/icon?size=32'"
                         v-if="attacker.ship"
@@ -110,9 +129,9 @@
                     </router-link>
                 </b-td>
                 <b-td>
-                    <span
-                        class="float-right"
-                    >{{humanize((attacker.damageDone/killmail.victim.damageTaken)*100)}}%</span>
+                    <span class="float-right">{{humanize((attacker.damageDone/killmail.victim.damageTaken)*100)}}%</span>
+                    <br>
+                    <span class="float-right">{{humanize((attacker.damageDone))}}</span>
                 </b-td>
             </b-tr>
         </b-table-simple>

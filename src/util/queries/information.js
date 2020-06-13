@@ -5,6 +5,7 @@ const CHARACTER_INFORMATION = gql`
         information: characterByCharacterID(id: $id) {
             id
             name
+            securityStatus
             corporation {
                 id
                 name
@@ -76,10 +77,52 @@ const GROUP_INFORMATION = gql`
     }
 `;
 
+const SYSTEM_INFORMATION = gql`
+    query SystemInformation($id: Int!) {
+        information: solarSystemBySolarSystemID(id: $id) {
+            id
+            name
+            constellation {
+                id
+                name
+                region {
+                    id
+                    name
+                }
+            }
+        }
+    }
+`;
+
+const CONSTELLATION_INFORMATION = gql`
+    query ConstellationInformation($id: Int!) {
+        information: constellationByConstellationID(id: $id) {
+            id
+            name
+            region {
+                id
+                name
+            }
+        }
+    }
+`;
+
+const REGION_INFORMATION = gql`
+    query RegionInformation($id: Int!) {
+        information: regionByRegionID(id: $id) {
+            id
+            name
+        }
+    }
+`;
+
 export {
     CHARACTER_INFORMATION,
     CORPORATION_INFORMATION,
     ALLIANCE_INFORMATION,
     TYPE_INFORMATION,
     GROUP_INFORMATION,
+    SYSTEM_INFORMATION,
+    CONSTELLATION_INFORMATION,
+    REGION_INFORMATION,
 };

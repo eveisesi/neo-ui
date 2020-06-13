@@ -1,41 +1,140 @@
 <template>
     <Loading v-if="$apollo.loading"></Loading>
-    <Error v-else-if="error" :error="error"></Error>
-    <CorporationOverview
-        :killmails="killmails"
-        :information="information"
-        :mv="mv"
-        :page="page"
-        v-else
-    />
+    <Error
+        v-else-if="error"
+        :error="error"
+    ></Error>
+    <b-container v-else>
+        <b-row>
+            <b-col md="6">
+                <b-table-simple>
+                    <b-tbody>
+                        <tr>
+                            <td
+                                rowspan="4"
+                                width="130"
+                            >
+                                <b-img
+                                    :src="EVEONLINE_IMAGE+'corporations/'+information.id+'/logo?size=128'"
+                                    rounded
+                                    fluid
+                                    height="128"
+                                    width="128"
+                                />
+                            </td>
+                            <b-td>Corporation</b-td>
+                            <b-td>{{information.name}}</b-td>
+                        </tr>
+                        <b-tr>
+                            <b-td>Member Count</b-td>
+                            <b-td>{{humanize(information.memberCount)}}</b-td>
+                        </b-tr>
+                        <tr v-if="information.alliance">
+                            <td>Alliance</td>
+
+                            <td>
+                                <router-link :to="{name:'alliances', params:{id: information.alliance.id}}">{{information.alliance.name}}</router-link>
+                            </td>
+                        </tr>
+                    </b-tbody>
+                </b-table-simple>
+            </b-col>
+        </b-row>
+        <b-row>
+            <b-col md="12">
+                <h4 class="text-center">Most Valuable Kills - Last 7 Days</h4>
+                <hr style="background-color: white" />
+                <KillmailHighlight :mv="mv" />
+            </b-col>
+        </b-row>
+        <b-row></b-row>
+        <b-row>
+            <b-col sm="12">
+                <div class="float-right mt-2">
+                    <b-pagination
+                        v-model="compPage"
+                        total-rows="500"
+                        per-page="50"
+                        @change="handlePagination"
+                        hide-ellipsis
+                    ></b-pagination>
+                </div>
+                <h3>Recent Activity</h3>
+                <hr style="background-color: white" />
+                <KillTable
+                    :killmails="killmails"
+                    scope="corporation"
+                    :target="information.id"
+                />
+                <b-pagination
+                    v-model="compPage"
+                    total-rows="500"
+                    per-page="50"
+                    @change="handlePagination"
+                    hide-ellipsis
+                    align="center"
+                ></b-pagination>
+            </b-col>
+        </b-row>
+    </b-container>
 </template>
 
 <script>
+import numeral from "numeral";
+
 import {
     CORPORATION_INFORMATION,
     MOST_VALUABLE,
     KILLMAILS
 } from "../util/queries";
+import { EVEONLINE_IMAGE } from "../util/const/urls";
 import Loading from "@/views/util/Loading";
 import Error from "@/views/util/Error";
-
-import CorporationOverview from "@/views/CorporationOverview";
+import KillTable from "@/views/KillTable";
+import KillmailHighlight from "@/views/KillmailHighlight";
 
 export default {
     name: "CorporationController",
     components: {
-        CorporationOverview,
+        KillTable,
+        KillmailHighlight,
         Loading,
         Error
     },
     props: ["id", "page"],
     data() {
         return {
+            EVEONLINE_IMAGE: EVEONLINE_IMAGE,
             killmails: [],
             information: {},
             mv: [],
             error: ""
         };
+    },
+    computed: {
+        compPage: {
+            get: function() {
+                return this.$router.currentRoute.query &&
+                    this.$router.currentRoute.query.page
+                    ? this.$router.currentRoute.query.page
+                    : 1;
+            },
+            set: function(newValue) {
+                this.page = newValue;
+            }
+        }
+    },
+    methods: {
+        handlePagination(page) {
+            this.$router.push({
+                name: "corporations",
+                params: { id: this.information.id },
+                query: { page: page }
+            });
+        },
+        humanize(total) {
+            return numeral(total).format("0,0");
+        }
     },
     apollo: {
         killmails: {

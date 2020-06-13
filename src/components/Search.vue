@@ -12,14 +12,20 @@
         @hit="handleSelection"
         placeholder="Search"
     >
-        <template slot="suggestion" slot-scope="{ data, htmlText }">
+        <template
+            slot="suggestion"
+            slot-scope="{ data, htmlText }"
+        >
             <div class="d-flex align-items-center">
                 <img
                     class="rounded-circle"
                     :src="EVEONLINE_IMAGE+data.image+'?size=32'"
                     style="width: 32px; height: 32px"
                 />
-                <span class="ml-4" v-html="htmlText"></span>
+                <span
+                    class="ml-4"
+                    v-html="htmlText"
+                ></span>
             </div>
         </template>
     </vue-bootstrap-typeahead>
@@ -54,7 +60,7 @@ export default {
             result(result, key) {
                 this.results = result.data.search;
             },
-            debounce: 250,
+            debounce: 500,
             skip() {
                 return this.term.length < 3;
             }
