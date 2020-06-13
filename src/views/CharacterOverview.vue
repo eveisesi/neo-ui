@@ -94,12 +94,10 @@ export default {
     computed: {
         compPage: {
             get: function() {
-                let result =
-                    this.$router.currentRoute.query &&
+                return this.$router.currentRoute.query &&
                     this.$router.currentRoute.query.page
-                        ? this.$router.currentRoute.query.page
-                        : 1;
-                return result;
+                    ? this.$router.currentRoute.query.page
+                    : 1;
             },
             set: function(newValue) {
                 this.page = newValue;
