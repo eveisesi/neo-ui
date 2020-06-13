@@ -21,6 +21,10 @@
                                 >{{information.name}}</router-link>
                             </b-td>
                         </tr>
+                        <b-tr>
+                            <b-td>Member Count</b-td>
+                            <b-td>{{humanize(information.memberCount)}}</b-td>
+                        </b-tr>
                     </b-tbody>
                 </b-table-simple>
             </b-col>
@@ -62,6 +66,7 @@
 
 <script>
 import { EVEONLINE_IMAGE } from "../util/const/urls";
+import numeral from "numeral";
 
 import KillTable from "./KillTable";
 import KillmailHighlight from "./KillmailHighlight";
@@ -77,12 +82,10 @@ export default {
     computed: {
         compPage: {
             get: function() {
-                let result =
-                    this.$router.currentRoute.query &&
+                return this.$router.currentRoute.query &&
                     this.$router.currentRoute.query.page
-                        ? this.$router.currentRoute.query.page
-                        : 1;
-                return result;
+                    ? this.$router.currentRoute.query.page
+                    : 1;
             },
             set: function(newValue) {
                 this.page = newValue;
@@ -96,6 +99,9 @@ export default {
                 params: { id: this.information.id },
                 query: { page: page }
             });
+        },
+        humanize(total) {
+            return numeral(total).format("0,0");
         }
     },
     components: {
