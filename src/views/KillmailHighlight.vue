@@ -8,10 +8,11 @@
                     no-body
                 >
                     <b-card-text class="text-center mt-2 mb-1">
-                        {{killmail.victim.ship.name}}
+                        <router-link
+                            :to="{name:'ships', params:{id:killmail.victim.ship.id}}"
+                        >{{killmail.victim.ship.name}}</router-link>
                         <br />
                         <router-link
-                            v-if="killmail.victim.character"
                             :to="{name:'kill', params: {id: killmail.id, hash: killmail.hash}}"
                         >{{AbbreviateNumber(killmail.totalValue)}} ISK</router-link>
 
