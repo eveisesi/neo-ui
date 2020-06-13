@@ -25,6 +25,7 @@ const CORPORATION_INFORMATION = gql`
             id
             name
             ticker
+            memberCount
             alliance {
                 id
                 name
@@ -40,23 +41,45 @@ const ALLIANCE_INFORMATION = gql`
             id
             name
             ticker
+            memberCount
         }
     }
 `;
 
-// const SHIP_INFORMATION = gql`
-//     query SHIP_INFORMATION($id: Int!) {
-//         information: corporationByCorporationID(id: $id) {
-//             id
-//             name
-//             ticker
-//             alliance {
-//                 id
-//                 name
-//                 ticker
-//             }
-//         }
-//     }
-// `;
+const TYPE_INFORMATION = gql`
+    query TYPE_INFORMATION($id: Int!) {
+        information: typeByTypeID(id: $id) {
+            id
+            name
+            group {
+                id
+                name
+                category {
+                    id
+                    name
+                }
+            }
+        }
+    }
+`;
 
-export { CHARACTER_INFORMATION, CORPORATION_INFORMATION, ALLIANCE_INFORMATION };
+const GROUP_INFORMATION = gql`
+    query GROUP_INFORMATION($id: Int!) {
+        information: groupByGroupID(id: $id) {
+            id
+            name
+            category {
+                id
+                name
+            }
+        }
+    }
+`;
+
+export {
+    CHARACTER_INFORMATION,
+    CORPORATION_INFORMATION,
+    ALLIANCE_INFORMATION,
+    TYPE_INFORMATION,
+    GROUP_INFORMATION,
+};
