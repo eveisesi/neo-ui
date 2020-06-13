@@ -4,7 +4,7 @@
             <b-col lg="12">
                 <h4 class="text-center">Most Valuable Kills - Last 7 Days</h4>
                 <hr style="background-color: white" />
-                <KillmailHighlight :mvk="mvk" />
+                <KillmailHighlight :mv="mv" />
             </b-col>
         </b-row>
 
@@ -30,7 +30,7 @@ export default {
     name: "HomeView",
     props: {
         killmails: Array,
-        mvk: Array
+        mv: Array
     },
     components: {
         KillTable,
@@ -38,7 +38,6 @@ export default {
     },
     methods: {
         AbbreviateNumber(total) {
-            // return numeral(total).format("0,0.00");
             return AbbreviateNumber(total);
         }
     }
