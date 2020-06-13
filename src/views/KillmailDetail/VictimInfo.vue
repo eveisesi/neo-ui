@@ -2,9 +2,15 @@
     <b-table-simple borderless striped table-variant="active">
         <b-tbody>
             <b-tr>
-                <b-td style="width:66px" class="p-0">
+                <b-td style="width:66px" class="p-0" v-if="killmail.victim.character">
                     <img
                         :src="EVEONLINE_IMAGE+'characters/'+killmail.victim.character.id+'/portrait?size=64'"
+                        style="height:64px; width:64px"
+                    />
+                </b-td>
+                <b-td style="width:66px" class="p-0" v-else>
+                    <img
+                        :src="EVEONLINE_IMAGE+'corporations/'+killmail.victim.corporation.id+'/logo?size=64'"
                         style="height:64px; width:64px"
                     />
                 </b-td>
@@ -23,7 +29,7 @@
                         v-if="killmail.victim.character"
                         :to="{name:'characters', params:{id: killmail.victim.character.id}}"
                     >{{killmail.victim.character.name}}</router-link>
-                    <br />
+                    <br v-if="killmail.victim.character" />
                     <router-link
                         :to="{name:'corporations', params:{id: killmail.victim.corporation.id}}"
                     >{{killmail.victim.corporation.name}}</router-link>
