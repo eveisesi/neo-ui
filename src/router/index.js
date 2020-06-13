@@ -61,6 +61,28 @@ const routes = [
             };
         },
     },
+    {
+        path: "/ships/:id",
+        name: "ships",
+        component: () => import("@/components/ShipController.vue"),
+        props: (router) => {
+            return {
+                id: router.params.id,
+                page: router.query.page ? router.query.page : 1,
+            };
+        },
+    },
+    {
+        path: "/group/:id",
+        name: "shipGroup",
+        component: () => import("@/components/ShipGroupController.vue"),
+        props: (router) => {
+            return {
+                id: router.params.id,
+                page: router.query.page ? router.query.page : 1,
+            };
+        },
+    },
 ];
 
 const router = new VueRouter({
