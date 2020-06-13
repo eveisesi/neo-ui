@@ -2,7 +2,7 @@
     <div>
         <Loading v-if="$apollo.loading"></Loading>
         <Error v-else-if="$apollo.error"></Error>
-        <HomeView :killmails="killmails" :mvk="mvk" v-else></HomeView>
+        <HomeView :killmails="killmails" :mv="mv" v-else></HomeView>
     </div>
 </template>
 
@@ -23,7 +23,7 @@ export default {
         killmails: {
             query: RECENT_KILLMAILS
         },
-        mvk: {
+        mv: {
             query: MOST_VALUABLE
         }
     }
