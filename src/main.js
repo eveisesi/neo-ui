@@ -12,19 +12,25 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 import { API_URL } from "./util/const/urls";
+import { createPersistedQueryLink } from "apollo-link-persisted-queries";
 
 // HTTP connection to the API
 const httpLink = createHttpLink({
     // You should use an absolute URL here
     uri: `${API_URL}/query`,
+    useGETForQueries: true,
 });
+
+const apqLink = createPersistedQueryLink({
+    // useGETForHashedQueries: true,
+}).concat(httpLink)
 
 // Cache implementation
 const cache = new InMemoryCache();
 
 // Create the apollo client
 const apolloClient = new ApolloClient({
-    link: httpLink,
+    link: apqLink,
     cache,
 });
 
