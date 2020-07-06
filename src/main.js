@@ -7,6 +7,8 @@ import "bootstrap/dist/css/bootstrap.css";
 import "bootswatch/dist/cyborg/bootstrap.min.css";
 import Vue from "vue";
 import VueApollo from "vue-apollo";
+import axios from 'axios'
+import VueAxios from 'vue-axios'
 
 import App from "./App.vue";
 import router from "./router";
@@ -41,6 +43,7 @@ const apolloProvider = new VueApollo({
 Vue.use(BootstrapVue);
 Vue.use(IconsPlugin);
 Vue.use(VueApollo);
+Vue.use(VueAxios, axios)
 
 new Vue({
     router,

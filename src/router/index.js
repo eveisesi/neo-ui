@@ -91,7 +91,7 @@ const routes = [
     },
     {
         path: "/systems/:id",
-        name: "solarSystems",
+        name: "systems",
         component: () => import("@/components/SystemController.vue"),
         props: (router) => {
             return {

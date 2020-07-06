@@ -38,7 +38,7 @@
                 />
             </b-td>
             <b-td>
-                <router-link :to='{name:"solarSystems", params: {id: killmail.system.id}}'>{{killmail.system.name}}</router-link>
+                <router-link :to='{name:"systems", params: {id: killmail.system.id}}'>{{killmail.system.name}}</router-link>
                 (<span :class="killmail.system.security >= 0 ? 'text-success' : 'text-danger'">{{killmail.system.security.toFixed(2)}}</span>)
                 <br>
                 <router-link :to='{name: "constellations", params: {id: killmail.system.constellation.id}}'>{{killmail.system.constellation.name}}</router-link>

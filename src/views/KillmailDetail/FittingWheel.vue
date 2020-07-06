@@ -77,17 +77,20 @@
                     width="32"
                     height="32"
                     preserveAspectRatio="none"
-                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipLowPowerModules(), 11).itemTypeID + '/icon?size=32'"
+                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipLowPowerModules(), 11).itemTypeID + '/icon?size=64'"
                 />
             </g>
-            <g class="ammo" v-if="getModuleAmmo(shipLowPowerModules(), 11) != undefined">
+            <g
+                class="ammo"
+                v-if="getModuleAmmo(shipLowPowerModules(), 11) != undefined"
+            >
                 <image
                     y="120.00013"
                     x="262.04364"
                     width="26"
                     height="26"
                     preserveAspectRatio="none"
-                    :href="EVEONLINE_IMAGE+'types/' + getModuleAmmo(shipLowPowerModules(), 11).itemTypeID + '/icon?size=32'"
+                    :href="EVEONLINE_IMAGE+'types/' + getModuleAmmo(shipLowPowerModules(), 11).itemTypeID + '/icon?size=64'"
                     style="stroke-width:1.23077"
                 />
             </g>
@@ -128,7 +131,7 @@
                     />
                 </g>
                 <image
-                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipLowPowerModules(), 12).itemTypeID + '/icon?size=32'"
+                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipLowPowerModules(), 12).itemTypeID + '/icon?size=64'"
                     preserveAspectRatio="none"
                     height="32"
                     width="32"
@@ -136,10 +139,13 @@
                     y="138.27432"
                 />
             </g>
-            <g class="ammo" v-if="getModuleAmmo(shipLowPowerModules(), 12) != undefined">
+            <g
+                class="ammo"
+                v-if="getModuleAmmo(shipLowPowerModules(), 12) != undefined"
+            >
                 <image
                     style="stroke-width:1.23077"
-                    :href="EVEONLINE_IMAGE+'types/' + getModuleAmmo(shipLowPowerModules(), 12).itemTypeID + '/icon?size=32'"
+                    :href="EVEONLINE_IMAGE+'types/' + getModuleAmmo(shipLowPowerModules(), 12).itemTypeID + '/icon?size=64'"
                     preserveAspectRatio="none"
                     height="26"
                     width="26"
@@ -155,7 +161,7 @@
         >
             <g class="module">
                 <g
-                    transform="matrix(-0.06474019,0.41921928,-0.41901859,-0.0647092,370.7897,172.85827)"
+                    transform="matrix(-0.06474019,0.41921928,-0.41901859,-0.0647092,370.7897,172.85827)"I want
                     style="stroke-width:2.35801"
                 >
                     <g
@@ -189,17 +195,20 @@
                     width="32"
                     height="32"
                     preserveAspectRatio="none"
-                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipLowPowerModules(), 13).itemTypeID + '/icon?size=32'"
+                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipLowPowerModules(), 13).itemTypeID + '/icon?size=64'"
                 />
             </g>
-            <g class="ammo" v-if="getModuleAmmo(shipLowPowerModules(), 13) != undefined">
+            <g
+                class="ammo"
+                v-if="getModuleAmmo(shipLowPowerModules(), 13) != undefined"
+            >
                 <image
                     y="173.91942"
                     x="266.71594"
                     width="26"
                     height="26"
                     preserveAspectRatio="none"
-                    :href="EVEONLINE_IMAGE+'types/' + getModuleAmmo(shipLowPowerModules(), 13).itemTypeID + '/icon?size=32'"
+                    :href="EVEONLINE_IMAGE+'types/' + getModuleAmmo(shipLowPowerModules(), 13).itemTypeID + '/icon?size=64'"
                     style="stroke-width:1.23077"
                 />
             </g>
@@ -240,7 +249,7 @@
                     />
                 </g>
                 <image
-                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipLowPowerModules(), 14).itemTypeID + '/icon?size=32'"
+                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipLowPowerModules(), 14).itemTypeID + '/icon?size=64'"
                     preserveAspectRatio="none"
                     height="32"
                     width="32"
@@ -248,10 +257,13 @@
                     y="207.41641"
                 />
             </g>
-            <g class="ammo" v-if="getModuleAmmo(shipLowPowerModules(), 14) != undefined">
+            <g
+                class="ammo"
+                v-if="getModuleAmmo(shipLowPowerModules(), 14) != undefined"
+            >
                 <image
                     style="stroke-width:1.23077"
-                    :href="EVEONLINE_IMAGE+'types/' + getModuleAmmo(shipLowPowerModules(), 14).itemTypeID + '/icon?size=32'"
+                    :href="EVEONLINE_IMAGE+'types/' + getModuleAmmo(shipLowPowerModules(), 14).itemTypeID + '/icon?size=64'"
                     preserveAspectRatio="none"
                     height="26"
                     width="26"
@@ -301,17 +313,20 @@
                     width="32"
                     height="32"
                     preserveAspectRatio="none"
-                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipLowPowerModules(), 15).itemTypeID + '/icon?size=32'"
+                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipLowPowerModules(), 15).itemTypeID + '/icon?size=64'"
                 />
             </g>
-            <g class="ammo" v-if="getModuleAmmo(shipLowPowerModules(), 15) != undefined">
+            <g
+                class="ammo"
+                v-if="getModuleAmmo(shipLowPowerModules(), 15) != undefined"
+            >
                 <image
                     y="223.6868"
                     x="246.54135"
                     width="26"
                     height="26"
                     preserveAspectRatio="none"
-                    :href="EVEONLINE_IMAGE+'types/' + getModuleAmmo(shipLowPowerModules(), 15).itemTypeID + '/icon?size=32'"
+                    :href="EVEONLINE_IMAGE+'types/' + getModuleAmmo(shipLowPowerModules(), 15).itemTypeID + '/icon?size=64'"
                     style="stroke-width:1.23077"
                 />
             </g>
@@ -352,7 +367,7 @@
                     />
                 </g>
                 <image
-                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipLowPowerModules(), 16).itemTypeID + '/icon?size=32'"
+                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipLowPowerModules(), 16).itemTypeID + '/icon?size=64'"
                     preserveAspectRatio="none"
                     height="32"
                     width="32"
@@ -360,10 +375,13 @@
                     y="262.91742"
                 />
             </g>
-            <g class="ammo" v-if="getModuleAmmo(shipLowPowerModules(), 16) != undefined">
+            <g
+                class="ammo"
+                v-if="getModuleAmmo(shipLowPowerModules(), 16) != undefined"
+            >
                 <image
                     style="stroke-width:1.23077"
-                    :href="EVEONLINE_IMAGE+'types/' + getModuleAmmo(shipLowPowerModules(), 16).itemTypeID + '/icon?size=32'"
+                    :href="EVEONLINE_IMAGE+'types/' + getModuleAmmo(shipLowPowerModules(), 16).itemTypeID + '/icon?size=64'"
                     preserveAspectRatio="none"
                     height="26"
                     width="26"
@@ -413,17 +431,20 @@
                     width="32"
                     height="32"
                     preserveAspectRatio="none"
-                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipLowPowerModules(), 17).itemTypeID + '/icon?size=32'"
+                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipLowPowerModules(), 17).itemTypeID + '/icon?size=64'"
                 />
             </g>
-            <g class="ammo" v-if="getModuleAmmo(shipLowPowerModules(), 17) != undefined">
+            <g
+                class="ammo"
+                v-if="getModuleAmmo(shipLowPowerModules(), 17) != undefined"
+            >
                 <image
                     y="259.33038"
                     x="204.00168"
                     width="26"
                     height="26"
                     preserveAspectRatio="none"
-                    :href="EVEONLINE_IMAGE+'types/' + getModuleAmmo(shipLowPowerModules(), 17).itemTypeID + '/icon?size=32'"
+                    :href="EVEONLINE_IMAGE+'types/' + getModuleAmmo(shipLowPowerModules(), 17).itemTypeID + '/icon?size=64'"
                     style="stroke-width:1.23077"
                 />
             </g>
@@ -464,7 +485,7 @@
                     />
                 </g>
                 <image
-                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipLowPowerModules(), 28).itemTypeID + '/icon?size=32'"
+                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipLowPowerModules(), 28).itemTypeID + '/icon?size=64'"
                     preserveAspectRatio="none"
                     height="32"
                     width="32"
@@ -472,10 +493,13 @@
                     y="292.66199"
                 />
             </g>
-            <g class="ammo" v-if="getModuleAmmo(shipLowPowerModules(), 11) != undefined">
+            <g
+                class="ammo"
+                v-if="getModuleAmmo(shipLowPowerModules(), 11) != undefined"
+            >
                 <image
                     style="stroke-width:1.23077"
-                    :href="EVEONLINE_IMAGE+'types/' + getModuleAmmo(shipLowPowerModules(), 18).itemTypeID + '/icon?size=32'"
+                    :href="EVEONLINE_IMAGE+'types/' + getModuleAmmo(shipLowPowerModules(), 18).itemTypeID + '/icon?size=64'"
                     preserveAspectRatio="none"
                     height="26"
                     width="26"
@@ -535,17 +559,20 @@
                     width="32"
                     height="32"
                     preserveAspectRatio="none"
-                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipMedPowerModules(), 19).itemTypeID + '/icon?size=32'"
+                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipMedPowerModules(), 19).itemTypeID + '/icon?size=64'"
                 />
             </g>
-            <g class="ammo" v-if="getModuleAmmo(shipMedPowerModules(), 19) != undefined">
+            <g
+                class="ammo"
+                v-if="getModuleAmmo(shipMedPowerModules(), 19) != undefined"
+            >
                 <image
                     y="265.4787"
                     x="131.30202"
                     width="26"
                     height="26"
                     preserveAspectRatio="none"
-                    :href="EVEONLINE_IMAGE+'types/' + getModuleAmmo(shipMedPowerModules(), 19).itemTypeID + '/icon?size=32'"
+                    :href="EVEONLINE_IMAGE+'types/' + getModuleAmmo(shipMedPowerModules(), 19).itemTypeID + '/icon?size=64'"
                     style="stroke-width:1.23077"
                 />
             </g>
@@ -596,7 +623,7 @@
                     />
                 </g>
                 <image
-                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipMedPowerModules(), 20).itemTypeID + '/icon?size=32'"
+                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipMedPowerModules(), 20).itemTypeID + '/icon?size=64'"
                     preserveAspectRatio="none"
                     height="32"
                     width="32"
@@ -604,10 +631,13 @@
                     y="279.86844"
                 />
             </g>
-            <g class="ammo" v-if="getModuleAmmo(shipMedPowerModules(), 20) != undefined">
+            <g
+                class="ammo"
+                v-if="getModuleAmmo(shipMedPowerModules(), 20) != undefined"
+            >
                 <image
                     style="stroke-width:1.23077"
-                    :href="EVEONLINE_IMAGE+'types/' + getModuleAmmo(shipMedPowerModules(), 20).itemTypeID + '/icon?size=32'"
+                    :href="EVEONLINE_IMAGE+'types/' + getModuleAmmo(shipMedPowerModules(), 20).itemTypeID + '/icon?size=64'"
                     preserveAspectRatio="none"
                     height="26"
                     width="26"
@@ -667,17 +697,20 @@
                     width="32"
                     height="32"
                     preserveAspectRatio="none"
-                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipMedPowerModules(), 21).itemTypeID + '/icon?size=32'"
+                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipMedPowerModules(), 21).itemTypeID + '/icon?size=64'"
                 />
             </g>
-            <g class="ammo" v-if="getModuleAmmo(shipMedPowerModules(), 21) != undefined">
+            <g
+                class="ammo"
+                v-if="getModuleAmmo(shipMedPowerModules(), 21) != undefined"
+            >
                 <image
                     y="241.1347"
                     x="83.44487"
                     width="26"
                     height="26"
                     preserveAspectRatio="none"
-                    :href="EVEONLINE_IMAGE+'types/' + getModuleAmmo(shipMedPowerModules(), 21).itemTypeID + '/icon?size=32'"
+                    :href="EVEONLINE_IMAGE+'types/' + getModuleAmmo(shipMedPowerModules(), 21).itemTypeID + '/icon?size=64'"
                     style="stroke-width:1.23077"
                 />
             </g>
@@ -728,7 +761,7 @@
                     />
                 </g>
                 <image
-                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipMedPowerModules(), 22).itemTypeID + '/icon?size=32'"
+                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipMedPowerModules(), 22).itemTypeID + '/icon?size=64'"
                     preserveAspectRatio="none"
                     height="32"
                     width="32"
@@ -736,10 +769,13 @@
                     y="236.41481"
                 />
             </g>
-            <g class="ammo" v-if="getModuleAmmo(shipMedPowerModules(), 22) != undefined">
+            <g
+                class="ammo"
+                v-if="getModuleAmmo(shipMedPowerModules(), 22) != undefined"
+            >
                 <image
                     style="stroke-width:1.23077"
-                    :href="EVEONLINE_IMAGE+'types/' + getModuleAmmo(shipMedPowerModules(), 22).itemTypeID + '/icon?size=32'"
+                    :href="EVEONLINE_IMAGE+'types/' + getModuleAmmo(shipMedPowerModules(), 22).itemTypeID + '/icon?size=64'"
                     preserveAspectRatio="none"
                     height="26"
                     width="26"
@@ -799,17 +835,20 @@
                     width="32"
                     height="32"
                     preserveAspectRatio="none"
-                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipMedPowerModules(), 23).itemTypeID + '/icon?size=32'"
+                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipMedPowerModules(), 23).itemTypeID + '/icon?size=64'"
                 />
             </g>
-            <g class="ammo" v-if="getModuleAmmo(shipMedPowerModules(), 23) != undefined">
+            <g
+                class="ammo"
+                v-if="getModuleAmmo(shipMedPowerModules(), 23) != undefined"
+            >
                 <image
                     y="198.26268"
                     x="51.623192"
                     width="26"
                     height="26"
                     preserveAspectRatio="none"
-                    :href="EVEONLINE_IMAGE+'types/' + getModuleAmmo(shipMedPowerModules(), 23).itemTypeID + '/icon?size=32'"
+                    :href="EVEONLINE_IMAGE+'types/' + getModuleAmmo(shipMedPowerModules(), 23).itemTypeID + '/icon?size=64'"
                     style="stroke-width:1.23077"
                 />
             </g>
@@ -860,7 +899,7 @@
                     />
                 </g>
                 <image
-                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipMedPowerModules(), 24).itemTypeID + '/icon?size=32'"
+                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipMedPowerModules(), 24).itemTypeID + '/icon?size=64'"
                     preserveAspectRatio="none"
                     height="32"
                     width="32"
@@ -868,10 +907,13 @@
                     y="173.18687"
                 />
             </g>
-            <g class="ammo" v-if="getModuleAmmo(shipMedPowerModules(), 24) != undefined">
+            <g
+                class="ammo"
+                v-if="getModuleAmmo(shipMedPowerModules(), 24) != undefined"
+            >
                 <image
                     style="stroke-width:1.23077"
-                    :href="EVEONLINE_IMAGE+'types/' + getModuleAmmo(shipMedPowerModules(), 24).itemTypeID + '/icon?size=32'"
+                    :href="EVEONLINE_IMAGE+'types/' + getModuleAmmo(shipMedPowerModules(), 24).itemTypeID + '/icon?size=64'"
                     preserveAspectRatio="none"
                     height="26"
                     width="26"
@@ -931,17 +973,20 @@
                     width="32"
                     height="32"
                     preserveAspectRatio="none"
-                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipMedPowerModules(), 25).itemTypeID + '/icon?size=32'"
+                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipMedPowerModules(), 25).itemTypeID + '/icon?size=64'"
                 />
             </g>
-            <g class="ammo" v-if="getModuleAmmo(shipMedPowerModules(), 25) != undefined">
+            <g
+                class="ammo"
+                v-if="getModuleAmmo(shipMedPowerModules(), 25) != undefined"
+            >
                 <image
                     y="144.85721"
                     x="42.035431"
                     width="26"
                     height="26"
                     preserveAspectRatio="none"
-                    :href="EVEONLINE_IMAGE+'types/' + getModuleAmmo(shipMedPowerModules(), 25).itemTypeID + '/icon?size=32'"
+                    :href="EVEONLINE_IMAGE+'types/' + getModuleAmmo(shipMedPowerModules(), 25).itemTypeID + '/icon?size=64'"
                     style="stroke-width:1.23077"
                 />
             </g>
@@ -992,7 +1037,7 @@
                     />
                 </g>
                 <image
-                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipMedPowerModules(), 26).itemTypeID + '/icon?size=32'"
+                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipMedPowerModules(), 26).itemTypeID + '/icon?size=64'"
                     preserveAspectRatio="none"
                     height="32"
                     width="32"
@@ -1000,10 +1045,13 @@
                     y="104.54626"
                 />
             </g>
-            <g class="ammo" v-if="getModuleAmmo(shipMedPowerModules(), 26) != undefined">
+            <g
+                class="ammo"
+                v-if="getModuleAmmo(shipMedPowerModules(), 26) != undefined"
+            >
                 <image
                     style="stroke-width:1.23077"
-                    :href="EVEONLINE_IMAGE+'types/' + getModuleAmmo(shipMedPowerModules(), 26).itemTypeID + '/icon?size=32'"
+                    :href="EVEONLINE_IMAGE+'types/' + getModuleAmmo(shipMedPowerModules(), 26).itemTypeID + '/icon?size=64'"
                     preserveAspectRatio="none"
                     height="26"
                     width="26"
@@ -1022,7 +1070,10 @@
                     transform="matrix(0.27368205,-0.29554387,0.30613311,0.26521702,-25.97128,86.047464)"
                     style="stroke-width:2.47643"
                 >
-                    <g transform="translate(120.23686,-139.05355)" style="stroke-width:2.47643">
+                    <g
+                        transform="translate(120.23686,-139.05355)"
+                        style="stroke-width:2.47643"
+                    >
                         <g
                             transform="translate(-175.94714,100.15297)"
                             style="fill:none;stroke-width:2.47642"
@@ -1077,17 +1128,20 @@
                     width="32"
                     height="32"
                     preserveAspectRatio="none"
-                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipHighPowerModules(), 27).itemTypeID + '/icon?size=32'"
+                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipHighPowerModules(), 27).itemTypeID + '/icon?size=64'"
                 />
             </g>
-            <g class="ammo" v-if="getModuleAmmo(shipHighPowerModules(), 27) != undefined">
+            <g
+                class="ammo"
+                v-if="getModuleAmmo(shipHighPowerModules(), 27) != undefined"
+            >
                 <image
                     y="74.382492"
                     x="71.231323"
                     width="26"
                     height="26"
                     preserveAspectRatio="none"
-                    :href="EVEONLINE_IMAGE+'types/' + getModuleAmmo(shipHighPowerModules(), 27).itemTypeID + '/icon?size=32'"
+                    :href="EVEONLINE_IMAGE+'types/' + getModuleAmmo(shipHighPowerModules(), 27).itemTypeID + '/icon?size=64'"
                     style="stroke-width:1.23077"
                 />
             </g>
@@ -1102,7 +1156,10 @@
                     style="stroke-width:2.47643"
                     transform="matrix(0.33795549,-0.22496462,0.23333036,0.32717273,-2.0449835,44.021946)"
                 >
-                    <g transform="translate(120.23686,-139.05355)" style="stroke-width:2.47643">
+                    <g
+                        transform="translate(120.23686,-139.05355)"
+                        style="stroke-width:2.47643"
+                    >
                         <g
                             style="fill:none;stroke-width:2.47642"
                             transform="translate(-175.94714,100.15297)"
@@ -1150,7 +1207,7 @@
                     </g>
                 </g>
                 <image
-                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipHighPowerModules(), 28).itemTypeID + '/icon?size=32'"
+                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipHighPowerModules(), 28).itemTypeID + '/icon?size=64'"
                     preserveAspectRatio="none"
                     height="32"
                     width="32"
@@ -1158,14 +1215,17 @@
                     y="33.425224"
                 />
             </g>
-            <g class="ammo" v-if="getModuleAmmo(shipHighPowerModules(), 28) != undefined">
+            <g
+                class="ammo"
+                v-if="getModuleAmmo(shipHighPowerModules(), 28) != undefined"
+            >
                 <image
                     y="58.679363"
                     x="91.919563"
                     width="26"
                     height="26"
                     preserveAspectRatio="none"
-                    :href="EVEONLINE_IMAGE+'types/' + getModuleAmmo(shipHighPowerModules(), 28).itemTypeID + '/icon?size=32'"
+                    :href="EVEONLINE_IMAGE+'types/' + getModuleAmmo(shipHighPowerModules(), 28).itemTypeID + '/icon?size=64'"
                     style="stroke-width:1.23077"
                 />
             </g>
@@ -1180,7 +1240,10 @@
                     style="stroke-width:2.47643"
                     transform="matrix(0.38466394,-0.13839191,0.14395464,0.37211376,31.700792,7.9382574)"
                 >
-                    <g transform="translate(120.23686,-139.05355)" style="stroke-width:2.47643">
+                    <g
+                        transform="translate(120.23686,-139.05355)"
+                        style="stroke-width:2.47643"
+                    >
                         <g
                             style="fill:none;stroke-width:2.47642"
                             transform="translate(-175.94714,100.15297)"
@@ -1233,17 +1296,20 @@
                     width="32"
                     height="32"
                     preserveAspectRatio="none"
-                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipHighPowerModules(), 29).itemTypeID + '/icon?size=32'"
+                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipHighPowerModules(), 29).itemTypeID + '/icon?size=64'"
                 />
             </g>
-            <g class="ammo" v-if="getModuleAmmo(shipHighPowerModules(), 29) != undefined">
+            <g
+                class="ammo"
+                v-if="getModuleAmmo(shipHighPowerModules(), 29) != undefined"
+            >
                 <image
                     y="46.881248"
                     x="115.43271"
                     width="26"
                     height="26"
                     preserveAspectRatio="none"
-                    :href="EVEONLINE_IMAGE+'types/' + getModuleAmmo(shipHighPowerModules(), 29).itemTypeID + '/icon?size=32'"
+                    :href="EVEONLINE_IMAGE+'types/' + getModuleAmmo(shipHighPowerModules(), 29).itemTypeID + '/icon?size=64'"
                     style="stroke-width:1.23077"
                 />
             </g>
@@ -1258,7 +1324,10 @@
                     style="stroke-width:2.47643"
                     transform="matrix(0.40784159,-0.04618957,0.04870443,0.39429836,73.216432,-18.80523)"
                 >
-                    <g transform="translate(120.23686,-139.05355)" style="stroke-width:2.47643">
+                    <g
+                        transform="translate(120.23686,-139.05355)"
+                        style="stroke-width:2.47643"
+                    >
                         <g
                             style="fill:none;stroke-width:2.47642"
                             transform="translate(-175.94714,100.15297)"
@@ -1306,7 +1375,7 @@
                     </g>
                 </g>
                 <image
-                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipHighPowerModules(), 30).itemTypeID + '/icon?size=32'"
+                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipHighPowerModules(), 30).itemTypeID + '/icon?size=64'"
                     preserveAspectRatio="none"
                     height="32"
                     width="32"
@@ -1314,10 +1383,13 @@
                     y="10.327506"
                 />
             </g>
-            <g class="ammo" v-if="getModuleAmmo(shipHighPowerModules(), 30) != undefined">
+            <g
+                class="ammo"
+                v-if="getModuleAmmo(shipHighPowerModules(), 30) != undefined"
+            >
                 <image
                     style="stroke-width:1.23077"
-                    :href="EVEONLINE_IMAGE+'types/' + getModuleAmmo(shipHighPowerModules(), 30).itemTypeID + '/icon?size=32'"
+                    :href="EVEONLINE_IMAGE+'types/' + getModuleAmmo(shipHighPowerModules(), 30).itemTypeID + '/icon?size=64'"
                     preserveAspectRatio="none"
                     height="26"
                     width="26"
@@ -1336,7 +1408,10 @@
                     transform="matrix(0.40790747,0.04751213,-0.04815004,0.39414133,119.74278,-35.057187)"
                     style="stroke-width:2.47643"
                 >
-                    <g transform="translate(120.23686,-139.05355)" style="stroke-width:2.47643">
+                    <g
+                        transform="translate(120.23686,-139.05355)"
+                        style="stroke-width:2.47643"
+                    >
                         <g
                             transform="translate(-175.94714,100.15297)"
                             style="fill:none;stroke-width:2.47642"
@@ -1389,17 +1464,20 @@
                     width="32"
                     height="32"
                     preserveAspectRatio="none"
-                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipHighPowerModules(), 31).itemTypeID + '/icon?size=32'"
+                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipHighPowerModules(), 31).itemTypeID + '/icon?size=64'"
                 />
             </g>
-            <g class="ammo" v-if="getModuleAmmo(shipHighPowerModules(), 31) != undefined">
+            <g
+                class="ammo"
+                v-if="getModuleAmmo(shipHighPowerModules(), 31) != undefined"
+            >
                 <image
                     y="40.317509"
                     x="168.35806"
                     width="26"
                     height="26"
                     preserveAspectRatio="none"
-                    :href="EVEONLINE_IMAGE+'types/' + getModuleAmmo(shipHighPowerModules(), 31).itemTypeID + '/icon?size=32'"
+                    :href="EVEONLINE_IMAGE+'types/' + getModuleAmmo(shipHighPowerModules(), 31).itemTypeID + '/icon?size=64'"
                     style="stroke-width:1.23077"
                 />
             </g>
@@ -1414,7 +1492,10 @@
                     style="stroke-width:2.47643"
                     transform="matrix(0.38508903,0.13904324,-0.14281475,0.37187109,169.25916,-40.411316)"
                 >
-                    <g transform="translate(120.23686,-139.05355)" style="stroke-width:2.47643">
+                    <g
+                        transform="translate(120.23686,-139.05355)"
+                        style="stroke-width:2.47643"
+                    >
                         <g
                             style="fill:none;stroke-width:2.47642"
                             transform="translate(-175.94714,100.15297)"
@@ -1462,7 +1543,7 @@
                     </g>
                 </g>
                 <image
-                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipHighPowerModules(), 32).itemTypeID + '/icon?size=32'"
+                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipHighPowerModules(), 32).itemTypeID + '/icon?size=64'"
                     preserveAspectRatio="none"
                     height="32"
                     width="32"
@@ -1470,10 +1551,13 @@
                     y="19.633062"
                 />
             </g>
-            <g class="ammo" v-if="getModuleAmmo(shipHighPowerModules(), 32) != undefined">
+            <g
+                class="ammo"
+                v-if="getModuleAmmo(shipHighPowerModules(), 32) != undefined"
+            >
                 <image
                     style="stroke-width:1.23077"
-                    :href="EVEONLINE_IMAGE+'types/' + getModuleAmmo(shipHighPowerModules(), 32).itemTypeID + '/icon?size=32'"
+                    :href="EVEONLINE_IMAGE+'types/' + getModuleAmmo(shipHighPowerModules(), 32).itemTypeID + '/icon?size=64'"
                     preserveAspectRatio="none"
                     height="26"
                     width="26"
@@ -1492,7 +1576,10 @@
                     transform="matrix(0.33880176,0.22531754,-0.23210107,0.32693001,219.30823,-34.264042)"
                     style="stroke-width:2.47643"
                 >
-                    <g transform="translate(120.23686,-139.05355)" style="stroke-width:2.47643">
+                    <g
+                        transform="translate(120.23686,-139.05355)"
+                        style="stroke-width:2.47643"
+                    >
                         <g
                             transform="translate(-175.94714,100.15297)"
                             style="fill:none;stroke-width:2.47642"
@@ -1545,17 +1632,20 @@
                     width="32"
                     height="32"
                     preserveAspectRatio="none"
-                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipHighPowerModules(), 33).itemTypeID + '/icon?size=32'"
+                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipHighPowerModules(), 33).itemTypeID + '/icon?size=64'"
                 />
             </g>
-            <g class="ammo" v-if="getModuleAmmo(shipHighPowerModules(), 33) != undefined">
+            <g
+                class="ammo"
+                v-if="getModuleAmmo(shipHighPowerModules(), 33) != undefined"
+            >
                 <image
                     y="59.177876"
                     x="219.28934"
                     width="26"
                     height="26"
                     preserveAspectRatio="none"
-                    :href="EVEONLINE_IMAGE+'types/' + getModuleAmmo(shipHighPowerModules(), 33).itemTypeID + '/icon?size=32'"
+                    :href="EVEONLINE_IMAGE+'types/' + getModuleAmmo(shipHighPowerModules(), 33).itemTypeID + '/icon?size=64'"
                     style="stroke-width:1.23077"
                 />
             </g>
@@ -1570,7 +1660,10 @@
                     style="stroke-width:2.47643"
                     transform="matrix(0.27555844,0.29516413,-0.30444684,0.26563918,265.4145,-16.743357)"
                 >
-                    <g transform="translate(120.23686,-139.05355)" style="stroke-width:2.47643">
+                    <g
+                        transform="translate(120.23686,-139.05355)"
+                        style="stroke-width:2.47643"
+                    >
                         <g
                             style="fill:none;stroke-width:2.47642"
                             transform="translate(-175.94714,100.15297)"
@@ -1618,7 +1711,7 @@
                     </g>
                 </g>
                 <image
-                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipHighPowerModules(), 34).itemTypeID + '/icon?size=32'"
+                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipHighPowerModules(), 34).itemTypeID + '/icon?size=64'"
                     preserveAspectRatio="none"
                     height="32"
                     width="32"
@@ -1626,10 +1719,13 @@
                     y="55.941345"
                 />
             </g>
-            <g class="ammo" v-if="getModuleAmmo(shipHighPowerModules(), 34) != undefined">
+            <g
+                class="ammo"
+                v-if="getModuleAmmo(shipHighPowerModules(), 34) != undefined"
+            >
                 <image
                     style="stroke-width:1.23077"
-                    :href="EVEONLINE_IMAGE+'types/' + getModuleAmmo(shipHighPowerModules(), 34).itemTypeID + '/icon?size=32'"
+                    :href="EVEONLINE_IMAGE+'types/' + getModuleAmmo(shipHighPowerModules(), 34).itemTypeID + '/icon?size=64'"
                     preserveAspectRatio="none"
                     height="26"
                     width="26"
@@ -1689,7 +1785,7 @@
                     </g>
                 </g>
                 <image
-                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipSubsystemModules(), 125).itemTypeID + '/icon?size=32'"
+                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipSubsystemModules(), 125).itemTypeID + '/icon?size=64'"
                     preserveAspectRatio="none"
                     height="32"
                     width="32"
@@ -1754,7 +1850,7 @@
                     width="32"
                     height="32"
                     preserveAspectRatio="none"
-                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipSubsystemModules(), 126).itemTypeID + '/icon?size=32'"
+                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipSubsystemModules(), 126).itemTypeID + '/icon?size=64'"
                 />
             </g>
         </g>
@@ -1809,7 +1905,7 @@
                     </g>
                 </g>
                 <image
-                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipSubsystemModules(), 127).itemTypeID + '/icon?size=32'"
+                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipSubsystemModules(), 127).itemTypeID + '/icon?size=64'"
                     preserveAspectRatio="none"
                     height="32"
                     width="32"
@@ -1874,7 +1970,7 @@
                     width="32"
                     height="32"
                     preserveAspectRatio="none"
-                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipSubsystemModules(), 128).itemTypeID + '/icon?size=32'"
+                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipSubsystemModules(), 128).itemTypeID + '/icon?size=64'"
                 />
             </g>
         </g>
@@ -1929,7 +2025,7 @@
                     </g>
                 </g>
                 <image
-                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipSubsystemModules(), 129).itemTypeID + '/icon?size=32'"
+                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipSubsystemModules(), 129).itemTypeID + '/icon?size=64'"
                     preserveAspectRatio="none"
                     height="32"
                     width="32"
@@ -1959,9 +2055,7 @@
                             />
                         </g>
                     </g>
-                    <g
-                        transform="matrix(-3.7366245,-0.56786112,0.56786112,-3.7366245,765.37226,795.47516)"
-                    >
+                    <g transform="matrix(-3.7366245,-0.56786112,0.56786112,-3.7366245,765.37226,795.47516)">
                         <path
                             d="m 149.78651,106.30006 c 6.7e-4,1.50276 -0.67513,2.22138 -2.22128,2.22113"
                             style="fill:none;stroke:gray;stroke-width:.265;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
@@ -1986,7 +2080,7 @@
                     width="32"
                     height="32"
                     preserveAspectRatio="none"
-                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipRigModules(), 92).itemTypeID + '/icon?size=32'"
+                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipRigModules(), 92).itemTypeID + '/icon?size=64'"
                 />
             </g>
         </g>
@@ -2011,9 +2105,7 @@
                             />
                         </g>
                     </g>
-                    <g
-                        transform="matrix(-3.7366245,-0.56786112,0.56786112,-3.7366245,765.37226,795.47516)"
-                    >
+                    <g transform="matrix(-3.7366245,-0.56786112,0.56786112,-3.7366245,765.37226,795.47516)">
                         <path
                             style="fill:none;stroke:gray;stroke-width:.265;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
                             d="m 149.78651,106.30006 c 6.7e-4,1.50276 -0.67513,2.22138 -2.22128,2.22113"
@@ -2033,7 +2125,7 @@
                     </g>
                 </g>
                 <image
-                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipRigModules(), 93).itemTypeID + '/icon?size=32'"
+                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipRigModules(), 93).itemTypeID + '/icon?size=64'"
                     preserveAspectRatio="none"
                     height="32"
                     width="32"
@@ -2054,11 +2146,9 @@
                     width="32"
                     height="32"
                     preserveAspectRatio="none"
-                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipRigModules(), 94).itemTypeID + '/icon?size=32'"
+                    :href="EVEONLINE_IMAGE+'types/' + getModule(shipRigModules(), 94).itemTypeID + '/icon?size=64'"
                 />
-                <g
-                    transform="matrix(-0.95940913,0.28201796,0.28201796,0.95940913,376.41163,-150.66506)"
-                >
+                <g transform="matrix(-0.95940913,0.28201796,0.28201796,0.95940913,376.41163,-150.66506)">
                     <g
                         style="fill:none;stroke-width:2.358"
                         transform="matrix(-0.4194982,-0.06290762,0.0628775,-0.41929737,362.6291,404.02815)"
@@ -2073,9 +2163,7 @@
                             />
                         </g>
                     </g>
-                    <g
-                        transform="matrix(-3.7366245,-0.56786112,0.56786112,-3.7366245,765.37226,795.47516)"
-                    >
+                    <g transform="matrix(-3.7366245,-0.56786112,0.56786112,-3.7366245,765.37226,795.47516)">
                         <path
                             style="fill:none;stroke:gray;stroke-width:.265;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
                             d="m 149.78651,106.30006 c 6.7e-4,1.50276 -0.67513,2.22138 -2.22128,2.22113"

@@ -120,7 +120,7 @@ export default {
     methods: {
         handlePagination(page) {
             this.$router.push({
-                name: "solarSystems",
+                name: "systems",
                 params: { id: this.information.id },
                 query: { page: page }
             });

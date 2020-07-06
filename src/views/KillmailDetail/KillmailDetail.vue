@@ -7,20 +7,26 @@
             </b-col>
         </b-row>
         <b-row>
-            <b-col md="8" class="p-0">
+            <b-col md="8">
                 <b-row>
-                    <b-col lg="6" class="p-0">
+                    <b-col lg="6">
                         <FittingWheel :victim="killmail.victim" />
                     </b-col>
                     <b-col lg="6">
-                        <VictimInfo :killmail="killmail" class="mt-2" />
+                        <VictimInfo
+                            :killmail="killmail"
+                            class="mt-2"
+                        />
                     </b-col>
                 </b-row>
                 <h3>Item(s) Dropped/Destroyed</h3>
                 <hr style="background-color:white;" />
                 <ItemDetail :victim="killmail.victim" />
             </b-col>
-            <b-col md="4" class="p-1 mt-1">
+            <b-col
+                md="4"
+                class="p-1 mt-1"
+            >
                 <Attackers :killmail="killmail" />
             </b-col>
         </b-row>

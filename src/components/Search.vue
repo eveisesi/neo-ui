@@ -1,14 +1,10 @@
 <template>
-    <!-- <b-nav-form>
-        
-    </b-nav-form>-->
     <vue-bootstrap-typeahead
         class="mt-1"
         style="min-width: 250px"
         v-model="term"
         :data="results"
         :serializer="item => item.name"
-        @input="getResults"
         @hit="handleSelection"
         placeholder="Search"
     >
@@ -35,6 +31,7 @@
 import VueBootstrapTypeahead from "vue-bootstrap-typeahead";
 import { SEARCHABLE_ENTITIES } from "../util/queries";
 import { EVEONLINE_IMAGE } from "../util/const/urls";
+import _ from "underscore";
 
 export default {
     name: "Search",
@@ -45,34 +42,31 @@ export default {
         return {
             EVEONLINE_IMAGE: EVEONLINE_IMAGE,
             results: [],
-            term: "",
-            shouldSkip: true
+            term: ""
         };
     },
-    apollo: {
-        search: {
-            query: SEARCHABLE_ENTITIES,
-            variables() {
-                return {
-                    term: this.term
-                };
-            },
-            result(result, key) {
-                this.results = result.data.search;
-            },
-            debounce: 500,
-            skip() {
-                return this.term.length < 3;
-            }
-        }
-    },
+
     methods: {
         getResults() {
-            return this.$apollo.queries.search.refetch();
+            if (this.term.length <= 1) {
+                return;
+            }
+            this.$http
+                .get(`http://192.168.1.242:42000/search?term=${this.term}`)
+                .then(response => {
+                    this.results = response.data;
+                });
+            return;
         },
         handleSelection(item) {
+            console.log(item);
             this.$router.push({ name: item.type, params: { id: item.id } });
         }
+    },
+    watch: {
+        term: _.debounce(function() {
+            this.getResults();
+        }, 500)
     }
 };
 </script>
