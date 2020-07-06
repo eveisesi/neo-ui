@@ -33,6 +33,8 @@ import { SEARCHABLE_ENTITIES } from "../util/queries";
 import { EVEONLINE_IMAGE } from "../util/const/urls";
 import _ from "underscore";
 
+const APP_URL = process.env.VUE_APP_API_URL;
+
 export default {
     name: "Search",
     components: {
@@ -52,7 +54,7 @@ export default {
                 return;
             }
             this.$http
-                .get(`http://192.168.1.242:42000/search?term=${this.term}`)
+                .get(`${APP_URL}/search?term=${this.term}`)
                 .then(response => {
                     this.results = response.data;
                 });
