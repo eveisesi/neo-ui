@@ -20,19 +20,17 @@ import { createPersistedQueryLink } from "apollo-link-persisted-queries";
 const httpLink = createHttpLink({
     // You should use an absolute URL here
     uri: `${API_URL}/query`,
-    useGETForQueries: true,
+    // useGETForQueries: true,
 });
 
-const apqLink = createPersistedQueryLink({
-    // useGETForHashedQueries: true,
-}).concat(httpLink)
+
 
 // Cache implementation
 const cache = new InMemoryCache();
 
 // Create the apollo client
 const apolloClient = new ApolloClient({
-    link: apqLink,
+    link: httpLink,
     cache,
 });
 

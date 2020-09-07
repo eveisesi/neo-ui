@@ -1,8 +1,8 @@
 import gql from "graphql-tag";
 
 const KILLMAIL = gql`
-    query($id: Int!, $hash: String!) {
-        killmail(id: $id, hash: $hash) {
+    query Killmail($id: Int!) {
+        killmail(id: $id) {
             id
             hash
             killmailTime
@@ -24,8 +24,6 @@ const KILLMAIL = gql`
                 }
             }
             attackers {
-                id
-                characterID
                 character {
                     id
                     name
@@ -85,7 +83,6 @@ const KILLMAIL = gql`
                     z
                 }
                 fitted {
-                    id
                     itemTypeID
                     flag
                     quantityDropped
@@ -93,7 +90,6 @@ const KILLMAIL = gql`
                     itemValue
                     totalValue
                     type {
-                        id
                         name
                         groupID
                         attributes {
@@ -112,7 +108,6 @@ const KILLMAIL = gql`
                     }
                 }
                 items {
-                    id
                     itemTypeID
                     flag
                     quantityDropped
@@ -138,7 +133,6 @@ const KILLMAIL = gql`
                         text
                     }
                     items {
-                        id
                         itemTypeID
                         flag
                         quantityDropped
@@ -171,7 +165,7 @@ const KILLMAIL = gql`
 `;
 
 const KILLMAILS = gql`
-    query EntityKillmails($entity: Entity!, $id: Int!, $page: Int = 1) {
+    query Killmails($entity: Entity!, $id: Int!, $page: Int = 1) {
         killmails: killmailsByEntityID(entity: $entity, id: $id, page: $page) {
             id
             hash
@@ -236,7 +230,7 @@ const KILLMAILS = gql`
 `;
 
 const RECENT_KILLMAILS = gql`
-    query RecentKillmails($page: Int = 1) {
+    query ($page: Int = 1) {
         killmails: killmailRecent(page: $page) {
             id
             hash
@@ -255,7 +249,7 @@ const RECENT_KILLMAILS = gql`
                     }
                 }
             }
-            attackers {
+            attackers(finalBlowOnly: true) {
                 character {
                     id
                     name

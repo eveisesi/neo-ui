@@ -1,7 +1,7 @@
 import gql from "graphql-tag";
 
 const CHARACTER_INFORMATION = gql`
-    query CHARACTER_INFORMATION($id: Int!) {
+    query CharacterInformation($id: Int!) {
         information: characterByCharacterID(id: $id) {
             id
             name
@@ -21,7 +21,7 @@ const CHARACTER_INFORMATION = gql`
 `;
 
 const CORPORATION_INFORMATION = gql`
-    query CORPORATION_INFORMATION($id: Int!) {
+    query CorporationInformation($id: Int!) {
         information: corporationByCorporationID(id: $id) {
             id
             name
@@ -37,7 +37,7 @@ const CORPORATION_INFORMATION = gql`
 `;
 
 const ALLIANCE_INFORMATION = gql`
-    query ALLIANCE_INFORMATION($id: Int!) {
+    query AllianceInformation($id: Int!) {
         information: allianceByAllianceID(id: $id) {
             id
             name
@@ -48,7 +48,7 @@ const ALLIANCE_INFORMATION = gql`
 `;
 
 const TYPE_INFORMATION = gql`
-    query TYPE_INFORMATION($id: Int!) {
+    query TypeInformation($id: Int!) {
         information: typeByTypeID(id: $id) {
             id
             name

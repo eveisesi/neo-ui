@@ -6,13 +6,13 @@
             class="mt-2"
             v-else
         >
-            <b-row class="mb-2">
+            <!-- <b-row class="mb-2">
                 <b-col lg="12">
                     <h4 class="text-center">Most Valuable Kills - Last 7 Days</h4>
                     <hr style="background-color: white" />
                     <KillmailHighlight :mv="mv" />
                 </b-col>
-            </b-row>
+            </b-row> -->
 
             <b-row>
                 <b-col lg="12">
@@ -39,20 +39,20 @@ export default {
         Loading,
         Error,
         KillTable,
-        KillmailHighlight
+        KillmailHighlight,
     },
     apollo: {
         killmails: {
-            query: RECENT_KILLMAILS
+            query: RECENT_KILLMAILS,
         },
-        mv: {
-            query: MOST_VALUABLE
-        }
+        // mv: {
+        //     query: MOST_VALUABLE,
+        // },
     },
     methods: {
         AbbreviateNumber(total) {
             return AbbreviateNumber(total);
-        }
-    }
+        },
+    },
 };
 </script>

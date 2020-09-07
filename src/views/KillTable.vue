@@ -45,6 +45,7 @@
                 <br />
                 <router-link :to='{name: "regions", params: {id: killmail.system.constellation.region.id}}'>{{killmail.system.constellation.region.name}}</router-link>
             </b-td>
+            <!-- Victim Column -->
             <b-td>
                 <img
                     :src="EVEONLINE_IMAGE+ (killmail.victim.alliance != null ? 'alliances/'+killmail.victim.alliance.id: (killmail.victim.corporation != null ? 'corporations/'+killmail.victim.corporation.id: 1)) + '/logo?size=64'"
@@ -56,14 +57,16 @@
                 >{{killmail.victim.character != null ? killmail.victim.character.name : '' }}</router-link>
                 <br />
                 <router-link
+                    v-if="killmail.victim.corporation != null"
+                    :to="{name:'corporations', params:{id: killmail.victim.corporation.id}}"
+                >{{killmail.victim.corporation.name}}</router-link>
+                <router-link
                     v-if="killmail.victim.alliance != null"
                     :to="{name:'alliances', params:{id: killmail.victim.alliance.id}}"
                 >{{killmail.victim.alliance.name}}</router-link>
-                <router-link
-                    v-else
-                    :to="{name:'corporations', params:{id: killmail.victim.corporation.id}}"
-                >{{killmail.victim.corporation.name}}</router-link>
+
             </b-td>
+            <!-- Attacker (Final Blow Column) -->
             <b-td>
                 <img
                     :src="EVEONLINE_IMAGE+'alliances/'+finalBlow(killmail.attackers).alliance.id+'/logo?size=64'"
@@ -112,18 +115,18 @@ export default {
     computed: {},
     data() {
         return {
-            EVEONLINE_IMAGE: EVEONLINE_IMAGE
+            EVEONLINE_IMAGE: EVEONLINE_IMAGE,
         };
     },
     methods: {
-        fmtDate: time => {
+        fmtDate: (time) => {
             return moment(time, "YYYY-MM-DDTHH:mm:ssZ").format("YYYY-MM-DD");
         },
-        fmtTime: time => {
+        fmtTime: (time) => {
             return moment(time, "YYYY-MM-DDTHH:mm:ssZ").format("HH:mm:ss");
         },
-        finalBlow: attackers => {
-            return attackers.find(attacker => attacker.finalBlow);
+        finalBlow: (attackers) => {
+            return attackers.find((attacker) => attacker.finalBlow);
         },
         AbbreviateNumber(total) {
             return AbbreviateNumber(total);
@@ -164,8 +167,8 @@ export default {
                 default:
                     return "success";
             }
-        }
-    }
+        },
+    },
 };
 </script>
 

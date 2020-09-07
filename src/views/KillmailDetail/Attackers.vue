@@ -15,7 +15,7 @@
                     <img
                         :src="EVEONLINE_IMAGE+'types/'+finalBlow.ship.id+'/icon?size=64'"
                         class="rounded"
-                        v-else
+                        v-else-if="finalBlow.ship"
                     />
                 </b-td>
                 <b-td class="text-center">
@@ -26,7 +26,7 @@
                     />
                     <img
                         :src="EVEONLINE_IMAGE+'types/'+mostDamage.ship.id+'/icon?size=64'"
-                        v-else
+                        v-else-if="mostDamage.ship"
                         class="rounded"
                     />
                 </b-td>
@@ -148,7 +148,7 @@ export default {
         return {
             EVEONLINE_IMAGE: EVEONLINE_IMAGE,
             finalBlow: null,
-            mostDamage: null
+            mostDamage: null,
         };
     },
     props: ["killmail"],
@@ -161,15 +161,15 @@ export default {
                 return `${this.EVEONLINE_IMAGE}characters/${attacker.character.id}/portrait?size=64`;
             }
             return `${this.EVEONLINE_IMAGE}types/${attacker.ship.id}/icon?size=64`;
-        }
+        },
     },
     created() {
         this.mostDamage = this.killmail.attackers.reduce((prev, current) => {
             return prev.damageDone > current.damageDone ? prev : current;
         });
         this.finalBlow = this.killmail.attackers.find(
-            attacker => attacker.finalBlow
+            (attacker) => attacker.finalBlow
         );
-    }
+    },
 };
 </script>
