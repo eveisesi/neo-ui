@@ -24,7 +24,7 @@ const routes = [
         component: () => import("../components/AuthCallback.vue"),
     },
     {
-        path: "/kill/:id/:hash",
+        path: "/kill/:id",
         name: "kill",
         component: () => import("@/components/KillmailController.vue"),
         props: (router) => {

@@ -38,13 +38,13 @@ const APP_URL = process.env.VUE_APP_API_URL;
 export default {
     name: "Search",
     components: {
-        VueBootstrapTypeahead
+        VueBootstrapTypeahead,
     },
     data() {
         return {
             EVEONLINE_IMAGE: EVEONLINE_IMAGE,
             results: [],
-            term: ""
+            term: "",
         };
     },
 
@@ -55,20 +55,19 @@ export default {
             }
             this.$http
                 .get(`${APP_URL}/search?term=${this.term}`)
-                .then(response => {
+                .then((response) => {
                     this.results = response.data;
                 });
             return;
         },
         handleSelection(item) {
-            console.log(item);
             this.$router.push({ name: item.type, params: { id: item.id } });
-        }
+        },
     },
     watch: {
-        term: _.debounce(function() {
+        term: _.debounce(function () {
             this.getResults();
-        }, 500)
-    }
+        }, 500),
+    },
 };
 </script>

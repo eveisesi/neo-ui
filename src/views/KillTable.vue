@@ -1,5 +1,8 @@
 <template>
-    <b-table-simple response>
+    <b-table-simple
+        response
+        width="100%"
+    >
         <b-tr>
             <b-th style="width: 100px !important">
                 Date Time
@@ -23,7 +26,7 @@
             :class="DetermineRowClass(killmail)"
         >
             <b-td>
-                <router-link :to='{name:"kill", params: {id: killmail.id, hash: killmail.hash}}'>
+                <router-link :to='{name:"kill", params: {id: killmail.id}}'>
                     {{fmtDate(killmail.killmailTime)}}
                     <br>
                     {{fmtTime(killmail.killmailTime)}}
@@ -60,6 +63,7 @@
                     v-if="killmail.victim.corporation != null"
                     :to="{name:'corporations', params:{id: killmail.victim.corporation.id}}"
                 >{{killmail.victim.corporation.name}}</router-link>
+                <br />
                 <router-link
                     v-if="killmail.victim.alliance != null"
                     :to="{name:'alliances', params:{id: killmail.victim.alliance.id}}"

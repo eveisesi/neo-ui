@@ -1,13 +1,10 @@
 <template>
-    <Loading v-if="$apollo.loading"></Loading>
-    <Error
-        v-else-if="error"
-        :error="error"
-    ></Error>
-    <b-container v-else>
+    <b-container>
         <b-row>
             <b-col md="6">
-                <b-table-simple>
+                <ComponentLoading v-if="$apollo.queries.information.loading" />
+                <Error v-else-if="$apollo.queries.information.error" />
+                <b-table-simple v-else>
                     <b-tbody>
                         <tr>
                             <td
@@ -36,15 +33,25 @@
             </b-col>
         </b-row>
         <b-row>
-            <b-col md="12">
+            <b-col sm="12">
                 <h4 class="text-center">Most Valuable Kills - Last 7 Days</h4>
                 <hr style="background-color: white" />
-                <KillmailHighlight :mv="mv" />
+                <ComponentLoading v-if="$apollo.queries.information.loading" />
+                <Error v-else-if="$apollo.queries.information.error" />
+                <KillmailHighlight
+                    :mv="mv"
+                    v-else
+                />
             </b-col>
         </b-row>
-        <b-row></b-row>
         <b-row>
-            <b-col sm="12">
+            <ComponentLoading v-if="$apollo.queries.information.loading" />
+            <Error v-else-if="$apollo.queries.information.error" />
+
+            <b-col
+                lg="12"
+                v-else
+            >
                 <div class="float-right mt-2">
                     <b-pagination
                         v-model="compPage"
@@ -70,6 +77,7 @@
                     align="center"
                 ></b-pagination>
             </b-col>
+
         </b-row>
     </b-container>
 </template>
@@ -77,7 +85,7 @@
 
 <script>
 import { KILLMAILS, ALLIANCE_INFORMATION, MOST_VALUABLE } from "@/util/queries";
-import Loading from "@/views/util/Loading";
+import ComponentLoading from "@/views/util/ComponentLoading";
 import Error from "@/views/util/Error";
 
 import { EVEONLINE_IMAGE } from "../util/const/urls";
@@ -89,10 +97,10 @@ import KillmailHighlight from "@/views/KillmailHighlight";
 export default {
     name: "AllianceController",
     components: {
-        Loading,
+        ComponentLoading,
         Error,
         KillTable,
-        KillmailHighlight
+        KillmailHighlight,
     },
     props: ["id", "page"],
     data() {
@@ -101,33 +109,33 @@ export default {
             killmails: [],
             information: {},
             mv: [],
-            error: ""
+            error: "",
         };
     },
     computed: {
         compPage: {
-            get: function() {
+            get: function () {
                 return this.$router.currentRoute.query &&
                     this.$router.currentRoute.query.page
                     ? this.$router.currentRoute.query.page
                     : 1;
             },
-            set: function(newValue) {
+            set: function (newValue) {
                 this.page = newValue;
-            }
-        }
+            },
+        },
     },
     methods: {
         handlePagination(page) {
             this.$router.push({
                 name: "alliances",
                 params: { id: this.information.id },
-                query: { page: page }
+                query: { page: page },
             });
         },
         humanize(total) {
             return numeral(total).format("0,0");
-        }
+        },
     },
     apollo: {
         killmails: {
@@ -136,7 +144,7 @@ export default {
                 return {
                     entity: "alliance",
                     id: this.id,
-                    page: this.page
+                    page: this.page,
                 };
             },
             result(result, key) {
@@ -144,13 +152,13 @@ export default {
             },
             result(result, key) {
                 this.error = JSON.stringify(result.message);
-            }
+            },
         },
         information: {
             query: ALLIANCE_INFORMATION,
             variables() {
                 return {
-                    id: this.id
+                    id: this.id,
                 };
             },
             result(result, key) {
@@ -158,7 +166,7 @@ export default {
             },
             error(result, key) {
                 this.error = JSON.stringify(result.message);
-            }
+            },
         },
         mv: {
             query: MOST_VALUABLE,
@@ -168,7 +176,7 @@ export default {
                     type: "alliance",
                     id: this.id,
                     age: 7,
-                    limit: 6
+                    limit: 6,
                 };
             },
             result(result, key) {
@@ -176,8 +184,8 @@ export default {
             },
             error(result, key) {
                 this.error = JSON.stringify(result.message);
-            }
-        }
-    }
+            },
+        },
+    },
 };
 </script>
